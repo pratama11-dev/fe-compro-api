@@ -2,7 +2,10 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "DM Serif Display", serif;
+}
+
+.title-font {
+  font-family: "DM Serif Display", serif !important;
 }
 
 a {
@@ -125,6 +128,10 @@ a {
 
 .ant-layout-sider-trigger {
   background: #576679;
+}
+
+.ant-menu-dark{
+  background-color: #090b1d;
 }
 
 .ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {

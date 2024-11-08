@@ -117,7 +117,7 @@ function DashboardLayout({
                 onClose={toggleDrawer}
                 visible={drawerVisible}
               >
-                <MobileSidebar _session={session} routes={AdminRoutes} />
+                {/* <MobileSidebar _session={session} routes={AdminRoutes} /> */}
               </Drawer>
             </>
           ) : (
