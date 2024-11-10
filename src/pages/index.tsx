@@ -5,6 +5,8 @@ import { useState } from "react";
 import Header from "@components/Global/Header/Header";
 import { Button, Carousel, Col, Image, Input, Row } from "antd";
 import { DownOutlined, PushpinOutlined, YoutubeOutlined } from "@ant-design/icons";
+import useEmblaCarousel  from "embla-carousel-react"; // Import useEmblaCarousel hook
+
 
 // Import styles from styles.ts
 import {
@@ -22,13 +24,16 @@ import { AdminRoutes } from "@configs/route/SidebarRoute";
 import MobileSidebar from "@components/Global/MobileSidebar";
 import { accountabilityStyle, centerCircleStyle, chartContainerStyle, empowermentStyle, labelStyle, letterStyle, rowStyle, safetyStyle, yieldStyle } from "@components/home/styles";
 import themeColor from "@configs/theme/themeColor";
-import { MdPin, MdPointOfSale } from "react-icons/md";
+import CarouselComponent from "@components/home/mini-carousel/carouselComponent";
 
 function Home(session: Sessions) {
   useNavbar(["home"], [{ name: "Home", url: "/" }]);
   const { isMobile } = useWindowSize();
 
   const [drawerVisible, setDrawerVisible] = useState(false);
+  const [emblaRef, emblaApi] = useEmblaCarousel();
+
+  const videoSrc = "../background/Video_Ayes.mp4"; // Video source for the left side
 
   const toggleDrawer = () => {
     setDrawerVisible(!drawerVisible);
@@ -199,9 +204,165 @@ function Home(session: Sessions) {
         </Col>
       </Row>
 
-      <Row style={{ paddingRight: 50, paddingLeft: 50 }}>
+      <Row style={{ paddingRight: 50, paddingLeft: 50, margin: "90px 0 20px 0" }}>
         <h1 className="title-font" style={{ fontSize: "39px" }}>Promotional & Gallery</h1>
       </Row>
+
+      <Row gutter={[70,30]} style={{ paddingRight: 50, paddingLeft: 50 }}>
+        {/* Left Side - Video Section */}
+        <Col xs={24} md={12} lg={12} xl={12}>
+          <div style={{ position: 'relative' }}>
+            <video
+              controls
+              src={videoSrc}
+              style={{ width: '100%', borderRadius: '8px' }}
+              poster="path-to-video-poster.jpg" // Optional: Poster image before play
+            />
+          </div>
+        </Col>
+
+        {/* Right Side - Gallery Section */}
+        <Col xs={24} md={12} lg={12} xl={12}>
+          <CarouselComponent />
+        </Col>
+      </Row>
+
+      <Row style={{ paddingRight: 50, paddingLeft: 50, margin: "70px 0 20px 0" }}>
+        <h1 className="title-font" style={{ fontSize: "39px" }}>Our Wonderful Timeline</h1>
+      </Row>
+
+      <Row style={{ color: "white", background: themeColor?.blue500, margin: '20px 50px' }}>
+        <Col xs={24} md={12} lg={12} xl={12} style={{ paddingLeft: 40 }}>
+          <ul style={{ listStyleType: 'none', paddingLeft: 0 }}>
+            <li>
+              <h3>2016</h3>
+              <p>Founded in Cilegon, Banten Province, Indonesia</p>
+            </li>
+            <li>
+              <h3>2017</h3>
+              <p>Representing s2s corrosion preventive solution for Indonesia market</p>
+            </li>
+            <li>
+              <h3>2018</h3>
+              <p>Representing Emergency Leak Stopper Made by Composite MCU System Cor Wrap</p>
+            </li>
+            <li>
+              <h3>2019</h3>
+              <p>Representing Engineered Composite System for Pressurized facilities and Structural Repair & Reinforcement</p>
+            </li>
+          </ul>
+        </Col>
+        <Col xs={24} md={12} lg={12} xl={12}>
+          <ul style={{ listStyleType: 'none', paddingLeft: 0 }}>
+            <li>
+              <h3>2020</h3>
+              <p>Focusing Our Business to Supply Goods and Services Related to Corrosion Maintenance Solution (Preventive and Corrective Method)</p>
+            </li>
+            <li>
+              <h3>2022</h3>
+              <p>Representing EONCOAT High Temp. External Corrosion Protection with Coating System for Steam and Corrosion Under Insulation (CUI)</p>
+            </li>
+            <li>
+              <h3>2023</h3>
+              <p>Representing Wencon Epoxy Ceramic Coating For Indonesian Market</p>
+            </li>
+            <li>
+              <h3>2024</h3>
+              <p>Continuing our wonderful journey!</p>
+            </li>
+          </ul>
+        </Col>
+      </Row>
+
+      <Row style={{ paddingRight: 50, paddingLeft: 50 }} justify={"center"}>
+        <h1 className="title-font" style={{ fontSize: "39px", textAlign: "center" }}>Our Wonderful Timeline</h1>
+      </Row>
+
+      <div style={{ padding: '20px 50px', textAlign: 'center' }}>
+        <h2 style={{ fontSize: '24px', fontWeight: 'bold' }}>Product & Services</h2>
+
+        <Row gutter={[16, 16]} style={{ marginTop: '20px' }}>
+          {/* Preventive Solution Section */}
+          <Col xs={24} md={18} lg={18} xl={18}>
+            <div style={{ position: 'relative', textAlign: 'left' }}>
+              <img
+                src="../background/bg5.jpg"
+                alt="Preventive Solution"
+                style={{ width: '100%', borderRadius: '8px' }}
+              />
+              <Button
+                type="primary"
+                style={{ position: 'absolute', bottom: '10px', left: '10px' }}
+              >
+                Details &raquo;
+              </Button>
+            </div>
+          </Col>
+          <Col xs={24} md={6} lg={6} xl={6}>
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              height: '100%',
+              border: '1px solid #E0E0E0',
+              borderRadius: '8px',
+              padding: '20px'
+            }}>
+              <img
+                src="../icon/shield.png"
+                alt="Preventive Solution"
+                style={{ width: '30%', borderRadius: '8px' }}
+              />
+              {/* <ShieldOutlined style={{ fontSize: '48px', color: '#263E9A' }} /> */}
+              <h1 style={{ fontWeight: 'bold' }}>Preventive Solution</h1>
+            </div>
+          </Col>
+        </Row>
+
+        <Row gutter={[16, 16]} style={{ marginTop: '20px' }}>
+          {/* Corrective Solution Section */}
+          <Col xs={24} md={6} lg={6} xl={6}>
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              height: '100%',
+              border: '1px solid #E0E0E0',
+              borderRadius: '8px',
+              padding: '20px'
+            }}>
+              <img
+                src="../icon/brushes.png"
+                alt="Preventive Solution"
+                style={{ width: '30%', borderRadius: '8px' }}
+              />
+              <h3 style={{ fontWeight: 'bold' }}>Corrective Solution</h3>
+            </div>
+          </Col>
+          <Col xs={24} md={18} lg={18} xl={18}>
+            <div style={{ position: 'relative', textAlign: 'left' }}>
+              <img
+                src="../background/bg6.jpg"
+                alt="Corrective Solution"
+                style={{
+                  width: '100%',
+                  height: '200px', // Adjust height as needed
+                  borderRadius: '8px',
+                  objectFit: 'cover' // Ensures image fills container without stretching
+                }}
+              />
+              <Button
+                type="primary"
+                style={{ position: 'absolute', bottom: '10px', right: '10px' }}
+              >
+                Details &raquo;
+              </Button>
+            </div>
+          </Col>
+        </Row>
+      </div>
 
       <div
         className="flex flex-col"
@@ -232,7 +393,7 @@ function Home(session: Sessions) {
             <Input style={{ marginBottom: 10, background: "transparent" }} placeholder="Email" />
             <Input style={{ marginBottom: 10, background: "transparent" }} placeholder="Leave Message" />
             <Row justify={"end"}>
-              <Button type="primary" style={{ background: themeColor?.gray300, color: themeColor?.blue600}}>Submit</Button>
+              <Button type="primary" style={{ background: themeColor?.gray300, color: themeColor?.blue600 }}>Submit</Button>
             </Row>
           </Col>
         </Row>
