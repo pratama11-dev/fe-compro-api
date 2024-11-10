@@ -24,6 +24,36 @@ export const centerCircleStyle: React.CSSProperties = {
     fontWeight: "bold",
 };
 
+export const centerCircleStyle2: React.CSSProperties = {
+    position: "absolute",
+    width: "350px", // Increased from 100px to 200px
+    height: "350px", // Increased from 100px to 200px
+    borderRadius: "50%",
+    borderWidth: "3px",
+    borderStyle: "solid", 
+    borderColor: "#e0e3ea",
+    backgroundColor: 'transparent',
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontWeight: "bold",
+};
+
+export const centerCircleStyle3: React.CSSProperties = {
+    position: "absolute",
+    width: "550px", // Increased from 100px to 200px
+    height: "550px", // Increased from 100px to 200px
+    borderRadius: "50%",
+    borderWidth: "3px",
+    borderStyle: "solid", 
+    borderColor: "#e0e3ea",
+    backgroundColor: 'transparent',
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontWeight: "bold",
+};
+
 export const itemStyle: React.CSSProperties = {
     position: "absolute",
     display: "flex",
