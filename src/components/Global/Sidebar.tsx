@@ -9,11 +9,10 @@ import configureReduxStore from "@redux/store";
 import { Sessions } from "types/Session";
 
 type SidebarProps = {
-  _session: Sessions;
   routes: routesType;
 };
 
-function Sidebar({ routes, _session }: SidebarProps) {
+function Sidebar({ routes }: SidebarProps) {
   const { store } = configureReduxStore();
 
   const sidebarKey = useSelector((state: RootState) => state.layout.sideBarKey);
@@ -25,6 +24,7 @@ function Sidebar({ routes, _session }: SidebarProps) {
         position: "sticky",
         overflow: "auto",
         minHeight: "100vh",
+        width: "255px"
       }}
       collapsible
       collapsed={collapsible}

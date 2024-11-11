@@ -123,11 +123,12 @@ a {
 }
 
 .ant-layout-sider {
-  background: #3e4c5f;
+  background: #2D3591;
 }
 
 .ant-layout-sider-trigger {
   background: #576679;
+  display: none;
 }
 
 .ant-menu-dark{
@@ -135,14 +136,17 @@ a {
 }
 
 .ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
-  background-color: #727c9e;
+  background-color: #ffffff;
+}
+.ant-menu-dark .ant-menu-item-selected, :where(.css-dev-only-do-not-override-apn68).ant-menu-dark>.ant-menu .ant-menu-item-selected{
+  color: #2D3591;
 }
 
-/* .ant-menu.ant-menu-dark,
+.ant-menu.ant-menu-dark,
 .ant-menu-dark .ant-menu-sub,
 .ant-menu.ant-menu-dark .ant-menu-sub {
-  background: #3e4c5f;
-} */
+  background: transparent
+}
 
 .ant-modal-content {
   border-radius: 15px;

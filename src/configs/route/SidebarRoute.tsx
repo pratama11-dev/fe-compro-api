@@ -1,37 +1,33 @@
-import { BarChartOutlined, HomeOutlined, OrderedListOutlined } from "@ant-design/icons";
 import { routesType } from "types/Sidebar";
-import { MdOutlinePayments } from "react-icons/md";
-import { SlNotebook } from "react-icons/sl";
-import { FaTicketAlt } from "react-icons/fa";
 
 // eslint-disable-next-line import/prefer-default-export
 export const AdminRoutes: routesType = [
   {
-    path: "/",
-    key: "home",
-    name: "Home",
-    icon: <HomeOutlined rev="label" />,
+    path: "/product/wax_tape",
+    key: "/product/wax_tape",
+    name: "Wax Tape Anti Corrosion",
+    icon: "",
     children: [],
   },
   {
-    path: "/event",
-    key: "event",
-    name: "Event",
-    icon: <SlNotebook />,
+    path: "/product/corrosions",
+    key: "/product/corrosions",
+    name: "HD Corrosions Shield",
+    icon: "",
     children: [],
   },
   {
-    path: "/tickets",
-    key: "tickets",
-    name: "Tickets",
-    icon: <FaTicketAlt />,
+    path: "/product/automotive",
+    key: "/product/automotive",
+    name: "Automotive Rust Proofing",
+    icon: "",
     children: [],
   },
   {
-    path: "/orders",
-    key: "orders",
-    name: "Orders",
-    icon: <OrderedListOutlined rev={''} />,
+    path: "/product/void_and_Rudder",
+    key: "/product/void_and_Rudder",
+    name: "Void & Rudder Float Coat",
+    icon: "",
     children: [],
   }
 ];

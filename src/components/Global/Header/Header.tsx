@@ -1,21 +1,21 @@
 import { LinkedinFilled, MenuOutlined, WhatsAppOutlined } from "@ant-design/icons";
 import useAuth from "@api/customHooks/useAuth";
 import themeColor from "@configs/theme/themeColor";
+import { openLinkedIn, openWhatsApp } from "@pages/index";
 import useWindowSize from "@utils/helpers/ReactHelper";
 import { PushNavigateTo } from "@utils/helpers/Route";
-import { Button, Col, Menu, Row, Typography } from "antd";
+import { Button, Col, Image, Menu, Row, Typography } from "antd";
 import { Header } from "antd/lib/layout/layout";
 import { useRouter } from "next/router";
 import { Sessions } from "types/Session";
 
 type HeaderProps = {
-  session: Sessions;
   toggleDrawer: () => void;
 };
 
 const { Text } = Typography;
 
-function HeaderOur({ session, toggleDrawer }: HeaderProps) {
+function HeaderOur({ toggleDrawer }: HeaderProps) {
   const router = useRouter();
   const { handleLogout } = useAuth();
   const { isMobile } = useWindowSize();
@@ -81,30 +81,29 @@ function HeaderOur({ session, toggleDrawer }: HeaderProps) {
         >
           {/* Logo Section */}
           <Col>
-            {/* belum punya logo */}
-            {/* <Image
-              src="/Images/logo_white.png"
+            <Image
+              src="../white_logo.png"
               alt="Company Logo"
               // preview={false}
               width={"100%"}
-              height={60}
-            /> */}
-            <h3 style={{ margin: 0 }}>Logo</h3>
+              height={44}
+            />
+            {/* <h3 style={{ margin: 0 }}>Logo</h3> */}
           </Col>
 
           {!isMobile ? (
             <>
               <Col>
                 <nav style={{ display: "flex", gap: "30px" }}>
-                  <a href="/" style={{ color: themeColor?.white, fontWeight: "bold" }}>Home</a>
-                  <a href="/about" style={{ color: themeColor?.white }}>About Us</a>
-                  <a href="/services" style={{ color: themeColor?.white }}>Product & Services</a>
-                  <a href="/contact" style={{ color: themeColor?.white }}>Contacts</a>
+                  <a href="/" style={{ color: themeColor?.white }}>Home</a>
+                  <a href="#about" style={{ color: themeColor?.white }}>About Us</a>
+                  <a href="#services" style={{ color: themeColor?.white }}>Product & Services</a>
+                  <a href="#contact" style={{ color: themeColor?.white }}>Contacts</a>
                 </nav>
               </Col>
               <Col style={{ display: "flex", gap: "15px" }}>
-                <LinkedinFilled rev={""} style={{ fontSize: "25px" }} onClick={() => { PushNavigateTo("https://www.linkedin.com") }} />
-                <WhatsAppOutlined rev={""} style={{ fontSize: "25px" }} onClick={() => { }} />
+                <LinkedinFilled rev={""} style={{ fontSize: "25px" }} onClick={openLinkedIn} />
+                <WhatsAppOutlined rev={""} style={{ fontSize: "25px" }} onClick={openWhatsApp} />
               </Col>
             </>
           ) : (

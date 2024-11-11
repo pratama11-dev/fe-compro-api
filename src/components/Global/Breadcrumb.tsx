@@ -10,8 +10,17 @@ function BreadcrumbOur() {
   const router = useRouter();
   return (
     <div>
+      <img
+        src="../background/support/garis-garis.jpg"
+        style={{
+          position: 'absolute',
+          width: '12%',
+          right: 10,
+          zIndex: 99
+        }}
+      />
       {(bread?.length > 0 || false) && !isNotDashboard(router) ? (
-        <Breadcrumb style={{ margin: "16px 0" }}>
+        <Breadcrumb style={{ margin: "16px 0" }} separator=">">
           {bread.map((item: any) => (
             <Breadcrumb.Item key={item?.url}>
               <Link href={item?.url ?? ""}>{item?.name ?? ""}</Link>

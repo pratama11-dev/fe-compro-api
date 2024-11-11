@@ -1,13 +1,14 @@
 
 import React from 'react'
 import { backgroundImageStyle1, backgroundImageStyle2, backgroundImageStyle4, buttonStyle, carouselContainerStyle, subtitleStyle, titleStyle } from './carousel/styles';
-import { Button, Carousel, Col, Image, Row } from 'antd';
+import { Button, Carousel, Col, Image, Row, Tooltip } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { accountabilityStyle, centerCircleStyle, centerCircleStyle2, centerCircleStyle3, chartContainerStyle, empowermentStyle, labelStyle, letterStyle, rowStyle, safetyStyle, yieldStyle } from './styles';
 import CarouselComponent from './mini-carousel/carouselComponent';
 import themeColor from '@configs/theme/themeColor';
+import { PushNavigateTo } from '@utils/helpers/Route';
 
-const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {    
+const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
     const videoSrc = "../background/Video_Ayes.mp4"; // Video source for the left side
 
     const titleResponsiveStyle = {
@@ -54,7 +55,7 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                 </Carousel>
             </div>
 
-            <Row justify={"center"}>
+            <Row justify={"center"} id='about'>
                 <h1 className="title-font" style={{ fontSize: "48px" }}>
                     Who We Are?
                 </h1>
@@ -142,31 +143,91 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                     </div>
 
                     <div style={accountabilityStyle}>
-                        <div style={rowStyle}>
-                            <div style={letterStyle}>A</div>
-                            <div style={labelStyle}>Accountability</div>
-                        </div>
+                        <Tooltip
+                            fresh
+                            title="We are accountable
+                                for our actions,
+                                decisions, and
+                                outcomes, ensuring
+                                the trust of our
+                                clients and
+                                stakeholders. We
+                                take responsibility for
+                                our commitments to
+                                achieve customer
+                                satisfaction
+                            "
+                            color={"grey"}
+                            placement="right"
+                        >
+                            <div style={rowStyle}>
+                                <div style={letterStyle}>A</div>
+                                <div style={labelStyle}>Accountability</div>
+                            </div>
+                        </Tooltip>
                     </div>
 
                     <div style={yieldStyle}>
-                        <div style={rowStyle}>
-                            <div style={letterStyle}>Y</div>
-                            <div style={labelStyle}>Yield</div>
-                        </div>
+                        <Tooltip
+                            fresh
+                            title="Our aim is to deliver the best
+                                outcomes for clients through
+                                efficiency, effectiveness, and added
+                                value. We strive for sustainable
+                                growth and high satisfaction levels
+                            "
+                            color={"grey"}
+                            placement="bottom"
+                        >
+                            <div style={rowStyle}>
+                                <div style={letterStyle}>Y</div>
+                                <div style={labelStyle}>Yield</div>
+                            </div>
+                        </Tooltip>
+
                     </div>
 
                     <div style={empowermentStyle}>
-                        <div style={rowStyle}>
-                            <div style={letterStyle}>E</div>
-                            <div style={labelStyle}>Empowerment</div>
-                        </div>
+                        <Tooltip
+                            fresh
+                            title="We empower our
+                                employees with
+                                resources and
+                                support to provide
+                                top-notch service to
+                                clients. Our culture
+                                of empowerment
+                                fosters innovation
+                                and dedication to
+                                customer
+                                satisfaction
+                            "
+                            color={"grey"}
+                            placement="left"
+                        >
+                            <div style={rowStyle}>
+                                <div style={letterStyle}>E</div>
+                                <div style={labelStyle}>Empowerment</div>
+                            </div>
+                        </Tooltip>
                     </div>
 
                     <div style={safetyStyle}>
-                        <div style={rowStyle}>
-                            <div style={letterStyle}>S</div>
-                            <div style={labelStyle}>Safety</div>
-                        </div>
+                        <Tooltip
+                            fresh
+                            title="Customer safety is our top priority
+                                across all operations. We uphold
+                                strict safety standards to ensure
+                                customer security and satisfaction.
+                            "
+                            color={"grey"}
+                            placement="top"
+                        >
+                            <div style={rowStyle}>
+                                <div style={letterStyle}>S</div>
+                                <div style={labelStyle}>Safety</div>
+                            </div>
+                        </Tooltip>
                     </div>
                 </div>
             ) : undefined}
@@ -199,7 +260,7 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                             width: '300px',
                         }}
                     />
-                    
+
                 </Col>
             </Row>
             <Row style={{ paddingRight: 50, paddingLeft: 50 }}>
@@ -311,13 +372,11 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                 </Col>
             </Row>
 
-            <Row style={{ paddingRight: 50, paddingLeft: 50 }} justify={"center"}>
-                <h1 className="title-font" style={{ fontSize: "39px", textAlign: "center" }}>Our Wonderful Timeline</h1>
+            <Row style={{ paddingRight: 50, paddingLeft: 50, marginTop: 70 }} justify={"center"} id="services">
+                <h1 className="title-font" style={{ fontSize: "39px", textAlign: "center" }}>Product & Services</h1>
             </Row>
 
             <div style={{ padding: '20px 50px', textAlign: 'center' }}>
-                <h2 style={{ fontSize: '24px', fontWeight: 'bold' }}>Product & Services</h2>
-
                 <Row gutter={[16, 16]} style={{ marginTop: '20px' }}>
                     {/* Preventive Solution Section */}
                     <Col xs={24} md={18} lg={18} xl={18}>
@@ -330,6 +389,7 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                             <Button
                                 type="primary"
                                 style={{ position: 'absolute', bottom: '10px', left: '10px' }}
+                                onClick={() => PushNavigateTo(`/product/wax_tape`)}
                             >
                                 Details &raquo;
                             </Button>
@@ -393,6 +453,7 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                             <Button
                                 type="primary"
                                 style={{ position: 'absolute', bottom: '10px', right: '10px' }}
+                                onClick={() => PushNavigateTo(`/product/corrosions`)}
                             >
                                 Details &raquo;
                             </Button>
