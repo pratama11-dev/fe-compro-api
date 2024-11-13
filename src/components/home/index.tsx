@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, { useRef } from 'react'
 import { backgroundImageStyle1, backgroundImageStyle2, backgroundImageStyle4, buttonStyle, carouselContainerStyle, subtitleStyle, titleStyle } from './carousel/styles';
 import { Button, Carousel, Col, Image, Row, Tooltip } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
@@ -7,6 +7,8 @@ import { accountabilityStyle, centerCircleStyle, centerCircleStyle2, centerCircl
 import CarouselComponent from './mini-carousel/carouselComponent';
 import themeColor from '@configs/theme/themeColor';
 import { PushNavigateTo } from '@utils/helpers/Route';
+import { motion, useInView, Variants } from 'framer-motion';
+import { containerVariants, createFloatingVariants, itemVariants, plusFloatingVariants, popVariants, slideLeftInVariants } from './framer-motion/motionVariants';
 
 const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
     const videoSrc = "../background/Video_Ayes.mp4"; // Video source for the left side
@@ -15,6 +17,7 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
         ...titleStyle,
         fontSize: isMobile ? '36px' : '61px',
         padding: isMobile ? '0 50px' : '0 300px',
+        lineHeight: isMobile ? "38px" : '76px',
     };
 
     const subtitleResponsiveStyle = {
@@ -29,71 +32,149 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
         padding: isMobile ? '10px 20px' : '20px 30px',
     };
 
+    
+    // References for sections
+    const carouselRef = useRef(null);
+    const aboutRef = useRef(null);
+    const mottoRef = useRef(null)
+    const visionRef = useRef(null);
+    const videoRef = useRef(null);
+    const timelineRef = useRef(null);
+
+    const isCarouselInView = useInView(carouselRef, { once: true });
+    const isAboutInView = useInView(aboutRef, { once: true });
+    const isMottoInView = useInView(mottoRef, { once: true });
+    const isVisionInView = useInView(visionRef, { once: true });
+    const isVideoInView = useInView(videoRef, { once: true });
+    const isTimelineInView = useInView(timelineRef, { once: true });
+
+
     return (
-        <>
+        <div style={{ overflow: "hidden" }}>
             {/* Carousel with Background Image */}
-            <div style={{ height: "755px", position: "relative" }}>
+            <motion.div
+                ref={carouselRef}
+                initial="hidden"
+                animate={isCarouselInView ? "visible" : "hidden"}
+                variants={containerVariants}
+                style={{ height: "790px", position: "relative" }}
+            >
                 <Carousel autoplay effect="fade">
-                    {[backgroundImageStyle1, backgroundImageStyle2, backgroundImageStyle4, backgroundImageStyle4].map((bgStyle, index) => (
-                        <div key={index} style={carouselContainerStyle}>
-                            <div style={bgStyle}></div>
-                            <h1 style={titleResponsiveStyle}>
+                    {[backgroundImageStyle1, backgroundImageStyle2, backgroundImageStyle4].map((bgStyle, index) => (
+                        <motion.div key={index} variants={itemVariants} style={carouselContainerStyle}>
+                            <motion.div
+                                style={bgStyle}
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 1.5, delay: index * 0.5 }}
+                            />
+                            <motion.h1
+                                style={titleResponsiveStyle}
+                                className='intro'
+                                initial={{ y: -50, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ duration: 0.7, delay: 0.3 }}
+                            >
                                 “Your Trusted Partner in <br /> Corrosion Maintenance and <br /> Industry Solutions”
-                            </h1>
-                            <p style={subtitleResponsiveStyle}>
+                            </motion.h1>
+                            <motion.p
+                                style={subtitleResponsiveStyle}
+                                initial={{ y: 50, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ duration: 0.7, delay: 0.6 }}
+                            >
                                 Our strong commitment to integrity and honesty and our dedication <br />
                                 to provide our customers the finest service possible.
-                            </p>
+                            </motion.p>
                             <Row justify={"center"}>
                                 <Button style={buttonResponsiveStyle} type="primary">Get Started</Button>
                             </Row>
-                            <Row justify={"center"}>
-                                <DownOutlined rev={''} style={{ marginTop: '20px', fontSize: '24px', color: '#fff', zIndex: 1 }} />
-                            </Row>
-                        </div>
+
+                            <motion.div
+                                variants={plusFloatingVariants}
+                                animate="visible"
+                            >
+                                <Row justify={"center"}>
+                                    <DownOutlined
+                                        rev={''}
+                                        style={{ marginTop: '20px', fontSize: '24px', color: '#fff', zIndex: 1 }} />
+                                </Row>
+                            </motion.div>
+                        </motion.div>
                     ))}
                 </Carousel>
-            </div>
+            </motion.div>
 
-            <Row justify={"center"} id='about'>
-                <h1 className="title-font" style={{ fontSize: "48px" }}>
-                    Who We Are?
-                </h1>
-            </Row>
-
-            <Row style={{ paddingRight: 50, paddingLeft: 50 }}>
-                <Col
-                    xs={24}
-                    md={24}
-                    lg={12}
-                    xl={12}
-                    style={{ textAlign: "center" }}
-                >
-                    <Image
-                        src={"../logo_primary.png"}
-                        width={!isMobile ? 400 : undefined}
-                        style={{ borderStyle: "solid", padding: "50px", borderColor: themeColor?.gray500, background: themeColor?.gray100 }}
-                    />
-                </Col>
-                <Col xs={24} md={24} lg={12} xl={12}>
-                    <p style={{ fontSize: "20px" }}><strong>PT. Ayes Pro Inovasi</strong> is a private company that run the business activities since Our primary line of business is the supply of goods and services linked to "Corrosion Maintenance" on Pressurized Facilities and Civil Structures. Implementing goods and solutions to improve Preventive and Corrective Maintenance action is our key to excellence.</p>
-                    <p style={{ fontSize: "20px" }}>In order to offer added value than the conventional methods, we constantly develop and enhance our repair methods. Our company is expanding and taking the lead in Indonesia’s Marine Industry, Terminal Industry, Mining Industry, Petrochemicals Industry, Energy Sector, and Oil & Gas Industry as time goes on because to our strong commitment to integrity and honesty and our dedication to provide our customers the finest service possible.</p>
-                </Col>
-            </Row>
+            {/* About Section with Fade-in and Slide-in */}
+            <motion.div
+                ref={aboutRef}
+                initial="hidden"
+                animate={isAboutInView ? "visible" : "hidden"}
+                variants={containerVariants}
+                style={{ marginTop: 50 }}
+            >
+                <Row justify="center" id="about">
+                    <motion.h1
+                        className="title-font"
+                        style={{ fontSize: "48px" }}
+                        variants={itemVariants}
+                    >
+                        Who We Are?
+                    </motion.h1>
+                </Row>
+                <Row style={{ paddingRight: 50, paddingLeft: 50 }}>
+                    <Col xs={24} md={24} lg={12} xl={12}>
+                        <img
+                            src="../background/support/garis2.png"
+                            style={{
+                                position: 'absolute',
+                                top: '-40%',
+                                left: '-10%',
+                                width: '240px',
+                                zIndex: -1
+                            }}
+                        />
+                        <motion.div variants={itemVariants}>
+                            <Image
+                                src={"../logo_primary.png"}
+                                preview={false}
+                                width={!isMobile ? 450 : undefined}
+                                style={{ borderStyle: "solid", marginLeft: !isMobile ? "25%" : 0, padding: "40px", borderColor: themeColor?.gray500, background: themeColor?.gray100 }}
+                            />
+                        </motion.div>
+                    </Col>
+                    <Col xs={24} md={24} lg={10} xl={10}>
+                        <motion.p style={{ fontSize: "20px", paddingRight: 30 }} variants={itemVariants}>
+                            <strong>PT. Ayes Pro Inovasi</strong> is a private company that run the business activities since Our primary line of business is the supply of goods and services linked to "Corrosion Maintenance" on Pressurized Facilities and Civil Structures. Implementing goods and solutions to improve Preventive and Corrective Maintenance action is our key to excellence.
+                        </motion.p>
+                        <motion.p style={{ fontSize: "20px", paddingRight: 30 }} variants={itemVariants}>
+                            In order to offer added value than the conventional methods, we constantly develop and enhance our repair methods. Our company is expanding and taking the lead in Indonesia’s Marine Industry, Terminal Industry, Mining Industry, Petrochemicals Industry, Energy Sector, and Oil & Gas Industry as time goes on because to our strong commitment to integrity and honesty and our dedication to provide our customers the finest service possible.
+                        </motion.p>
+                    </Col>
+                </Row>
+            </motion.div>
 
             {isMobile == false ? (
-                <div style={chartContainerStyle}>
-                    <img
+                <motion.div
+                    ref={mottoRef}
+                    initial="hidden"
+                    animate={isMottoInView ? "visible" : "hidden"}
+                    variants={popVariants}
+                    style={chartContainerStyle}
+                >
+                    <motion.img
                         src="../background/support/big_plus.png"
                         alt="Plus Top Right"
                         style={{
                             position: 'absolute',
                             top: '10%',
                             right: '15%',
-                            width: '5%', // Adjust the size as needed
+                            width: '5%',
                         }}
+                        variants={createFloatingVariants()}  // Apply floating animation
+                        animate="visible"
                     />
-                    <img
+                    <motion.img
                         src="../background/support/big_plus.png"
                         alt="Plus Bottom Left"
                         style={{
@@ -102,8 +183,10 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                             left: '5%',
                             width: '5%',
                         }}
+                        variants={plusFloatingVariants}  // Apply floating animation
+                        animate="visible"
                     />
-                    <img
+                    <motion.img
                         src="../background/support/big_plus.png"
                         alt="Plus Top Left"
                         style={{
@@ -112,8 +195,10 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                             right: '12%',
                             width: '2%',
                         }}
+                        variants={createFloatingVariants()}  // Apply floating animation
+                        animate="visible"
                     />
-                    <img
+                    <motion.img
                         src="../background/support/big_plus.png"
                         alt="Plus Bottom Right"
                         style={{
@@ -122,8 +207,10 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                             right: '10%',
                             width: '1.5%',
                         }}
+                        variants={plusFloatingVariants}  // Apply floating animation
+                        animate="visible"
                     />
-                    <img
+                    <motion.img
                         src="../background/support/big_plus.png"
                         alt="Plus Bottom left"
                         style={{
@@ -132,31 +219,39 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                             left: '11%',
                             width: '2%',
                         }}
+                        variants={createFloatingVariants()}  // Apply floating animation
+                        animate="visible"
                     />
 
-                    <div style={centerCircleStyle2}>
+                    <motion.div 
+                        style={centerCircleStyle2}
+                        variants={slideLeftInVariants}
+                    >
                         <div style={centerCircleStyle3}>
                             <div style={centerCircleStyle}>
                                 <p>A.Y.E.S</p>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
 
-                    <div style={accountabilityStyle}>
+                    <motion.div 
+                        style={accountabilityStyle}
+                        variants={slideLeftInVariants}
+                    >
                         <Tooltip
                             fresh
                             title="We are accountable
-                                for our actions,
-                                decisions, and
-                                outcomes, ensuring
-                                the trust of our
-                                clients and
-                                stakeholders. We
-                                take responsibility for
-                                our commitments to
-                                achieve customer
-                                satisfaction
-                            "
+                            for our actions,
+                            decisions, and
+                            outcomes, ensuring
+                            the trust of our
+                            clients and
+                            stakeholders. We
+                            take responsibility for
+                            our commitments to
+                            achieve customer
+                            satisfaction
+                        "
                             color={"grey"}
                             placement="right"
                         >
@@ -165,17 +260,20 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                                 <div style={labelStyle}>Accountability</div>
                             </div>
                         </Tooltip>
-                    </div>
+                    </motion.div >
 
-                    <div style={yieldStyle}>
+                    <motion.div 
+                        style={yieldStyle}
+                        // variants={slideRightInVariants}
+                    >
                         <Tooltip
                             fresh
                             title="Our aim is to deliver the best
-                                outcomes for clients through
-                                efficiency, effectiveness, and added
-                                value. We strive for sustainable
-                                growth and high satisfaction levels
-                            "
+                            outcomes for clients through
+                            efficiency, effectiveness, and added
+                            value. We strive for sustainable
+                            growth and high satisfaction levels
+                        "
                             color={"grey"}
                             placement="bottom"
                         >
@@ -185,23 +283,23 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                             </div>
                         </Tooltip>
 
-                    </div>
+                    </motion.div >
 
                     <div style={empowermentStyle}>
                         <Tooltip
                             fresh
                             title="We empower our
-                                employees with
-                                resources and
-                                support to provide
-                                top-notch service to
-                                clients. Our culture
-                                of empowerment
-                                fosters innovation
-                                and dedication to
-                                customer
-                                satisfaction
-                            "
+                            employees with
+                            resources and
+                            support to provide
+                            top-notch service to
+                            clients. Our culture
+                            of empowerment
+                            fosters innovation
+                            and dedication to
+                            customer
+                            satisfaction
+                        "
                             color={"grey"}
                             placement="left"
                         >
@@ -216,10 +314,10 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                         <Tooltip
                             fresh
                             title="Customer safety is our top priority
-                                across all operations. We uphold
-                                strict safety standards to ensure
-                                customer security and satisfaction.
-                            "
+                            across all operations. We uphold
+                            strict safety standards to ensure
+                            customer security and satisfaction.
+                        "
                             color={"grey"}
                             placement="top"
                         >
@@ -229,40 +327,48 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                             </div>
                         </Tooltip>
                     </div>
-                </div>
+                </motion.div>
             ) : undefined}
             {/* WIP on Mobile */}
 
-            <Row style={{ paddingRight: 50, paddingLeft: 50 }}>
-                <Col
-                    xs={24}
-                    md={24}
-                    lg={10}
-                    xl={10}
-                >
-                    <h1 className="title-font" style={{ fontSize: "39px" }}>Our Vision</h1>
-                    <p style={{ fontSize: "25px" }}>What our determination and passion is that Ayes Pro Inovasi will be able to
-                        provide services in various ways, especially in all industry area, following our
-                        motto / spirit “New Methods and Process"</p>
-                </Col>
-                <Col
-                    xs={24}
-                    md={24}
-                    lg={14}
-                    xl={14}
-                >
-                    <img
-                        src="../background/support/box_1.png"
-                        style={{
-                            position: 'absolute',
-                            top: '-70%',
-                            right: '-10%',
-                            width: '300px',
-                        }}
-                    />
+            <motion.div
+                ref={visionRef}
+                initial="hidden"
+                animate={isVisionInView ? "visible" : "hidden"}
+                variants={slideLeftInVariants}
+                style={{ marginTop: 50 }}
+            >
+                <Row style={{ paddingRight: 50, paddingLeft: 50 }}>
+                    <Col
+                        xs={24}
+                        md={24}
+                        lg={10}
+                        xl={10}
+                    >
+                        <h1 className="title-font" style={{ fontSize: "39px" }}>Our Vision</h1>
+                        <p style={{ fontSize: "25px" }}>What our determination and passion is that Ayes Pro Inovasi will be able to
+                            provide services in various ways, especially in all industry area, following our
+                            motto / spirit “New Methods and Process"</p>
+                    </Col>
+                    <Col
+                        xs={24}
+                        md={24}
+                        lg={14}
+                        xl={14}
+                    >
+                        <img
+                            src="../background/support/box_1.png"
+                            style={{
+                                position: 'absolute',
+                                top: '-70%',
+                                right: '-10%',
+                                width: '300px',
+                            }}
+                        />
+                    </Col>
+                </Row>
+            </motion.div>
 
-                </Col>
-            </Row>
             <Row style={{ paddingRight: 50, paddingLeft: 50 }}>
                 <Col
                     xs={24}
@@ -330,43 +436,43 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
             </Row>
 
             <Row style={{ color: "white", background: themeColor?.blue500, margin: '20px 50px' }}>
-                <Col xs={24} md={12} lg={12} xl={12} style={{ paddingLeft: 40 }}>
-                    <ul style={{ listStyleType: 'none', paddingLeft: 0 }}>
-                        <li>
-                            <h3>2016</h3>
-                            <p>Founded in Cilegon, Banten Province, Indonesia</p>
+                <Col xs={24} md={12} lg={12} xl={12}>
+                    <ul style={{ listStyleImage: 'url(../icon/dot.png)' }}>
+                        <li style={{ paddingBottom: 15, paddingTop: 15 }}>
+                            <h2>2016</h2>
+                            <p style={{ marginTop: 20, marginBottom: 20 }}>Founded in Cilegon, <br /> Banten Province, Indonesia</p>
                         </li>
-                        <li>
-                            <h3>2017</h3>
-                            <p>Representing s2s corrosion preventive solution for Indonesia market</p>
+                        <li style={{ paddingBottom: 15, paddingTop: 15 }}>
+                            <h2>2017</h2>
+                            <p style={{ marginTop: 20, marginBottom: 20 }}>Representing s2s corrosion preventive solution for Indonesia market</p>
                         </li>
-                        <li>
-                            <h3>2018</h3>
-                            <p>Representing Emergency Leak Stopper Made by Composite MCU System Cor Wrap</p>
+                        <li style={{ paddingBottom: 15, paddingTop: 15 }}>
+                            <h2>2018</h2>
+                            <p style={{ marginTop: 20, marginBottom: 20 }}>Representing Emergency Leak Stopper Made by Composite MCU System Cor Wrap</p>
                         </li>
-                        <li>
-                            <h3>2019</h3>
-                            <p>Representing Engineered Composite System for Pressurized facilities and Structural Repair & Reinforcement</p>
+                        <li style={{ paddingBottom: 15, paddingTop: 15 }}>
+                            <h2>2019</h2>
+                            <p style={{ marginTop: 20, marginBottom: 20 }}>Representing Engineered Composite System for Pressurized facilities and Structural Repair & Reinforcement</p>
                         </li>
                     </ul>
                 </Col>
                 <Col xs={24} md={12} lg={12} xl={12}>
-                    <ul style={{ listStyleType: 'none', paddingLeft: 0 }}>
-                        <li>
-                            <h3>2020</h3>
-                            <p>Focusing Our Business to Supply Goods and Services Related to Corrosion Maintenance Solution (Preventive and Corrective Method)</p>
+                    <ul style={{ listStyleImage: 'url(../icon/dot.png)' }}>
+                        <li style={{ paddingBottom: 15, paddingTop: 15 }}>
+                            <h2>2020</h2>
+                            <p style={{ marginTop: 20, marginBottom: 20 }}>Focusing Our Business to Supply Goods and Services Related to Corrosion Maintenance Solution (Preventive and Corrective Method)</p>
                         </li>
-                        <li>
-                            <h3>2022</h3>
-                            <p>Representing EONCOAT High Temp. External Corrosion Protection with Coating System for Steam and Corrosion Under Insulation (CUI)</p>
+                        <li style={{ paddingBottom: 15, paddingTop: 15 }}>
+                            <h2>2022</h2>
+                            <p style={{ marginTop: 20, marginBottom: 20 }}>Representing EONCOAT High Temp. External Corrosion Protection with Coating System for Steam and Corrosion Under Insulation (CUI)</p>
                         </li>
-                        <li>
-                            <h3>2023</h3>
-                            <p>Representing Wencon Epoxy Ceramic Coating For Indonesian Market</p>
+                        <li style={{ paddingBottom: 15, paddingTop: 15 }}>
+                            <h2>2023</h2>
+                            <p style={{ marginTop: 20, marginBottom: 20 }}>Representing Wencon Epoxy Ceramic Coating For Indonesian Market</p>
                         </li>
-                        <li>
-                            <h3>2024</h3>
-                            <p>Continuing our wonderful journey!</p>
+                        <li style={{ paddingBottom: 15, paddingTop: 15 }}>
+                            <h2>2024</h2>
+                            <p style={{ marginTop: 20, marginBottom: 20 }}>Continuing our wonderful journey!</p>
                         </li>
                     </ul>
                 </Col>
@@ -377,7 +483,7 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
             </Row>
 
             <div style={{ padding: '20px 50px', textAlign: 'center' }}>
-                <Row gutter={[16, 16]} style={{ marginTop: '20px' }}>
+                <Row gutter={[16, 16]} style={{ marginTop: '20px' }} onClick={() => PushNavigateTo(`/product/wax_tape`)}>
                     {/* Preventive Solution Section */}
                     <Col xs={24} md={18} lg={18} xl={18}>
                         <div style={{ position: 'relative', textAlign: 'left' }}>
@@ -417,7 +523,7 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                     </Col>
                 </Row>
 
-                <Row gutter={[16, 16]} style={{ marginTop: '20px' }}>
+                <Row gutter={[16, 16]} style={{ marginTop: '20px' }} onClick={() => PushNavigateTo(`/product/corrosions`)}>
                     {/* Corrective Solution Section */}
                     <Col xs={24} md={6} lg={6} xl={6}>
                         <div style={{
@@ -461,7 +567,7 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                     </Col>
                 </Row>
             </div>
-        </>
+        </div>
     )
 }
 

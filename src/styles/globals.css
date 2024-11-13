@@ -148,6 +148,10 @@ a {
   background: transparent
 }
 
+.ant-menu-dark.ant-menu-inline .ant-menu-sub.ant-menu-inline, .ant-menu-dark>.ant-menu.ant-menu-inline .ant-menu-sub.ant-menu-inline {
+  background: #242A74;
+}
+
 .ant-modal-content {
   border-radius: 15px;
 }
@@ -164,8 +168,14 @@ a {
 }
 
 .slick-slide{
-  height: 755px !important;
+  height: 790px !important;
 }
+
+input::placeholder {
+  color: white !important; 
+  opacity: 1; /* Ensures full opacity */
+}
+
 
 /* Adjust button size based on screen size */
 @media (max-width: 768px) {

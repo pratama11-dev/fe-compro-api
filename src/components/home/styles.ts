@@ -90,7 +90,7 @@ export const labelStyle: React.CSSProperties = {
 // Specific positioning for each item (these stay the same for alignment)
 export const accountabilityStyle: React.CSSProperties = {
     ...itemStyle,
-    top: "50%",
+    top: "43%",
     left: "0",
     transform: "translateY(-50%)",
 };

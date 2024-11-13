@@ -26,6 +26,7 @@ function Sidebar({ routes }: SidebarProps) {
         minHeight: "100vh",
         width: "255px"
       }}
+      width={310} 
       collapsible
       collapsed={collapsible}
       onCollapse={() => {

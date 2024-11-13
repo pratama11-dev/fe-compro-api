@@ -28,7 +28,7 @@ export const openLinkedIn = () => {
 function Home(session: Sessions) {
   useNavbar(["home"], [{ name: "Home", url: "/" }]);
   const { isMobile } = useWindowSize();
-  
+
   const [drawerVisible, setDrawerVisible] = useState(false);
 
   const toggleDrawer = () => {
@@ -49,7 +49,7 @@ function Home(session: Sessions) {
 
       <Header toggleDrawer={toggleDrawer} />
 
-      <HomeScreen isMobile={!!isMobile}/>
+      <HomeScreen isMobile={!!isMobile} />
 
       <div
         className="flex flex-col"
@@ -64,10 +64,10 @@ function Home(session: Sessions) {
             <Image
               src="../white_logo.png"
               alt="Company Logo"
-              // preview={false}
+              preview={false}
               width={"37%"}
               height={"120px"}
-            /> 
+            />
             {/* <Image src="/assets/icons/logo_r_kultur.png" alt="logo" className="py-2 logo" height={50} width={210} /> */}
             <h1 style={{ color: themeColor?.gray300 }}>Head Office</h1>
             <p style={{ color: themeColor?.gray300 }}>
@@ -84,9 +84,9 @@ function Home(session: Sessions) {
           </Col>
           <Col xs={24} sm={24} md={8} lg={8}>
             <h2 style={{ color: themeColor?.gray300 }}>Quick Contack</h2>
-            <Input style={{ marginBottom: 10, background: "transparent", color: "white !important" }} placeholder="Your Name" />
-            <Input style={{ marginBottom: 10, background: "transparent", color: "white !important" }} placeholder="Email" />
-            <Input style={{ marginBottom: 10, background: "transparent", color: "white !important" }} placeholder="Leave Message" />
+            <Input className="custom-input" style={{ marginBottom: 10, background: "transparent", color: "white !important" }} placeholder="Your Name" />
+            <Input className="custom-input" style={{ marginBottom: 10, background: "transparent", color: "white !important" }} placeholder="Email" />
+            <Input className="custom-input" style={{ marginBottom: 10, background: "transparent", color: "white !important" }} placeholder="Leave Message" />
             <Row justify={"end"}>
               <Button type="primary" style={{ background: themeColor?.gray300, color: themeColor?.blue600 }}>Submit</Button>
             </Row>
@@ -97,7 +97,7 @@ function Home(session: Sessions) {
           <p style={{ color: themeColor?.gray300, marginLeft: 10 }}> 06°10′13″S 106°38′25″E﻿</p>
         </Row>
         <Row>
-          <Divider style={{ borderColor: "white"}}/>
+          <Divider style={{ borderColor: "white" }} />
         </Row>
         <Row
           style={{
@@ -109,7 +109,7 @@ function Home(session: Sessions) {
         >
           <Col span={14}>
             <p style={{ padding: 0 }}>
-              PT. AYES PRO INOVASI 
+              PT. AYES PRO INOVASI
             </p>
           </Col>
           <Col span={10}>

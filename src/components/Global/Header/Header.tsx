@@ -84,7 +84,7 @@ function HeaderOur({ toggleDrawer }: HeaderProps) {
             <Image
               src="../white_logo.png"
               alt="Company Logo"
-              // preview={false}
+              preview={false}
               width={"100%"}
               height={44}
             />
