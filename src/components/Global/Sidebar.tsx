@@ -1,4 +1,4 @@
-import { Layout, Menu } from "antd";
+import { Image, Layout, Menu, Row } from "antd";
 import { useSelector } from "react-redux";
 import React from "react";
 import { routesType } from "types/Sidebar";
@@ -26,14 +26,23 @@ function Sidebar({ routes }: SidebarProps) {
         minHeight: "100vh",
         width: "255px"
       }}
-      width={310} 
+      width={310}
       collapsible
       collapsed={collapsible}
       onCollapse={() => {
         store.dispatch(changeCollapsible(!collapsible));
       }}
     >
-      <div className="logo-dashboard" />
+      {/* <div className="logo-dashboard" /> */}
+      <Row justify={"center"} style={{ marginTop: 10 }}>
+        <Image
+          src="../white_logo.png"
+          alt="Company Logo"
+          preview={false}
+          height={60}
+          style={{ padding: 10 }}
+        />
+      </Row>
       <Menu
         theme="dark"
         mode="inline"

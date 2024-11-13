@@ -1,54 +1,29 @@
-import useFetcher from "@api/customHooks/useFetcher";
+import { products } from "../../components/Util/data/product";
 import HeadPage from "@components/Global/Header/HeadPage";
 import useNavbar from "@layouts/customHooks/useNavbar";
 import DashboardLayout from "@layouts/DashboardLayout";
-import handleSessions from "@pages/api/GetSession";
-import {
-    Button,
-    Card,
-    Col,
-    Form,
-    List,
-    Row,
-    Typography,
-} from "antd";
+import { Button, Card, Col, List, Row, Typography } from "antd";
 import { useRouter } from "next/router";
-import React, { } from "react";
-import { Sessions } from "types/Session";
+import React from "react";
 
 const { Title, Paragraph } = Typography;
 
 const DetailPr = () => {
     const router = useRouter();
+    const { name } = router.query;
 
-    const { name } = router?.query;
-    const [form] = Form.useForm();
+    // @ts-ignore
+    const productData = products[name] || {};
+
+    const { title, description, advantages, uses, images, properties } = productData;
 
     useNavbar(
         [`/product/${name}`],
         [
-            { name: "Product", url: `/product/${name}` },
-            { name: `${name}`, url: `/product/${name}` },
+            { name: "Product & Services", url: `/` },
+            { name: `${title}`, url: `/product/${name}` },
         ]
     );
-
-    const advantages = [
-        "1000+ Hours without corrosion in ASTM B117-18 Salt Spray Testing",
-        "Works on dissimilar metals",
-        "Ultra Low VOC and Zinc-Free",
-        "Can be applied to damp surfaces",
-        "Wide range of operating temperatures",
-        "Safe on batteries, electrical and electronics",
-        "Dielectric strength 3200 volts",
-        "Environmentally Friendly"
-    ];
-
-    const uses = [
-        "Equipment", "Parts", "Wellheads", "Tank deck piping & valves",
-        "Fittings & Flanges", "Offshore rigs", "Machined surfaces", "Sculptures",
-        "Cranes", "Motors", "Bottom of ballast tank plating"
-    ];
-
 
     return (
         <>
@@ -66,38 +41,92 @@ const DetailPr = () => {
                 />
                 <Row gutter={16} style={{ marginBottom: 24 }}>
                     <Col span={24}>
-                        <Title level={3}>HD Corrosion Shield</Title>
-                        <Paragraph>
-                            S2S HD Corrosion Shield works by displacing water and oxygen. It creates an even, lubricating clear thick film that creeps into hard-to-reach areas with anti-seize capabilities. Application of S2S HD Corrosion Shield requires no surface preparation. It is easily applied by air or battery-operated paint sprayer, brush, or roller.
-                        </Paragraph>
+                        <Title level={3}>{title}</Title>
+                        <Paragraph>{description}</Paragraph>
                     </Col>
                 </Row>
 
-                <Row gutter={16}>
-                    <Col span={12}>
-                        <Card title="Advantages" bordered={false} style={{ height: "100%" }}>
-                            <List
-                                dataSource={advantages}
-                                renderItem={(item) => (
-                                    <List.Item>
-                                        <Paragraph>{item}</Paragraph>
-                                    </List.Item>
-                                )}
-                            />
-                        </Card>
-                    </Col>
-                    <Col span={12}>
-                        <Card title="Recommended Uses" bordered={false} style={{ height: "100%" }}>
-                            <List
-                                dataSource={uses}
-                                renderItem={(item) => (
-                                    <List.Item>
-                                        <Paragraph>{item}</Paragraph>
-                                    </List.Item>
-                                )}
-                            />
-                        </Card>
-                    </Col>
+                <div style={{ overflowX: "auto", whiteSpace: "nowrap", padding: "10px 0" }}>
+                    {images?.map((src: string, index: number) => (
+                        <Card
+                            key={index}
+                            hoverable
+                            style={{
+                                display: "inline-block",
+                                width: 500,
+                                marginRight: 16,
+                                boxShadow: "none",
+                            }}
+                            bordered={false}
+                            cover={
+                                <img
+                                    alt={`Image ${index + 1}`}
+                                    src={src}
+                                    style={{ width: "100%", height: "300px", objectFit: "cover" }}
+                                />
+                            }
+                        />
+                    ))}
+                </div>
+
+                <Row gutter={16} style={{ marginTop: 20 }}>
+                    {advantages?.length > 0 && (
+                        <Col xs={24} md={24} lg={12} xl={12}>
+                            <Card title="Advantages" bordered={false} style={{ height: "100%" }}>
+                                <List
+                                    dataSource={advantages}
+                                    renderItem={(item) => (
+                                        <List.Item>
+                                            <ul>
+                                                <li>
+                                                    <Paragraph style={{ margin: 0 }}>{item}</Paragraph>
+                                                </li>
+                                            </ul>
+                                        </List.Item>
+                                    )}
+                                />
+                            </Card>
+                        </Col>
+                    )}
+                    {uses?.length > 0 && (
+                        <Col xs={24} md={24} lg={12} xl={12}>
+                            <Card title="Recommended Uses" bordered={false} style={{ height: "100%" }}>
+                                <List
+                                    dataSource={uses}
+                                    renderItem={(item) => (
+                                        <List.Item>
+                                            <ul>
+                                                <li>
+                                                    <Paragraph style={{ margin: 0 }}>{item}</Paragraph>
+                                                </li>
+                                            </ul>
+                                        </List.Item>
+                                    )}
+                                />
+                            </Card>
+                        </Col>
+                    )}
+                </Row>
+
+                <Row gutter={16} style={{ marginTop: 20 }}>
+                    {properties?.length > 0 && (
+                        <Col xs={24} md={24} lg={12} xl={12}>
+                            <Card title="Properties" bordered={false} style={{ height: "100%" }}>
+                                <List
+                                    dataSource={properties}
+                                    renderItem={(item) => (
+                                        <List.Item>
+                                            <ul>
+                                                <li>
+                                                    <Paragraph style={{ margin: 0 }}>{item}</Paragraph>
+                                                </li>
+                                            </ul>
+                                        </List.Item>
+                                    )}
+                                />
+                            </Card>
+                        </Col>
+                    )}
                 </Row>
 
                 <Row gutter={16} style={{ marginTop: 24 }}>

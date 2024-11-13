@@ -27,6 +27,8 @@ function DashboardLayout({
   const { handleLogout } = useAuth();
 
   const { isMobile } = useWindowSize();
+  console.log("asd", isMobile);
+  
   const [drawerVisible, setDrawerVisible] = useState(false);
 
   const toggleDrawer = () => {
