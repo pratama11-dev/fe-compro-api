@@ -483,7 +483,7 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
             </Row>
 
             <div style={{ padding: '20px 50px', textAlign: 'center' }}>
-                <Row gutter={[16, 16]} style={{ marginTop: '20px' }} onClick={() => PushNavigateTo(`/product/wax_tape`)}>
+                <Row gutter={[16, 16]} style={{ marginTop: '20px' }} onClick={() => PushNavigateTo(`/product/S2S_PLID_Wrap`)}>
                     {/* Preventive Solution Section */}
                     <Col xs={24} md={18} lg={18} xl={18}>
                         <div style={{ position: 'relative', textAlign: 'left' }}>
@@ -495,7 +495,7 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                             <Button
                                 type="primary"
                                 style={{ position: 'absolute', bottom: '10px', left: '10px' }}
-                                onClick={() => PushNavigateTo(`/product/wax_tape`)}
+                                onClick={() => PushNavigateTo(`/product/S2S_PLID_Wrap`)}
                             >
                                 Details &raquo;
                             </Button>

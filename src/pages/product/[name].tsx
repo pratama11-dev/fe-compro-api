@@ -1,10 +1,11 @@
 import { products } from "../../components/Util/data/product";
 import HeadPage from "@components/Global/Header/HeadPage";
+import ModalSendEmail from "@components/home/modal/modalSendEmail";
 import useNavbar from "@layouts/customHooks/useNavbar";
 import DashboardLayout from "@layouts/DashboardLayout";
 import { Button, Card, Col, List, Row, Typography } from "antd";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useState } from "react";
 
 const { Title, Paragraph } = Typography;
 
@@ -15,12 +16,14 @@ const DetailPr = () => {
     // @ts-ignore
     const productData = products[name] || {};
 
-    const { title, description, advantages, uses, images, properties } = productData;
+    const { title, description, type, advantages, uses, images, properties } = productData;
+    const [modal, setModal] = useState<boolean>(false);
 
     useNavbar(
         [`/product/${name}`],
         [
             { name: "Product & Services", url: `/` },
+            { name: type === "corretive" ? "Corrective Solutions" : "Preventive Solution", url: `/product/${name}` },
             { name: `${title}`, url: `/product/${name}` },
         ]
     );
@@ -135,10 +138,15 @@ const DetailPr = () => {
                             <Paragraph>
                                 Interested in our product? Contact us and place your order now for the best service!
                             </Paragraph>
-                            <Button type="primary">Contact Us</Button>
+                            <Button type="primary" onClick={() => setModal(true)}>Contact Us</Button>
                         </Card>
                     </Col>
                 </Row>
+
+                <ModalSendEmail
+                    setVisible={setModal}
+                    visible={modal}
+                />
             </DashboardLayout>
         </>
     );

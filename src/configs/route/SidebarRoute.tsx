@@ -101,6 +101,64 @@ export const AdminRoutes: routesType = [
     key: "/product/Surface_Treatment_Protection_Systems",
     name: "Surface Treatment Protection Systems",
     icon: "",
-    children: [],
+    children: [
+      {
+        path: "/product/EonCoat_Corrosion_Protection_(CP)",
+        key: "/product/EonCoat_Corrosion_Protection_(CP)",
+        name: "EonCoat Corrosion Protection (CP)",
+      },
+      {
+        path: "/product/EonCoat_CUI",
+        key: "/product/EonCoat_CUI",
+        name: "EonCoat CUI",
+      },
+    ],
+  },
+  // batas preventtive
+  {
+    path: "/product/CarbonSeal",
+    key: "/product/CarbonSeal",
+    name: "Corrective Solutions",
+    icon: "",
+    children: [
+      {
+        path: "/product/CarbonSeal",
+        key: "/product/CarbonSeal",
+        name: "CarbonSeal",
+      },
+      {
+        path: "/product/StrongHold",
+        key: "/product/StrongHold",
+        name: "StrongHold",
+      },
+      {
+        path: "/product/TankWrap",
+        key: "/product/TankWrap",
+        name: "TankWrap",
+      },
+      {
+        path: "/product/GlassSeal",
+        key: "/product/ChemSeal",
+        name: "ChemSeal",
+      },
+      {
+        path: "/product/GlassSeal",
+        key: "/product/GlassSeal",
+        name: "GlassSeal",
+      },
+    ],
+  },
+  {
+    path: "/product/Emergency_Leak_Repair_Kit_(group2)",
+    key: "/product/Emergency_Leak_Repair_Kit_(group2)",
+    name: "Emergency Leak Repair Kit (group2)",
+    icon: "",
+    children: [
+      {
+        path: "/product/Corrwrap",
+        key: "/product/Corrwrap",
+        name: "Corrwrap",
+      },
+    ]
   }
 ];
