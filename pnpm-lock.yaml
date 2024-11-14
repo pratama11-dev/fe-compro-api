@@ -125,6 +125,9 @@ dependencies:
   react-redux:
     specifier: ^7.2.8
     version: 7.2.8(react-dom@18.3.1)(react@18.3.1)
+  react-scroll:
+    specifier: ^1.9.0
+    version: 1.9.0(react-dom@18.3.1)(react@18.3.1)
   redux:
     specifier: ^4.2
     version: 4.2.0
@@ -169,6 +172,9 @@ devDependencies:
   '@types/react':
     specifier: 17.0.41
     version: 17.0.41
+  '@types/react-scroll':
+    specifier: ^1.8.10
+    version: 1.8.10
   '@types/redux-logger':
     specifier: ^3.0.9
     version: 3.0.9
@@ -1633,6 +1639,12 @@ packages:
       hoist-non-react-statics: 3.3.2
       redux: 4.2.0
     dev: false
+
+  /@types/react-scroll@1.8.10:
+    resolution: {integrity: sha512-RD4Z7grbdNGOKwKnUBKar6zNxqaW3n8m9QSrfvljW+gmkj1GArb8AFBomVr6xMOgHPD3v1uV3BrIf01py57daQ==}
+    dependencies:
+      '@types/react': 17.0.41
+    dev: true
 
   /@types/react@17.0.41:
     resolution: {integrity: sha512-chYZ9ogWUodyC7VUTRBfblysKLjnohhFY9bGLwvnUFFy48+vB9DikmB3lW0qTFmBcKSzmdglcvkHK71IioOlDA==}
@@ -4926,6 +4938,10 @@ packages:
     resolution: {integrity: sha512-Sb487aTOCr9drQVL8pIxOzVhafOjZN9UU54hiN8PU3uAiSV7lx1yYNpbNmex2PK6dSJoNTSJUUswT651yww3Mg==}
     dev: false
 
+  /lodash.throttle@4.1.1:
+    resolution: {integrity: sha512-wIkUCfVKpVsWo3JSZlc+8MB5it+2AN5W8J7YVMST30UrvcQNZ1Okbj+rbVniijTWE6FGYy4XJq/rHkas8qJMLQ==}
+    dev: false
+
   /lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
 
@@ -6067,6 +6083,18 @@ packages:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       react-is: 17.0.2
+    dev: false
+
+  /react-scroll@1.9.0(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-mamNcaX9Ng+JeSbBu97nWwRhYvL2oba+xR2GxvyXsbDeGP+gkYIKZ+aDMMj/n20TbV9SCWm/H7nyuNTSiXA6yA==}
+    peerDependencies:
+      react: ^15.5.4 || ^16.0.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^15.5.4 || ^16.0.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      lodash.throttle: 4.1.1
+      prop-types: 15.8.1
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
     dev: false
 
   /react@18.3.1:

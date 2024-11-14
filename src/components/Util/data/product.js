@@ -220,12 +220,19 @@ export const products = {
     uses: [
       "For application on belowground metal surfaces, pipe or fittings to prevent corrosion.",
     ],
-    images: [],
+    img_type: "fit-in",
+    logo: [
+      "../background/Trenton.png",
+    ],
+    video: [
+      "https://www.youtube.com/embed/T9OvwS3gpfQ",
+      "https://www.youtube.com/embed/avGANhR3Tlw",
+    ]
   },
   self_firming_anticorrosion_wrap: {
     title: "self-firming anticorrosion wrap",
     description:
-      "Wax-Tape #1 wrap is composed of a blend of microcrystalline waxes, plasticizers and corrosion inhibitors saturated into a non-woven, non-stitch bonded synthetic fabric, forming a tape wrapper. They also contain no siliceous mineral fillers.",
+      "Wax-Tape® #2 wrap is a nonwoven, nonstitch bonded synthetic fabric, saturated with a blend of microcrystalline wax, solvents and corrosion inhibitors (no clay fillers), forming a tape wrapper that firms up and is suitable for painting.",
     advantages: [
       "Ideal where only minimal surface preparation is possible",
       "Conforms to irregular shapes",
@@ -236,7 +243,14 @@ export const products = {
     uses: [
       "For application on belowground metal surfaces, pipe or fittings to prevent corrosion.",
     ],
-    images: [],
+    img_type: "fit-in",
+    logo: [
+      "../background/Trenton.png",
+    ],
+    video: [
+      "https://www.youtube.com/embed/T9OvwS3gpfQ",
+      "https://www.youtube.com/embed/avGANhR3Tlw",
+    ]
   },
   Trenton_Waxtape_HT_3000_High_Temp_anticorrosion_wrap: {
     title: "Trenton Waxtape HT 3000 High-Temp anticorrosion wrap",
@@ -246,7 +260,14 @@ export const products = {
     uses: [
       "Wax-Tape HT-3000 can be applied and will perform effectively at continuous operating temperatures of up to 230°F (110°C) and is designed for use in aboveground and belowground applications.",
     ],
-    images: [],
+    img_type: "fit-in",
+    logo: [
+      "../background/Trenton.png",
+    ],
+    video: [
+      "https://www.youtube.com/embed/T9OvwS3gpfQ",
+      "https://www.youtube.com/embed/avGANhR3Tlw",
+    ]
   },
   Trenton_Temcoat_3000_primer: {
     title: "Trenton Temcoat 3000 primer",
@@ -264,7 +285,14 @@ export const products = {
     uses: [
       "Temcoat and Temcoat 3000 are used as an anticorrosion compound for aboveground and belowground surfaces. They can be used as a cold-applied coating with a wrapper or as a priming paste with Wax-Tapes®. Because of their paste-like consistency over a wide temperature range, they are an excellent material for filling voids. They can be used for straight pipe, irregular fittings and flat surfaces.",
     ],
-    images: [],
+    img_type: "fit-in",
+    logo: [
+      "../background/Trenton.png",
+    ],
+    video: [
+      "https://www.youtube.com/embed/T9OvwS3gpfQ",
+      "https://www.youtube.com/embed/avGANhR3Tlw",
+    ]
   },
   Trenton_Patch_Pad_Exothermic_weld_protector: {
     title: "Trenton Patch-Pad Exothermic weld protector",
@@ -283,7 +311,14 @@ export const products = {
     uses: [
       "Patch-Pad is ideal for use in protecting Cathodic Protection system connections. It easily conforms to protect a variety of profiles and most connection configurations. Trenton Patch-Pad is designed to provide durable corrosion protection for a variety of small scale applications which require flexibility, strong adhesion, and ease-of-use. Tools are available to facilitate remote installation in keyhole applications.",
     ],
-    images: [],
+    img_type: "fit-in",
+    logo: [
+      "../background/Trenton.png",
+    ],
+    video: [
+      "https://www.youtube.com/embed/T9OvwS3gpfQ",
+      "https://www.youtube.com/embed/avGANhR3Tlw",
+    ]
   },
   Trenton_Fill_Coat_1_Hot_Applied_Wax_Casing_Filler: {
     title: "Trenton Fill-Coat #1 Hot Applied Wax Casing Filler",
@@ -311,7 +346,14 @@ export const products = {
     uses: [
       "Fill-coat #1 is used to displace water that may other-wise be present in the annular space between a casing and internal carrier pipe.",
     ],
-    images: [],
+    img_type: "fit-in",
+    logo: [
+      "../background/Trenton.png",
+    ],
+    video: [
+      "https://www.youtube.com/embed/T9OvwS3gpfQ",
+      "https://www.youtube.com/embed/avGANhR3Tlw",
+    ]
   },
   Trenton_Fill_Coat_2_Hot_Applied_Wax_Casing_Filler: {
     title: "Trenton Fill-Coat #2 Hot Applied Wax Casing Filler",
@@ -329,7 +371,14 @@ export const products = {
     uses: [
       "Fill-Coat #2 is used to fill the annular space between the pipeline casing and the carrier pipe. It displaces water that may be present and it prevents water from re-entering thereby mitigating any further corrosion.",
     ],
-    images: [],
+    img_type: "fit-in",
+    logo: [
+      "../background/Trenton.png",
+    ],
+    video: [
+      "https://www.youtube.com/embed/T9OvwS3gpfQ",
+      "https://www.youtube.com/embed/avGANhR3Tlw",
+    ]
   },
   Wencon_Ceramic_Coating: {
     title: "Wencon Ceramic Coating",
@@ -356,7 +405,12 @@ export const products = {
     uses: [
       "Wencon Ceramic Coating has a high abrasion resistance, making it suitable for applications on propeller nozzles, rudders, thruster tunnels, and housings. Typical applications are the coating of surfaces rebuilt after deterioration and protection against wear, corrosion, and bi-metallic corrosion. In addition, the product also offers high-temperature resistance, which makes it ideal for applications on gas scrubbers, condensers, and end-covers.",
     ],
-    images: [],
+    logo:[
+      "../wecon_coating/wencon.png",
+    ],
+    images: [
+      "../wecon_coating/wencon%201.jpg",
+    ],
   },
   Weoncon_Ceramic_Cream: {
     title: "Weoncon Ceramic Cream",
@@ -383,7 +437,12 @@ export const products = {
     uses: [
       "Wencon Ceramic Cream has high abrasion resistance, making it suitable for applications on propeller nozzles, rudders, thruster tunnels, and housings. In addition, the product also offers high-temperature resistance, which makes it ideal for applications on gas scrubbers, condensers, and end covers",
     ],
-    images: [],
+    logo:[
+      "../wecon_coating/wencon.png",
+    ],
+    images: [
+      "../wecon_coating/wencon%202.jpg",
+    ],
   },
   "EonCoat_Corrosion_Protection_(CP)": {
     title: "EonCoat Corrosion Protection (CP)",
@@ -411,7 +470,12 @@ export const products = {
       "Pulp and Paper Mills",
       "Marine – Structures and Offshore",
     ],
-    images: [],
+    images: [
+      "../Eon Coat Corrosion Protection/CP 2.png",
+      "../Eon Coat Corrosion Protection/CP 3.jpg",
+      "../Eon Coat Corrosion Protection/Eoncoat 1.jpg",
+      "../Eon Coat Corrosion Protection/Eoncoat CP.jpeg",
+    ],
   },
   EonCoat_CUI: {
     title: "EonCoat CUI",
@@ -433,7 +497,11 @@ export const products = {
     uses: [
       "For use over properly prepared steel in the following industrial environments: Recommended service temperature -250F to 750°F (-155°C through 400°C)",
     ],
-    images: [],
+    images: [
+      "../Eon Coat CUI/CUI Banner.jpg",
+      "../Eon Coat CUI/CUI Bucket and Cartridge.png",
+      "../Eon Coat CUI/Insulated tank.jpg",
+    ],
   },
   //   corretive
   CarbonSeal: {
@@ -460,7 +528,13 @@ export const products = {
       "Soil to Air Interface Corrosion",
       "MIC",
     ],
-    images: [],
+    images: [
+      "../CarbonSeal/Carbonseal 1.jpeg",
+      "../CarbonSeal/Carbonseal 2.jpeg",
+      "../CarbonSeal/Hj 3.jpg",
+      "../CarbonSeal/Hj3_Pipe1.jpg",
+      "../CarbonSeal/Pipe carbonseal.jpeg",
+    ],
   },
   StrongHold: {
     title: "StrongHold",
@@ -477,7 +551,10 @@ export const products = {
       "FDA Compliant for Food Types I & VIII and Condition of Use “E” under Title 21 CFR Chapter 175 Part 300 Indirect Food Additives: Adhesives and Components of Coatings: Resinous & Polymeric Coatings",
     ],
     uses: ["Column", "Slab", "Wall", "Beam", "Pedestal", "Piles"],
-    images: [],
+    images: [
+      "../Stronghold/Stronghold 1.jpeg",
+      "../Stronghold/Stronghold 2.jpeg",
+    ],
   },
   TankWrap: {
     title: "TankWrap",
@@ -504,7 +581,13 @@ export const products = {
       "Internal / External Corrosion",
       "Weld Defects",
     ],
-    images: [],
+    images: [
+      "../TankWrap/HJ3_Tnak.jpg",
+      "../TankWrap/Tank 1.jpg",
+      "../TankWrap/Tank 2.jpg",
+      "../TankWrap/Tank 3.jpg",
+      "../TankWrap/Tankwrap 1.jpeg",
+    ],
   },
   ChemSeal: {
     title: "ChemSeal",
@@ -524,7 +607,12 @@ export const products = {
       "Floors and chemical trenches",
       "API 652 compliant storage tank linings",
     ],
-    images: [],
+    images: [
+      "../ChemSeal/Chemical Trenches.jpg",
+      "../ChemSeal/ChemSeal 1.jpg",
+      "../ChemSeal/ChemSeal 2.jpg",
+      "../ChemSeal/ChemSeal API 652.jpg",
+    ],
   },
   GlassSeal: {
     title: "ChemSeal",
@@ -544,27 +632,12 @@ export const products = {
       "Pipe at risk for external abrasion or erosion",
       "Soil to Air Interface Corrosion in low-risk applications",
     ],
-    images: [],
-  },
-  GlassSeal: {
-    title: "Emergency Leak Repair Kit (group2)",
-    properties: ["TDS by request"],
-    type: "corretive",
-    description:
-      "Composite Technologies' GlassSealTM Moisture Cured Urethane (MCU) is a pre-impregnated urethane-based fiberglass wrap. This system is ideal for lower pressure, and lower temperature applications in environments where a moisture tolerant material is required. GlassSealTM MCU comes in a variety of sizes and widths to handle any geometry.",
-    advantages: [
-      "Easy to use; no saturation required",
-      "Sets in 45min / cures in 12hrs ",
-      "Protects against mechanical wear and abrasion",
-      "Chemically resistant to mild to moderately aggressive service conditions",
+    images: [
+      "../GlassSeal/GlassSeal 1.jpg",
+      "../GlassSeal/GlassSeal 2.jpg",
+      "../GlassSeal/GlassSeal 3.jpg",
+      "../GlassSeal/GlassSeal 4.jpg",
     ],
-    uses: [
-      "Reinforcing “stop-gaps” for leak sealing",
-      "Internal or external repairs of water piping",
-      "Pipe at risk for external abrasion or erosion",
-      "Soil to Air Interface Corrosion in low-risk applications",
-    ],
-    images: [],
   },
   Corrwrap: {
     title: "Corrwrap",

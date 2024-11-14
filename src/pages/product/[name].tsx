@@ -17,7 +17,7 @@ const DetailPr = () => {
     // @ts-ignore
     const productData = products[name] || {};
 
-    const { title, description, type, advantages, uses, images, properties } = productData;
+    const { title, description, type, advantages, uses, img_type, images, properties, logo, video } = productData;
     const [modal, setModal] = useState<boolean>(false);
 
     useNavbar(
@@ -46,16 +46,34 @@ const DetailPr = () => {
         <>
             <HeadPage withDefaultCss title="Purchase Request" />
             <DashboardLayout>
-                <Card
-                    cover={
-                        <img
-                            alt="Product Image"
-                            src="../background/s2s/S2S_Logo.png"
-                            style={{ width: "20%", objectFit: "cover" }}
+                <Row justify={"start"}>
+                    <img
+                        alt="Product Image"
+                        src="../background/s2s/S2S_Logo.png"
+                        style={{ width: "15%", objectFit: "cover", marginRight: 30 }}
+                    />
+                    {logo?.map((src: string, index: number) => (
+                        <Card
+                            key={index}
+                            hoverable
+                            style={{
+                                display: "inline-block",
+                                width: 500,
+                                marginRight: 16,
+                                boxShadow: "none",
+                            }}
+                            bodyStyle={{ width: 0, padding: 0 }}
+                            bordered={false}
+                            cover={
+                                <img
+                                    alt={`Image ${index + 1}`}
+                                    src={src}
+                                    style={{ width: "100%", height: "auto", objectFit: "cover" }}
+                                />
+                            }
                         />
-                    }
-                    bodyStyle={{ padding: 0 }}
-                />
+                    ))}
+                </Row>
                 <Row gutter={16} style={{ marginBottom: 24 }}>
                     <Col span={24}>
                         <Title level={3}>{title}</Title>
@@ -63,7 +81,7 @@ const DetailPr = () => {
                     </Col>
                 </Row>
 
-                <div style={{ overflowX: "auto", whiteSpace: "nowrap", padding: "10px 0" }}>
+                <div style={{ overflowX: "auto", whiteSpace: "nowrap", padding: images?.length > 0 ? "10px 0" : 0 }}>
                     {images?.map((src: string, index: number) => (
                         <Card
                             key={index}
@@ -74,15 +92,32 @@ const DetailPr = () => {
                                 marginRight: 16,
                                 boxShadow: "none",
                             }}
+                            bodyStyle={{ width: 0, padding: 0 }}
                             bordered={false}
                             cover={
                                 <img
                                     alt={`Image ${index + 1}`}
                                     src={src}
-                                    style={{ width: "100%", height: "300px", objectFit: "cover" }}
+                                    style={{ width: "100%", height: img_type !== "fit-in" ? "300px" : "auto", objectFit: "cover" }}
                                 />
                             }
                         />
+                    ))}
+                </div>
+
+                <div style={{ overflowX: "auto", whiteSpace: "nowrap", padding: images?.length > 0 ? "10px 0" : 0 }}>
+                    {video?.map((src: string, index: number) => (
+                        <iframe
+                            key={index}
+                            width="50%"
+                            height="400"
+                            src={src}
+                            title="YouTube video player"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            style={{ borderRadius: '8px', marginRight: 40 }}
+                        ></iframe>
                     ))}
                 </div>
 

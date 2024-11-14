@@ -8,6 +8,7 @@ import { Button, Col, Image, Menu, Row, Typography } from "antd";
 import { Header } from "antd/lib/layout/layout";
 import { useRouter } from "next/router";
 import { Sessions } from "types/Session";
+import { Link } from "react-scroll";
 
 type HeaderProps = {
   toggleDrawer: () => void;
@@ -95,10 +96,42 @@ function HeaderOur({ toggleDrawer }: HeaderProps) {
             <>
               <Col>
                 <nav style={{ display: "flex", gap: "30px" }}>
-                  <a href="/" style={{ color: themeColor?.white }}>Home</a>
-                  <a href="#about" style={{ color: themeColor?.white }}>About Us</a>
-                  <a href="#services" style={{ color: themeColor?.white }}>Product & Services</a>
-                  <a href="#contact" style={{ color: themeColor?.white }}>Contacts</a>
+                  <Link
+                    to="home"
+                    spy={true}
+                    smooth={true}
+                    duration={500}
+                    style={{ color: themeColor?.white, cursor: "pointer" }}
+                  >
+                    Home
+                  </Link>
+                  <Link
+                    to="about"
+                    spy={true}
+                    smooth={true}
+                    duration={500}
+                    style={{ color: themeColor?.white, cursor: "pointer" }}
+                  >
+                    About Us
+                  </Link>
+                  <Link
+                    to="services"
+                    spy={true}
+                    smooth={true}
+                    duration={500}
+                    style={{ color: themeColor?.white, cursor: "pointer" }}
+                  >
+                    Product & Services
+                  </Link>
+                  <Link
+                    to="contact"
+                    spy={true}
+                    smooth={true}
+                    duration={500}
+                    style={{ color: themeColor?.white, cursor: "pointer" }}
+                  >
+                    Contacts
+                  </Link>
                 </nav>
               </Col>
               <Col style={{ display: "flex", gap: "15px" }}>

@@ -576,7 +576,7 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                             </Col>
                             <Col>
                                 <img
-                                    src="../icon/star.png"
+                                    src="../Icon/star.png"
                                     alt="Preventive Solution"
                                     style={{ width: '30px', borderRadius: '8px', objectFit: 'cover' }}
                                 />
