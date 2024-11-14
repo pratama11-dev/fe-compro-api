@@ -1,9 +1,10 @@
+import { FileTextOutlined } from "@ant-design/icons";
 import { products } from "../../components/Util/data/product";
 import HeadPage from "@components/Global/Header/HeadPage";
 import ModalSendEmail from "@components/home/modal/modalSendEmail";
 import useNavbar from "@layouts/customHooks/useNavbar";
 import DashboardLayout from "@layouts/DashboardLayout";
-import { Button, Card, Col, List, Row, Typography } from "antd";
+import { Button, Card, Col, FloatButton, List, Row, Typography } from "antd";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 
@@ -142,6 +143,20 @@ const DetailPr = () => {
                         </Card>
                     </Col>
                 </Row>
+
+                {/* <FloatButton 
+                    type="primary"
+                    shape="square"
+                    style={{ insetInlineEnd: 0, borderRadius: 0, transform: "rotate(90deg)" }}
+                    onClick={() => console.log('onClick')} 
+                    description="HELP INFO"
+                    icon={<FileTextOutlined rev={""}/>}
+                /> */}
+
+                <div className="floating-button" onClick={() => setModal(true)}>
+                    <span className="button-text">Request TDS</span>
+                    <FileTextOutlined rev={""} className="button-icon" />
+                </div>
 
                 <ModalSendEmail
                     setVisible={setModal}
