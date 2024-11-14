@@ -3,7 +3,7 @@ import HeadPage from "@components/Global/Header/HeadPage";
 import useNavbar from "@layouts/customHooks/useNavbar";
 import { useState } from "react";
 import Header from "@components/Global/Header/Header";
-import { Button, Col, Divider, Image, Input, Row, Typography } from "antd";
+import { Button, Col, Divider, Form, Image, Input, Row, Typography } from "antd";
 import { PushpinOutlined } from "@ant-design/icons";
 import useWindowSize from "@utils/helpers/ReactHelper";
 import { AdminRoutes } from "@configs/route/SidebarRoute";
@@ -30,9 +30,26 @@ function Home(session: Sessions) {
   const { isMobile } = useWindowSize();
 
   const [drawerVisible, setDrawerVisible] = useState(false);
+  const [form] = Form.useForm();
 
   const toggleDrawer = () => {
     setDrawerVisible(!drawerVisible);
+  };
+
+  const handleSubmit = async () => {
+    try {
+      const values = await form.validateFields(); // Get form values after validation
+      const { name, email, message } = values;
+
+      const subject = `Contact from ${name}`;
+      // const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0AMessage: ${message}`;
+      const body = `${message}`;
+
+      // Open Gmail with pre-filled details
+      window.open(`mailto:info@ptayesproinovasi.com?subject=${subject}&body=${body}`, "_blank");
+    } catch (error) {
+      console.error("Validation failed:", error); // Handle validation errors if needed
+    }
   };
 
   return (
@@ -84,12 +101,50 @@ function Home(session: Sessions) {
           </Col>
           <Col xs={24} sm={24} md={8} lg={8}>
             <h2 style={{ color: themeColor?.gray300 }}>Quick Contack</h2>
-            <Input className="custom-input" style={{ marginBottom: 10, background: "transparent", color: "white !important" }} placeholder="Your Name" />
-            <Input className="custom-input" style={{ marginBottom: 10, background: "transparent", color: "white !important" }} placeholder="Email" />
-            <Input className="custom-input" style={{ marginBottom: 10, background: "transparent", color: "white !important" }} placeholder="Leave Message" />
-            <Row justify={"end"}>
-              <Button type="primary" style={{ background: themeColor?.gray300, color: themeColor?.blue600 }}>Submit</Button>
-            </Row>
+            <Form form={form} layout="vertical">
+              <Form.Item
+                name="name"
+                rules={[{ required: true, message: "Please enter your name" }]}
+              >
+                <Input
+                  className="custom-input"
+                  style={{ background: "transparent", color: "white" }}
+                  placeholder="Your Name"
+                />
+              </Form.Item>
+              <Form.Item
+                name="email"
+                rules={[
+                  { required: true, message: "Please enter your email" },
+                  { type: "email", message: "Please enter a valid email" },
+                ]}
+              >
+                <Input
+                  className="custom-input"
+                  style={{ background: "transparent", color: "white" }}
+                  placeholder="Email"
+                />
+              </Form.Item>
+              <Form.Item
+                name="message"
+                rules={[{ required: true, message: "Please leave a message" }]}
+              >
+                <Input
+                  className="custom-input"
+                  style={{ background: "transparent", color: "white" }}
+                  placeholder="Leave Message"
+                />
+              </Form.Item>
+              <Row justify={"end"}>
+                <Button
+                  type="primary"
+                  style={{ background: themeColor?.gray300, color: themeColor?.blue600 }}
+                  onClick={handleSubmit}
+                >
+                  Submit
+                </Button>
+              </Row>
+            </Form>
           </Col>
         </Row>
         <Row>

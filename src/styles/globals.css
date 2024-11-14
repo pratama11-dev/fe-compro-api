@@ -205,6 +205,10 @@ input::placeholder {
   font-size: 24px;
 }
 
+.custom-input{
+  color: white !important;
+}
+
 /* Adjust button size based on screen size */
 @media (max-width: 768px) {
   .fc-button {

@@ -16,7 +16,7 @@ const ModalSendEmail = ({
     const handleOk = () => {
         form.validateFields().then(values => {
             const { fullName, phoneNumber, company, email, sendTDSFor, natureOfRequest } = values;
-    
+
             const subject = `Technical Data Sheet Request from ${fullName}`;
             const body = `
                 Full Name: ${fullName}
@@ -26,16 +26,18 @@ const ModalSendEmail = ({
                 Send TDS For: ${sendTDSFor}
                 Nature of Request: ${natureOfRequest === "purchased" ? "I have already purchased this product" : "This is a presale request"}
             `;
-    
-            const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+            const recipientEmail = "info@ptayesproinovasi.com";
+
+            const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(recipientEmail)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
             window.open(gmailLink, "_blank");
-    
+
             setVisible(false);
             form.resetFields();
         }).catch(info => {
             console.error("Validate Failed:", info);
         });
-    };    
+    };
 
     return (
         <>

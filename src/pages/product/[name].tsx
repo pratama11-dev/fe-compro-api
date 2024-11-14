@@ -29,6 +29,19 @@ const DetailPr = () => {
         ]
     );
 
+    const handleSubmit = async () => {
+        try {
+            const subject = `Contact from ${name}`;
+            // const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0AMessage: ${message}`;
+            const body = ``;
+
+            // Open Gmail with pre-filled details
+            window.open(`mailto:info@ptayesproinovasi.com?subject=${subject}&body=${body}`, "_blank");
+        } catch (error) {
+            console.error("Validation failed:", error); // Handle validation errors if needed
+        }
+    };
+
     return (
         <>
             <HeadPage withDefaultCss title="Purchase Request" />
@@ -139,7 +152,7 @@ const DetailPr = () => {
                             <Paragraph>
                                 Interested in our product? Contact us and place your order now for the best service!
                             </Paragraph>
-                            <Button type="primary" onClick={() => setModal(true)}>Contact Us</Button>
+                            <Button type="primary" onClick={() => handleSubmit()}>Contact Us</Button>
                         </Card>
                     </Col>
                 </Row>

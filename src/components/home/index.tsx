@@ -156,7 +156,7 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
 
             {isMobile && (
                 <div style={{ padding: '20px', textAlign: 'center' }}>
-                    <h1 style={{ marginBottom: '20px', fontSize: '24px' }}>A.Y.E.S</h1>
+                    <h1 style={{ marginBottom: '20px', fontSize: '42px' }}>A.Y.E.S</h1>
                     <Row gutter={[16, 16]} justify="center">
                         <Col xs={24} sm={12} md={6} key={1}>
                             <Card
@@ -494,12 +494,23 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                 {/* Left Side - Video Section */}
                 <Col xs={24} md={12} lg={12} xl={12}>
                     <div style={{ position: 'relative' }}>
-                        <video
+                        {/* <video
                             controls
-                            src={videoSrc}
+                            // src={videoSrc}
+                            src={'https://youtu.be/oZUW8viDUV0'}
                             style={{ width: '100%', borderRadius: '8px' }}
                             poster="path-to-video-poster.jpg" // Optional: Poster image before play
-                        />
+                        /> */}
+                        <iframe
+                            width="100%"
+                            height="400"
+                            src="https://www.youtube.com/embed/oZUW8viDUV0"
+                            title="YouTube video player"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            style={{ borderRadius: '8px' }}
+                        ></iframe>
                     </div>
                 </Col>
 
@@ -523,7 +534,7 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
 
             <Row style={{ color: "white", background: themeColor?.blue500, margin: '20px 50px' }}>
                 <Col xs={24} md={12} lg={12} xl={12}>
-                    <ul style={{ listStyleImage: 'url(../icon/dot.png)' }}>
+                    <ul style={{ listStyleImage: 'url(../Icon/dot.png)' }}>
                         <li style={{ paddingBottom: 15, paddingTop: 15 }}>
                             <h2>2016</h2>
                             <p style={{ marginTop: 20, marginBottom: 20 }}>Founded in Cilegon, <br /> Banten Province, Indonesia</p>
@@ -543,8 +554,8 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                     </ul>
                 </Col>
                 <Col xs={24} md={12} lg={12} xl={12}>
-                    <ul style={{ listStyleImage: 'url(../icon/dot.png)' }}>
-                        <li style={{ paddingBottom: 15, paddingTop: 15 }}>
+                    <ul style={{ listStyleImage: 'url(../Icon/dot.png)' }}>
+                        <li style={{ paddingBottom: 15, paddingTop: !isMobile ? 15 : 0 }}>
                             <h2>2020</h2>
                             <p style={{ marginTop: 20, marginBottom: 20 }}>Focusing Our Business to Supply Goods and Services Related to Corrosion Maintenance Solution (Preventive and Corrective Method)</p>
                         </li>
@@ -556,10 +567,21 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                             <h2>2023</h2>
                             <p style={{ marginTop: 20, marginBottom: 20 }}>Representing Wencon Epoxy Ceramic Coating For Indonesian Market</p>
                         </li>
-                        <li style={{ paddingBottom: 15, paddingTop: 15 }}>
-                            <h2>2024</h2>
-                            <p style={{ marginTop: 20, marginBottom: 20 }}>Continuing our wonderful journey!</p>
-                        </li>
+                        <Row align={"middle"}>
+                            <Col>
+                                <li style={{ paddingBottom: 15, paddingTop: 15 }}>
+                                    <h2>2024</h2>
+                                    <p style={{ marginTop: 20, marginBottom: 20 }}>Continuing our wonderful journey!</p>
+                                </li>
+                            </Col>
+                            <Col>
+                                <img
+                                    src="../icon/star.png"
+                                    alt="Preventive Solution"
+                                    style={{ width: '30px', borderRadius: '8px', objectFit: 'cover' }}
+                                />
+                            </Col>
+                        </Row>
                     </ul>
                 </Col>
             </Row>
@@ -576,8 +598,27 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                             <img
                                 src="../background/bg5.jpg"
                                 alt="Preventive Solution"
-                                style={{ width: '100%', borderRadius: '8px' }}
+                                style={{ width: '100%', borderRadius: '8px', height: '200px', objectFit: 'cover' }}
                             />
+                            {isMobile && (
+                                <div style={{
+                                    position: 'absolute',
+                                    top: 0,
+                                    left: 0,
+                                    width: '100%',
+                                    height: '100%',
+                                    backgroundColor: 'rgba(0, 0, 0, 0.4)', // semi-transparent overlay
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    color: 'white',
+                                    fontWeight: 'bold',
+                                    fontSize: '20px',
+                                    borderRadius: '8px'
+                                }}>
+                                    Preventive Solution
+                                </div>
+                            )}
                             <Button
                                 type="primary"
                                 style={{ position: 'absolute', bottom: '10px', left: '10px' }}
@@ -587,49 +628,52 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                             </Button>
                         </div>
                     </Col>
-                    <Col xs={24} md={6} lg={6} xl={6}>
-                        <div style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            height: '100%',
-                            border: '1px solid #E0E0E0',
-                            borderRadius: '8px',
-                            padding: '20px'
-                        }}>
-                            <img
-                                src="../icon/shield.png"
-                                alt="Preventive Solution"
-                                style={{ width: '30%', borderRadius: '8px' }}
-                            />
-                            {/* <ShieldOutlined style={{ fontSize: '48px', color: '#263E9A' }} /> */}
-                            <h1 style={{ fontWeight: 'bold' }}>Preventive Solution</h1>
-                        </div>
-                    </Col>
+                    {!isMobile && (
+                        <Col xs={6} md={6} lg={6} xl={6}>
+                            <div style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                height: '100%',
+                                border: '1px solid #E0E0E0',
+                                borderRadius: '8px',
+                                padding: '20px'
+                            }}>
+                                <img
+                                    src="../Icon/shield.png"
+                                    alt="Preventive Solution"
+                                    style={{ width: '20%', borderRadius: '8px' }}
+                                />
+                                <h1 style={{ fontWeight: 'bold' }}>Preventive Solution</h1>
+                            </div>
+                        </Col>
+                    )}
                 </Row>
 
-                <Row gutter={[16, 16]} style={{ marginTop: '20px' }} onClick={() => PushNavigateTo(`/product/corrosions`)}>
+                <Row gutter={[16, 16]} style={{ marginTop: '20px' }} onClick={() => PushNavigateTo(`/product/CarbonSeal`)}>
                     {/* Corrective Solution Section */}
-                    <Col xs={24} md={6} lg={6} xl={6}>
-                        <div style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            height: '100%',
-                            border: '1px solid #E0E0E0',
-                            borderRadius: '8px',
-                            padding: '20px'
-                        }}>
-                            <img
-                                src="../icon/brushes.png"
-                                alt="Preventive Solution"
-                                style={{ width: '30%', borderRadius: '8px' }}
-                            />
-                            <h3 style={{ fontWeight: 'bold' }}>Corrective Solution</h3>
-                        </div>
-                    </Col>
+                    {!isMobile && (
+                        <Col xs={24} md={6} lg={6} xl={6}>
+                            <div style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                height: '100%',
+                                border: '1px solid #E0E0E0',
+                                borderRadius: '8px',
+                                padding: '20px'
+                            }}>
+                                <img
+                                    src="../Icon/brushes.png"
+                                    alt="Corrective Solution"
+                                    style={{ width: '30%', borderRadius: '8px' }}
+                                />
+                                <h3 style={{ fontWeight: 'bold' }}>Corrective Solution</h3>
+                            </div>
+                        </Col>
+                    )}
                     <Col xs={24} md={18} lg={18} xl={18}>
                         <div style={{ position: 'relative', textAlign: 'left' }}>
                             <img
@@ -637,15 +681,34 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                                 alt="Corrective Solution"
                                 style={{
                                     width: '100%',
-                                    height: '200px', // Adjust height as needed
+                                    height: '200px',
                                     borderRadius: '8px',
-                                    objectFit: 'cover' // Ensures image fills container without stretching
+                                    objectFit: 'cover'
                                 }}
                             />
+                            {isMobile && (
+                                <div style={{
+                                    position: 'absolute',
+                                    top: 0,
+                                    left: 0,
+                                    width: '100%',
+                                    height: '100%',
+                                    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    color: 'white',
+                                    fontWeight: 'bold',
+                                    fontSize: '20px',
+                                    borderRadius: '8px'
+                                }}>
+                                    Corrective Solution
+                                </div>
+                            )}
                             <Button
                                 type="primary"
                                 style={{ position: 'absolute', bottom: '10px', right: '10px' }}
-                                onClick={() => PushNavigateTo(`/product/corrosions`)}
+                                onClick={() => PushNavigateTo(`/product/CarbonSeal`)}
                             >
                                 Details &raquo;
                             </Button>
@@ -653,6 +716,7 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                     </Col>
                 </Row>
             </div>
+
         </div>
     )
 }
