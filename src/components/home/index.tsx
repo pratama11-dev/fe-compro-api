@@ -1,7 +1,7 @@
 
 import React, { useRef } from 'react'
 import { backgroundImageStyle1, backgroundImageStyle2, backgroundImageStyle4, buttonStyle, carouselContainerStyle, subtitleStyle, titleStyle } from './carousel/styles';
-import { Button, Carousel, Col, Image, Row, Tooltip } from 'antd';
+import { Button, Card, Carousel, Col, Image, Row, Tooltip } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { accountabilityStyle, centerCircleStyle, centerCircleStyle2, centerCircleStyle3, chartContainerStyle, empowermentStyle, labelStyle, letterStyle, rowStyle, safetyStyle, yieldStyle } from './styles';
 import CarouselComponent from './mini-carousel/carouselComponent';
@@ -32,7 +32,7 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
         padding: isMobile ? '10px 20px' : '20px 30px',
     };
 
-    
+
     // References for sections
     const carouselRef = useRef(null);
     const aboutRef = useRef(null);
@@ -154,6 +154,82 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                 </Row>
             </motion.div>
 
+            {isMobile && (
+                <div style={{ padding: '20px', textAlign: 'center' }}>
+                    <h1 style={{ marginBottom: '20px', fontSize: '24px' }}>A.Y.E.S</h1>
+                    <Row gutter={[16, 16]} justify="center">
+                        <Col xs={24} sm={12} md={6} key={1}>
+                            <Card
+                                title={<span style={{ fontSize: '24px', fontWeight: 'bold' }}>Accountability</span>}
+                                bordered={false}
+                                style={{ textAlign: 'center' }}
+                                headStyle={{ backgroundColor: '#3d4a73', color: '#fff' }}
+                            >
+                                <p>We are accountable
+                                    for our actions,
+                                    decisions, and
+                                    outcomes, ensuring
+                                    the trust of our
+                                    clients and
+                                    stakeholders. We
+                                    take responsibility for
+                                    our commitments to
+                                    achieve customer
+                                    satisfaction
+                                </p>
+                            </Card>
+                        </Col>
+                        <Col xs={24} sm={12} md={6} key={1}>
+                            <Card
+                                title={<span style={{ fontSize: '24px', fontWeight: 'bold' }}>Yield</span>}
+                                bordered={false}
+                                style={{ textAlign: 'center' }}
+                                headStyle={{ backgroundColor: '#3d4a73', color: '#fff' }}
+                            >
+                                <p>Our aim is to deliver the best
+                                    outcomes for clients through
+                                    efficiency, effectiveness, and added
+                                    value. We strive for sustainable
+                                    growth and high satisfaction levels</p>
+                            </Card>
+                        </Col>
+                        <Col xs={24} sm={12} md={6} key={1}>
+                            <Card
+                                title={<span style={{ fontSize: '24px', fontWeight: 'bold' }}>Empowerment</span>}
+                                bordered={false}
+                                style={{ textAlign: 'center' }}
+                                headStyle={{ backgroundColor: '#3d4a73', color: '#fff' }}
+                            >
+                                <p>We empower our
+                                    employees with
+                                    resources and
+                                    support to provide
+                                    top-notch service to
+                                    clients. Our culture
+                                    of empowerment
+                                    fosters innovation
+                                    and dedication to
+                                    customer
+                                    satisfaction</p>
+                            </Card>
+                        </Col>
+                        <Col xs={24} sm={12} md={6} key={1}>
+                            <Card
+                                title={<span style={{ fontSize: '24px', fontWeight: 'bold' }}>Safety</span>}
+                                bordered={false}
+                                style={{ textAlign: 'center' }}
+                                headStyle={{ backgroundColor: '#3d4a73', color: '#fff' }}
+                            >
+                                <p>Customer safety is our top priority
+                                    across all operations. We uphold
+                                    strict safety standards to ensure
+                                    customer security and satisfaction.</p>
+                            </Card>
+                        </Col>
+                    </Row>
+                </div>
+            )}
+
             {isMobile == false ? (
                 <motion.div
                     ref={mottoRef}
@@ -223,7 +299,7 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                         animate="visible"
                     />
 
-                    <motion.div 
+                    <motion.div
                         style={centerCircleStyle2}
                         variants={slideLeftInVariants}
                     >
@@ -234,7 +310,7 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                         </div>
                     </motion.div>
 
-                    <motion.div 
+                    <motion.div
                         style={accountabilityStyle}
                         variants={slideLeftInVariants}
                     >
@@ -262,9 +338,9 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                         </Tooltip>
                     </motion.div >
 
-                    <motion.div 
+                    <motion.div
                         style={yieldStyle}
-                        // variants={slideRightInVariants}
+                    // variants={slideRightInVariants}
                     >
                         <Tooltip
                             fresh
@@ -376,7 +452,7 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                     lg={14}
                     xl={14}
                 >
-                    <img
+                    <motion.img
                         src="../background/support/star.jpg"
                         style={{
                             position: 'absolute',
@@ -385,6 +461,8 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                             top: "5%",
                             zIndex: -4
                         }}
+                        variants={createFloatingVariants()}  // Apply floating animation
+                        animate="visible"
                     />
                 </Col>
                 <Col
@@ -431,8 +509,16 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                 </Col>
             </Row>
 
-            <Row style={{ paddingRight: 50, paddingLeft: 50, margin: "70px 0 20px 0" }}>
+            <Row style={{ paddingRight: 50, paddingLeft: 50, margin: "70px 0 20px 0", alignItems: "center" }}>
                 <h1 className="title-font" style={{ fontSize: "39px" }}>Our Wonderful Timeline</h1>
+                <img
+                    src="../Icon/pin.png"
+                    alt="Plus Top Right"
+                    style={{
+                        height: "50px",
+                        marginLeft: "10px"
+                    }}
+                />
             </Row>
 
             <Row style={{ color: "white", background: themeColor?.blue500, margin: '20px 50px' }}>

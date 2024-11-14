@@ -144,15 +144,6 @@ const DetailPr = () => {
                     </Col>
                 </Row>
 
-                {/* <FloatButton 
-                    type="primary"
-                    shape="square"
-                    style={{ insetInlineEnd: 0, borderRadius: 0, transform: "rotate(90deg)" }}
-                    onClick={() => console.log('onClick')} 
-                    description="HELP INFO"
-                    icon={<FileTextOutlined rev={""}/>}
-                /> */}
-
                 <div className="floating-button" onClick={() => setModal(true)}>
                     <span className="button-text">Request TDS</span>
                     <FileTextOutlined rev={""} className="button-icon" />
