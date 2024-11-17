@@ -1,23 +1,29 @@
 
 import React, { useRef } from 'react'
-import { Button, Card, Carousel, Col, Row, Tooltip } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
+import { Button, Card, Col, Row, Spin, Tooltip } from 'antd';
 import { accountabilityStyle, centerCircleStyle, centerCircleStyle2, centerCircleStyle3, chartContainerStyle, empowermentStyle, labelStyle, letterStyle, rowStyle, safetyStyle, yieldStyle } from './styles';
-import CarouselComponent from './mini-carousel/carouselComponent';
-import themeColor from '@configs/theme/themeColor';
+// import CarouselComponent from './mini-carousel/carouselComponent';
 import { PushNavigateTo } from '@utils/helpers/Route';
-import { motion, useInView, Variants } from 'framer-motion';
-import { containerVariants, createFloatingVariants, itemVariants, plusFloatingVariants, popVariants, slideLeftInVariants } from './framer-motion/motionVariants';
+import { motion, useInView } from 'framer-motion';
+import { containerVariants, createFloatingVariants, itemVariants, plusFloatingVariants, popVariants, slideLeftInVariants, slideRightInVariants } from './framer-motion/motionVariants';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 
 const MainCarousel = dynamic(() => import('./carousel'), {
-    loading: () => <div>Loading Carousel...</div>,
+    ssr: false, // Enables SSR for this dynamic import
+    loading: () => <Spin />,
 });
 
 const TimeLine = dynamic(() => import('./timeline'), {
-    loading: () => <div>Loading Timeline...</div>,
+    ssr: false, // Enables SSR for this dynamic import
+    loading: () => <Spin />,
 });
+
+const CarouselComponent = dynamic(() => import('./mini-carousel/carouselComponent'), {
+    ssr: false, // Enables SSR for this dynamic import
+    loading: () => <Spin />,
+});
+
 
 const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
     // References for sections
@@ -393,57 +399,65 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                 </Row>
             </motion.div>
 
-            <Row style={{ paddingRight: 50, paddingLeft: 50 }}>
-                <Col
-                    xs={24}
-                    md={24}
-                    lg={14}
-                    xl={14}
-                >
-                    <motion.img
-                        src="../background/support/star.jpg"
-                        style={ !isMobile ? {
-                            position: 'absolute',
-                            width: '35%',
-                            left: "3%",
-                            top: "5%",
-                            zIndex: -4
-                        } : {
-                            position: 'absolute',
-                            width: '35%',
-                            left: "3%",
-                            top: "-45vh",
-                            zIndex: -4
-                        }}
-                        variants={createFloatingVariants()}  // Apply floating animation
-                        animate="visible"
-                    />
-                </Col>
-                <Col
-                    xs={24}
-                    md={24}
-                    lg={10}
-                    xl={10}
-                >
-                    <img
-                        src="../background/support/garis-garis.jpg"
-                        style={ !isMobile ? {
-                            position: 'absolute',
-                            width: '30%',
-                            zIndex: -4
-                        } : {
-                            position: 'absolute',
-                            width: '60%',
-                            bottom: "-10vh",
-                            zIndex: -4
-                        }}
-                    />
-                    <h1 className="title-font" style={{ fontSize: "39px" }}>Our Mission</h1>
-                    <p style={{ fontSize: "25px" }}>To provide the best customer satisfaction. Trust is our priority to continuously
-                        strengthen relationships with our customers. We ensure clients get the best
-                        quality products and services with our company.</p>
-                </Col>
-            </Row>
+            <motion.div
+                ref={visionRef}
+                initial="hidden"
+                animate={isVisionInView ? "visible" : "hidden"}
+                variants={slideRightInVariants}
+                style={{ marginTop: 50 }}
+            >
+                <Row style={{ paddingRight: 50, paddingLeft: 50 }}>
+                    <Col
+                        xs={24}
+                        md={24}
+                        lg={14}
+                        xl={14}
+                    >
+                        <motion.img
+                            src="../background/support/star.jpg"
+                            style={!isMobile ? {
+                                position: 'absolute',
+                                width: '35%',
+                                left: "3%",
+                                top: "5%",
+                                zIndex: -4
+                            } : {
+                                position: 'absolute',
+                                width: '35%',
+                                left: "3%",
+                                top: "-45vh",
+                                zIndex: -4
+                            }}
+                            variants={createFloatingVariants()}  // Apply floating animation
+                            animate="visible"
+                        />
+                    </Col>
+                    <Col
+                        xs={24}
+                        md={24}
+                        lg={10}
+                        xl={10}
+                    >
+                        <img
+                            src="../background/support/garis-garis.jpg"
+                            style={!isMobile ? {
+                                position: 'absolute',
+                                width: '30%',
+                                zIndex: -4
+                            } : {
+                                position: 'absolute',
+                                width: '60%',
+                                bottom: "-10vh",
+                                zIndex: -4
+                            }}
+                        />
+                        <h1 className="title-font" style={{ fontSize: "39px" }}>Our Mission</h1>
+                        <p style={{ fontSize: "25px" }}>To provide the best customer satisfaction. Trust is our priority to continuously
+                            strengthen relationships with our customers. We ensure clients get the best
+                            quality products and services with our company.</p>
+                    </Col>
+                </Row>
+            </motion.div>
 
             <Row style={{ paddingRight: 50, paddingLeft: 50, margin: "90px 0 20px 0" }}>
                 <h1 className="title-font" style={{ fontSize: "39px" }}>Promotional & Gallery</h1>
@@ -474,15 +488,18 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
             </Row>
 
             <Row style={{ paddingRight: 50, paddingLeft: 50, margin: "70px 0 20px 0", alignItems: "center" }}>
-                <h1 className="title-font" style={{ fontSize: "39px" }}>Our Wonderful Timeline</h1>
-                <img
-                    src="../Icon/pin.png"
-                    alt="Plus Top Right"
-                    style={{
-                        height: "50px",
-                        marginLeft: "10px"
-                    }}
-                />
+                <Col xs={20} md={20} lg={8} xl={8}>
+                    <h1 className="title-font" style={{ fontSize: "39px" }}>Our Wonderful Timeline</h1>
+                </Col>
+                <Col xs={4} md={4} lg={16} xl={16}>
+                    <img
+                        src="../Icon/pin.png"
+                        alt="Plus Top Right"
+                        style={{
+                            height: "50px",
+                        }}
+                    />
+                </Col>
             </Row>
 
             <TimeLine />
@@ -496,11 +513,28 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                     {/* Preventive Solution Section */}
                     <Col xs={24} md={18} lg={18} xl={18}>
                         <div style={{ position: 'relative', textAlign: 'left' }}>
-                            <img
-                                src="../background/bg5.jpg"
+                            {/* <img
+                                src="../background/c.jpg"
                                 alt="Preventive Solution"
                                 style={{ width: '100%', borderRadius: '8px', height: '200px', objectFit: 'cover' }}
-                            />
+                            /> */}
+                            <div
+                                style={{
+                                    position: 'relative',
+                                    width: '100%',
+                                    height: '200px', // Set your desired height
+                                    borderRadius: '8px',
+                                    overflow: 'hidden', // Ensures the image respects the borderRadius
+                                }}
+                            >
+                                <Image
+                                    src="/background/bg5.jpg"
+                                    alt="Corrective Solution"
+                                    layout="fill"
+                                    objectFit="cover"
+                                    loading="lazy"
+                                />
+                            </div>
                             {isMobile && (
                                 <div style={{
                                     position: 'absolute',
@@ -546,7 +580,7 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                                     alt="Preventive Solution"
                                     style={{ width: '20%', borderRadius: '8px' }}
                                 />
-                                <h1 style={{ fontWeight: 'bold' }}>Preventive Solution</h1>
+                                <h3 style={{ fontWeight: 'bold' }}>Preventive Solution</h3>
                             </div>
                         </Col>
                     )}
@@ -566,10 +600,12 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                                 borderRadius: '8px',
                                 padding: '20px'
                             }}>
-                                <img
-                                    src="../Icon/brushes.png"
+                                <Image
+                                    src="/Icon/brushes.png"
                                     alt="Corrective Solution"
-                                    style={{ width: '30%', borderRadius: '8px' }}
+                                    width={"100%"}
+                                    height={"100px"}
+                                    loading="lazy"
                                 />
                                 <h3 style={{ fontWeight: 'bold' }}>Corrective Solution</h3>
                             </div>
@@ -577,7 +613,7 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                     )}
                     <Col xs={24} md={18} lg={18} xl={18}>
                         <div style={{ position: 'relative', textAlign: 'left' }}>
-                            <img
+                            {/* <img
                                 src="../background/bg6.jpg"
                                 alt="Corrective Solution"
                                 style={{
@@ -586,7 +622,25 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                                     borderRadius: '8px',
                                     objectFit: 'cover'
                                 }}
-                            />
+                            /> */}
+                            <div
+                                style={{
+                                    position: 'relative',
+                                    width: '100%',
+                                    height: '200px', // Set your desired height
+                                    borderRadius: '8px',
+                                    overflow: 'hidden', // Ensures the image respects the borderRadius
+                                }}
+                            >
+                                <Image
+                                    src="/background/bg6.jpg"
+                                    alt="Corrective Solution"
+                                    layout="fill"
+                                    objectFit="cover"
+                                    loading="lazy"
+                                />
+                            </div>
+
                             {isMobile && (
                                 <div style={{
                                     position: 'absolute',

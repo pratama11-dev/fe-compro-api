@@ -3,13 +3,14 @@ import HeadPage from "@components/Global/Header/HeadPage";
 import useNavbar from "@layouts/customHooks/useNavbar";
 import { useState } from "react";
 import Header from "@components/Global/Header/Header";
-import { Button, Col, Divider, Form, Image, Input, Row, Typography } from "antd";
+import { Button, Col, Divider, Form, Input, Row, Typography } from "antd";
 import { PushpinOutlined } from "@ant-design/icons";
 import useWindowSize from "@utils/helpers/ReactHelper";
 import { AdminRoutes } from "@configs/route/SidebarRoute";
 import MobileSidebar from "@components/Global/MobileSidebar";
 import themeColor from "@configs/theme/themeColor";
 import HomeScreen from "@components/home";
+import Image from "next/image";
 
 const { Text } = Typography;
 
@@ -79,10 +80,10 @@ function Home(session: Sessions) {
           <Col xs={24} sm={24} md={8} lg={8}>
             {/* <h2>Logo</h2> */}
             <Image
-              src="../white_logo.png"
+              src="/white_logo.png"
               alt="Company Logo"
-              preview={false}
-              width={"37%"}
+              // layout="fill"
+              width={"125%"}
               height={"120px"}
             />
             {/* <Image src="/assets/icons/logo_r_kultur.png" alt="logo" className="py-2 logo" height={50} width={210} /> */}

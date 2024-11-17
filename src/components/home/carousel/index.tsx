@@ -16,7 +16,7 @@ const MainCarousel = ({ isMobile }: { isMobile: boolean }) => {
     const titleResponsiveStyle = {
         ...titleStyle,
         fontSize: isMobile ? '36px' : '61px',
-        padding: isMobile ? '50px 50px' : '0 300px',
+        padding: isMobile ? '50px 50px' : '80px 300px',
         lineHeight: isMobile ? "38px" : '76px',
     };
 
@@ -33,14 +33,14 @@ const MainCarousel = ({ isMobile }: { isMobile: boolean }) => {
     };
 
     return (
-        <Carousel autoplay autoplaySpeed={2000} effect="fade">
+        <Carousel autoplay autoplaySpeed={2000} effect="fade" lazyLoad="progressive">
             {arrImage.map((x, index) => (
                 <motion.div key={index} variants={itemVariants} style={carouselContainerStyle}>
                     <motion.div
                         style={backgroundImageStyle1}
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 1.5, delay: index * 0.5 }}
+                        transition={{ duration: 1.5 }}
                         key={index}
                     >
                         <div style={{ width: '100%', height: '800px', backgroundSize: 'cover', }}>
@@ -48,6 +48,7 @@ const MainCarousel = ({ isMobile }: { isMobile: boolean }) => {
                                 src={x}
                                 alt="Background Image"
                                 layout='fill'
+                                quality={75} 
                                 style={{ backgroundSize: "cover" }}
                                 objectFit="cover" // Ensures the image covers the container
                                 objectPosition="center"
@@ -57,9 +58,9 @@ const MainCarousel = ({ isMobile }: { isMobile: boolean }) => {
                     <motion.h1
                         style={titleResponsiveStyle}
                         className='intro'
-                        initial={{ y: -50, opacity: 0 }}
+                        initial={{ y: -30, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 0.7, delay: 0.3 }}
+                        transition={{ duration: 0.5 }}
                     >
                         “Your Trusted Partner in <br /> Corrosion Maintenance and <br /> Industry Solutions”
                     </motion.h1>
@@ -67,13 +68,19 @@ const MainCarousel = ({ isMobile }: { isMobile: boolean }) => {
                         style={subtitleResponsiveStyle}
                         initial={{ y: 50, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 0.7, delay: 0.6 }}
+                        transition={{ duration: 0.9 }}
                     >
                         Our strong commitment to integrity and honesty and our dedication <br />
                         to provide our customers the finest service possible.
                     </motion.p>
                     <Row justify={"center"}>
-                        <Button style={buttonResponsiveStyle} type="primary">Get Started</Button>
+                        <motion.div
+                            initial={{ y: 50, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 0.2 }}
+                        >
+                            <Button style={buttonResponsiveStyle} type="primary">Get Started</Button>
+                        </motion.div>
                     </Row>
 
                     <motion.div

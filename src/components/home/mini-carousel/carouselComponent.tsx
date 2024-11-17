@@ -56,19 +56,20 @@ const CarouselComponent = () => {
         style={{
           overflow: "hidden",
           width: "100%",
-          height: "300px",
+          height: "330px",
           borderRadius: "8px",
         }}
       >
         <div style={{ display: "flex" }}>
           {thumbnails.map((thumbnail, index) => (
-            <div key={index} style={{ flex: "0 0 100%", height: "300px", position: "relative" }}>
+            <div key={index} style={{ flex: "0 0 100%", height: "330px", position: "relative" }}>
               <Image
                 src={thumbnail}
                 alt={`Slide ${index + 1}`}
                 layout="fill"
                 objectFit="cover"
                 objectPosition="center"
+                loading="lazy"
               />
             </div>
           ))}
@@ -94,7 +95,7 @@ const CarouselComponent = () => {
                 borderRadius: "4px",
                 overflow: "hidden",
                 width: "60px",
-                height: "60px",
+                height: "100%",
               }}
               onClick={() => scrollTo(index)}
             >

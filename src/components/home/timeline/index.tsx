@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'antd';
 import themeColor from '@configs/theme/themeColor';
+import Image from 'next/image';
 
 // Define the type for a timeline item
 interface TimelineItem {
@@ -70,33 +71,25 @@ const Timeline: React.FC<TimelineProps> = () => {
             </Col>
             <Col xs={24} md={12}>
                 <TimelineSection items={rightItems} listStyleImage="../Icon/dot.png" />
-                <ul style={{ listStyle: 'none', paddingLeft: 20, position: 'relative' }}>
+                <ul style={{ listStyle: 'none', paddingLeft: 0, position: 'relative' }}>
                     <Row align="middle">
-                        <Col>
-                            <li style={{ position: 'relative' }}>
-                                <span
-                                    style={{
-                                        position: 'absolute',
-                                        left: -25,
-                                        top: '50%',
-                                        transform: 'translateY(-50%)',
-                                        width: 15,
-                                        height: 15,
-                                        backgroundImage: 'url(../Icon/dot_li.png)',
-                                        backgroundSize: 'contain',
-                                        backgroundRepeat: 'no-repeat',
-                                        display: 'inline-block',
-                                    }}
-                                ></span>
-                                <h2>2024</h2>
-                                <p style={{ marginTop: 20, marginBottom: 20 }}>Continuing our wonderful journey!</p>
-                            </li>
+                        <Image
+                            src={"/Icon/dot_li.png"}
+                            alt="Company Logo"
+                            width={13}
+                            height={15}
+                        />
+                        <Col style={{ marginLeft: 10 }}>
+                            <h2>2024</h2>
+                            <p style={{ marginTop: 20, marginBottom: 20 }}>Continuing our wonderful journey!</p>
                         </Col>
                         <Col>
-                            <img
-                                src="../Icon/star.png"
-                                alt="Preventive Solution"
-                                style={{ width: '30px', borderRadius: '8px', objectFit: 'cover' }}
+                            <Image
+                                src="/Icon/star.png"
+                                alt="Company Logo"
+                                // layout="fill"
+                                width={"30%"}
+                                height={"30px"}
                             />
                         </Col>
                     </Row>

@@ -67,6 +67,7 @@ const DetailPr = () => {
                             bordered={false}
                             cover={
                                 <Image
+                                    loading="lazy"
                                     alt={`Image ${index + 1}`}
                                     src={src}
                                     layout="fill"
@@ -99,6 +100,7 @@ const DetailPr = () => {
                                 <Image
                                     alt={`Image ${index + 1}`}
                                     src={src}
+                                    loading="lazy"
                                     objectFit="cover"
                                     objectPosition="center"
                                     width={500}
