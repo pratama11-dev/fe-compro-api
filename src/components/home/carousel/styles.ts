@@ -19,47 +19,9 @@ export const backgroundImageStyle1: React.CSSProperties = {
     position: 'absolute',
     top: 0,
     left: 0,
-    width: '100%',
-    height: '100%',
-    backgroundImage: "url('/background/bg_1.png')",
+    width: "100%",
+    overflow: "hidden",
     backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    zIndex: -1,
-};
-
-export const backgroundImageStyle2: React.CSSProperties = {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    backgroundImage: "url('/background/bg_2.png')",
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    zIndex: -1,
-};
-
-export const backgroundImageStyle3: React.CSSProperties = {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    backgroundImage: "url('/background/bg_3.jpg')",
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    zIndex: -1,
-};
-
-export const backgroundImageStyle4: React.CSSProperties = {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    backgroundImage: "url('/background/bg_4.png')",
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
     zIndex: -1,
 };
 

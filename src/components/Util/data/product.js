@@ -26,13 +26,13 @@ export const products = {
       "Combat corrosion under insulation (CUI)",
     ],
     images: [
-      "../S2S_PLID_Wrap/Annular_Tank_(before).jpg",
-      "../S2S_PLID_Wrap/Annular_Tank_1_(Before).jpg",
-      "../S2S_PLID_Wrap/Annular_Tank-2.jpg",
-      "../S2S_PLID_Wrap/Annular_Tank.jpg",
-      "../S2S_PLID_Wrap/S2S_Splashzone.jpg",
-      "../S2S_PLID_Wrap/S2S_Wellhead.png",
-      "../S2S_PLID_Wrap/S2S.jpg",
+      "/S2S_PLID_Wrap/Annular_Tank_(before).jpg",
+      "/S2S_PLID_Wrap/Annular_Tank_1_(Before).jpg",
+      "/S2S_PLID_Wrap/Annular_Tank-2.jpg",
+      "/S2S_PLID_Wrap/Annular_Tank.jpg",
+      "/S2S_PLID_Wrap/S2S_Splashzone.jpg",
+      "/S2S_PLID_Wrap/S2S_Wellhead.png",
+      "/S2S_PLID_Wrap/S2S.jpg",
     ],
   },
   S2S_HD_Corrosion_Shield: {
@@ -63,13 +63,13 @@ export const products = {
       "Bottom of ballast tank plating",
     ],
     images: [
-      "../S2S HD Corrosion Shield/Image_1.jpg",
-      "../S2S HD Corrosion Shield/Image_2_1.jpg",
-      "../S2S HD Corrosion Shield/Image_2.jpg",
-      "../S2S HD Corrosion Shield/Image_3_(after).jpg",
-      "../S2S HD Corrosion Shield/Image_3_(before).jpg",
-      "../S2S HD Corrosion Shield/Image_4.jpg",
-      "../S2S HD Corrosion Shield/Image_5.jpg",
+      "/S2S HD Corrosion Shield/Image_1.jpg",
+      "/S2S HD Corrosion Shield/Image_2_1.jpg",
+      "/S2S HD Corrosion Shield/Image_2.jpg",
+      "/S2S HD Corrosion Shield/Image_3_(after).jpg",
+      "/S2S HD Corrosion Shield/Image_3_(before).jpg",
+      "/S2S HD Corrosion Shield/Image_4.jpg",
+      "/S2S HD Corrosion Shield/Image_5.jpg",
     ],
   },
   "S2S_Void_&_Rudder_Float_Coat": {
@@ -79,11 +79,11 @@ export const products = {
     advantages: [],
     uses: [],
     images: [
-      "../S2S Void and Rudder Coat/Image%201.jpg",
-      "../S2S Void and Rudder Coat/Image%202.jpg",
-      "../S2S Void and Rudder Coat/Image%203.jpg",
-      "../S2S Void and Rudder Coat/Image%204.png",
-      "../S2S Void and Rudder Coat/Image%205.jpg",
+      "/S2S Void and Rudder Coat/Image%201.jpg",
+      "/S2S Void and Rudder Coat/Image%202.jpg",
+      "/S2S Void and Rudder Coat/Image%203.jpg",
+      "/S2S Void and Rudder Coat/Image%204.png",
+      "/S2S Void and Rudder Coat/Image%205.jpg",
     ],
   },
   TDS_by_Request: {
@@ -161,12 +161,12 @@ export const products = {
       "Bolts and pins",
     ],
     images: [
-      "../S2S Anchor Chain/Image%201.jpg",
-      "../S2S Anchor Chain/Image%202.jpg",
-      "../S2S Anchor Chain/Image%203.jpg",
-      "../S2S Anchor Chain/Image%204.jpg",
-      "../S2S Anchor Chain/Image%205%20(after).jpg",
-      "../S2S Anchor Chain/Image%205%20(before).jpg",
+      "/S2S Anchor Chain/Image%201.jpg",
+      "/S2S Anchor Chain/Image%202.jpg",
+      "/S2S Anchor Chain/Image%203.jpg",
+      "/S2S Anchor Chain/Image%204.jpg",
+      "/S2S Anchor Chain/Image%205%20(after).jpg",
+      "/S2S Anchor Chain/Image%205%20(before).jpg",
     ],
   },
   S2S_Automotive_Rust_Proofing: {
@@ -198,12 +198,12 @@ export const products = {
       "Engine bays",
     ],
     images: [
-      "../S2S Automotive/Image%201.jpg",
-      "../S2S Automotive/Image%202.jpg",
-      "../S2S Automotive/Image%203%20(after).jpg",
-      "../S2S Automotive/Image%203%20(before).jpg",
-      "../S2S Automotive/Image%204.jpg",
-      "../S2S Automotive/Image%205.jpg",
+      "/S2S Automotive/Image%201.jpg",
+      "/S2S Automotive/Image%202.jpg",
+      "/S2S Automotive/Image%203%20(after).jpg",
+      "/S2S Automotive/Image%203%20(before).jpg",
+      "/S2S Automotive/Image%204.jpg",
+      "/S2S Automotive/Image%205.jpg",
     ],
   },
   Non_firming_anticorrosion_wrap: {
@@ -222,7 +222,7 @@ export const products = {
     ],
     img_type: "fit-in",
     logo: [
-      "../background/Trenton.png",
+      "/background/Trenton.png",
     ],
     video: [
       "https://www.youtube.com/embed/T9OvwS3gpfQ",
@@ -245,7 +245,7 @@ export const products = {
     ],
     img_type: "fit-in",
     logo: [
-      "../background/Trenton.png",
+      "/background/Trenton.png",
     ],
     video: [
       "https://www.youtube.com/embed/T9OvwS3gpfQ",
@@ -262,7 +262,7 @@ export const products = {
     ],
     img_type: "fit-in",
     logo: [
-      "../background/Trenton.png",
+      "/background/Trenton.png",
     ],
     video: [
       "https://www.youtube.com/embed/T9OvwS3gpfQ",
@@ -287,7 +287,7 @@ export const products = {
     ],
     img_type: "fit-in",
     logo: [
-      "../background/Trenton.png",
+      "/background/Trenton.png",
     ],
     video: [
       "https://www.youtube.com/embed/T9OvwS3gpfQ",
@@ -313,7 +313,7 @@ export const products = {
     ],
     img_type: "fit-in",
     logo: [
-      "../background/Trenton.png",
+      "/background/Trenton.png",
     ],
     video: [
       "https://www.youtube.com/embed/T9OvwS3gpfQ",
@@ -348,7 +348,7 @@ export const products = {
     ],
     img_type: "fit-in",
     logo: [
-      "../background/Trenton.png",
+      "/background/Trenton.png",
     ],
     video: [
       "https://www.youtube.com/embed/T9OvwS3gpfQ",
@@ -373,7 +373,7 @@ export const products = {
     ],
     img_type: "fit-in",
     logo: [
-      "../background/Trenton.png",
+      "/background/Trenton.png",
     ],
     video: [
       "https://www.youtube.com/embed/T9OvwS3gpfQ",
@@ -406,10 +406,10 @@ export const products = {
       "Wencon Ceramic Coating has a high abrasion resistance, making it suitable for applications on propeller nozzles, rudders, thruster tunnels, and housings. Typical applications are the coating of surfaces rebuilt after deterioration and protection against wear, corrosion, and bi-metallic corrosion. In addition, the product also offers high-temperature resistance, which makes it ideal for applications on gas scrubbers, condensers, and end-covers.",
     ],
     logo:[
-      "../wecon_coating/wencon.png",
+      "/wecon_coating/wencon.png",
     ],
     images: [
-      "../wecon_coating/wencon%201.jpg",
+      "/wecon_coating/wencon%201.jpg",
     ],
   },
   Weoncon_Ceramic_Cream: {
@@ -438,10 +438,10 @@ export const products = {
       "Wencon Ceramic Cream has high abrasion resistance, making it suitable for applications on propeller nozzles, rudders, thruster tunnels, and housings. In addition, the product also offers high-temperature resistance, which makes it ideal for applications on gas scrubbers, condensers, and end covers",
     ],
     logo:[
-      "../wecon_coating/wencon.png",
+      "/wecon_coating/wencon.png",
     ],
     images: [
-      "../wecon_coating/wencon%202.jpg",
+      "/wecon_coating/wencon%202.jpg",
     ],
   },
   "EonCoat_Corrosion_Protection_(CP)": {
@@ -471,10 +471,10 @@ export const products = {
       "Marine – Structures and Offshore",
     ],
     images: [
-      "../Eon Coat Corrosion Protection/CP 2.png",
-      "../Eon Coat Corrosion Protection/CP 3.jpg",
-      "../Eon Coat Corrosion Protection/Eoncoat 1.jpg",
-      "../Eon Coat Corrosion Protection/Eoncoat CP.jpeg",
+      "/Eon Coat Corrosion Protection/CP 2.png",
+      "/Eon Coat Corrosion Protection/CP 3.jpg",
+      "/Eon Coat Corrosion Protection/Eoncoat 1.jpg",
+      "/Eon Coat Corrosion Protection/Eoncoat CP.jpeg",
     ],
   },
   EonCoat_CUI: {
@@ -498,9 +498,9 @@ export const products = {
       "For use over properly prepared steel in the following industrial environments: Recommended service temperature -250F to 750°F (-155°C through 400°C)",
     ],
     images: [
-      "../Eon Coat CUI/CUI Banner.jpg",
-      "../Eon Coat CUI/CUI Bucket and Cartridge.png",
-      "../Eon Coat CUI/Insulated tank.jpg",
+      "/Eon Coat CUI/CUI Banner.jpg",
+      "/Eon Coat CUI/CUI Bucket and Cartridge.png",
+      "/Eon Coat CUI/Insulated tank.jpg",
     ],
   },
   //   corretive
@@ -529,11 +529,11 @@ export const products = {
       "MIC",
     ],
     images: [
-      "../CarbonSeal/Carbonseal 1.jpeg",
-      "../CarbonSeal/Carbonseal 2.jpeg",
-      "../CarbonSeal/Hj 3.jpg",
-      "../CarbonSeal/Hj3_Pipe1.jpg",
-      "../CarbonSeal/Pipe carbonseal.jpeg",
+      "/CarbonSeal/Carbonseal 1.jpeg",
+      "/CarbonSeal/Carbonseal 2.jpeg",
+      "/CarbonSeal/Hj 3.jpg",
+      "/CarbonSeal/Hj3_Pipe1.jpg",
+      "/CarbonSeal/Pipe carbonseal.jpeg",
     ],
   },
   StrongHold: {
@@ -552,8 +552,8 @@ export const products = {
     ],
     uses: ["Column", "Slab", "Wall", "Beam", "Pedestal", "Piles"],
     images: [
-      "../Stronghold/Stronghold 1.jpeg",
-      "../Stronghold/Stronghold 2.jpeg",
+      "/Stronghold/Stronghold 1.jpeg",
+      "/Stronghold/Stronghold 2.jpeg",
     ],
   },
   TankWrap: {
@@ -582,11 +582,11 @@ export const products = {
       "Weld Defects",
     ],
     images: [
-      "../TankWrap/HJ3_Tnak.jpg",
-      "../TankWrap/Tank 1.jpg",
-      "../TankWrap/Tank 2.jpg",
-      "../TankWrap/Tank 3.jpg",
-      "../TankWrap/Tankwrap 1.jpeg",
+      "/TankWrap/HJ3_Tnak.jpg",
+      "/TankWrap/Tank 1.jpg",
+      "/TankWrap/Tank 2.jpg",
+      "/TankWrap/Tank 3.jpg",
+      "/TankWrap/Tankwrap 1.jpeg",
     ],
   },
   ChemSeal: {
@@ -608,10 +608,10 @@ export const products = {
       "API 652 compliant storage tank linings",
     ],
     images: [
-      "../ChemSeal/Chemical Trenches.jpg",
-      "../ChemSeal/ChemSeal 1.jpg",
-      "../ChemSeal/ChemSeal 2.jpg",
-      "../ChemSeal/ChemSeal API 652.jpg",
+      "/ChemSeal/Chemical Trenches.jpg",
+      "/ChemSeal/ChemSeal 1.jpg",
+      "/ChemSeal/ChemSeal 2.jpg",
+      "/ChemSeal/ChemSeal API 652.jpg",
     ],
   },
   GlassSeal: {
@@ -633,10 +633,10 @@ export const products = {
       "Soil to Air Interface Corrosion in low-risk applications",
     ],
     images: [
-      "../GlassSeal/GlassSeal 1.jpg",
-      "../GlassSeal/GlassSeal 2.jpg",
-      "../GlassSeal/GlassSeal 3.jpg",
-      "../GlassSeal/GlassSeal 4.jpg",
+      "/GlassSeal/GlassSeal 1.jpg",
+      "/GlassSeal/GlassSeal 2.jpg",
+      "/GlassSeal/GlassSeal 3.jpg",
+      "/GlassSeal/GlassSeal 4.jpg",
     ],
   },
   Corrwrap: {

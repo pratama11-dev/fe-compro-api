@@ -4,11 +4,12 @@ import themeColor from "@configs/theme/themeColor";
 import { openLinkedIn, openWhatsApp } from "@pages/index";
 import useWindowSize from "@utils/helpers/ReactHelper";
 import { PushNavigateTo } from "@utils/helpers/Route";
-import { Button, Col, Image, Menu, Row, Typography } from "antd";
+import { Button, Col, Menu, Row, Typography } from "antd";
 import { Header } from "antd/lib/layout/layout";
 import { useRouter } from "next/router";
 import { Sessions } from "types/Session";
 import { Link } from "react-scroll";
+import Image from "next/image";
 
 type HeaderProps = {
   toggleDrawer: () => void;
@@ -46,6 +47,7 @@ function HeaderOur({ toggleDrawer }: HeaderProps) {
           background: themeColor?.blue500,
           height: !isMobile ? "132px" : undefined,
           padding: 0,
+          alignItems: "center"
         }}
       >
         {/* Top Row with Company Info and Contact Email */}
@@ -73,7 +75,7 @@ function HeaderOur({ toggleDrawer }: HeaderProps) {
         <Row
           style={{
             padding: "0 50px",
-            height: !isMobile ? "84px" : undefined,
+            height: !isMobile ? "84px" : "64px",
             alignItems: "center",
             color: themeColor?.white,
           }}
@@ -81,16 +83,13 @@ function HeaderOur({ toggleDrawer }: HeaderProps) {
           justify="space-between"
         >
           {/* Logo Section */}
-          <Col>
-            <Image
-              src="../white_logo.png"
-              alt="Company Logo"
-              preview={false}
-              width={"100%"}
-              height={44}
-            />
-            {/* <h3 style={{ margin: 0 }}>Logo</h3> */}
-          </Col>
+          <Image
+            style={{ paddingTop: 10 }}
+            src="/white_logo.png"
+            alt="Company Logo"
+            width={"70%"}
+            height={50}
+          />
 
           {!isMobile ? (
             <>

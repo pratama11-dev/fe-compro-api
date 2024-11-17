@@ -209,6 +209,12 @@ input::placeholder {
   color: white !important;
 }
 
+/* .green-li ul::before {
+  font-size: 20px;
+  width: 96px;
+  height: 96px;
+} */
+
 /* Adjust button size based on screen size */
 @media (max-width: 768px) {
   .fc-button {

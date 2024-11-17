@@ -7,6 +7,7 @@ import DashboardLayout from "@layouts/DashboardLayout";
 import { Button, Card, Col, FloatButton, List, Row, Typography } from "antd";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
+import Image from "next/image";
 
 const { Title, Paragraph } = Typography;
 
@@ -58,17 +59,17 @@ const DetailPr = () => {
                             hoverable
                             style={{
                                 display: "inline-block",
-                                width: 500,
+                                width: 400,
                                 marginRight: 16,
                                 boxShadow: "none",
                             }}
                             bodyStyle={{ width: 0, padding: 0 }}
                             bordered={false}
                             cover={
-                                <img
+                                <Image
                                     alt={`Image ${index + 1}`}
                                     src={src}
-                                    style={{ width: "100%", height: "auto", objectFit: "cover" }}
+                                    layout="fill"
                                 />
                             }
                         />
@@ -95,10 +96,13 @@ const DetailPr = () => {
                             bodyStyle={{ width: 0, padding: 0 }}
                             bordered={false}
                             cover={
-                                <img
+                                <Image
                                     alt={`Image ${index + 1}`}
                                     src={src}
-                                    style={{ width: "100%", height: img_type !== "fit-in" ? "300px" : "auto", objectFit: "cover" }}
+                                    objectFit="cover"
+                                    objectPosition="center"
+                                    width={500}
+                                    height={300}
                                 />
                             }
                         />
@@ -108,6 +112,7 @@ const DetailPr = () => {
                 <div style={{ overflowX: "auto", whiteSpace: "nowrap", padding: images?.length > 0 ? "10px 0" : 0 }}>
                     {video?.map((src: string, index: number) => (
                         <iframe
+                            loading="lazy"
                             key={index}
                             width="50%"
                             height="400"

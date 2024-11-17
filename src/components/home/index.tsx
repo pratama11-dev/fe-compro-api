@@ -1,7 +1,6 @@
 
 import React, { useRef } from 'react'
-import { backgroundImageStyle1, backgroundImageStyle2, backgroundImageStyle4, buttonStyle, carouselContainerStyle, subtitleStyle, titleStyle } from './carousel/styles';
-import { Button, Card, Carousel, Col, Image, Row, Tooltip } from 'antd';
+import { Button, Card, Carousel, Col, Row, Tooltip } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { accountabilityStyle, centerCircleStyle, centerCircleStyle2, centerCircleStyle3, chartContainerStyle, empowermentStyle, labelStyle, letterStyle, rowStyle, safetyStyle, yieldStyle } from './styles';
 import CarouselComponent from './mini-carousel/carouselComponent';
@@ -9,30 +8,18 @@ import themeColor from '@configs/theme/themeColor';
 import { PushNavigateTo } from '@utils/helpers/Route';
 import { motion, useInView, Variants } from 'framer-motion';
 import { containerVariants, createFloatingVariants, itemVariants, plusFloatingVariants, popVariants, slideLeftInVariants } from './framer-motion/motionVariants';
+import dynamic from 'next/dynamic';
+import Image from 'next/image';
+
+const MainCarousel = dynamic(() => import('./carousel'), {
+    loading: () => <div>Loading Carousel...</div>,
+});
+
+const TimeLine = dynamic(() => import('./timeline'), {
+    loading: () => <div>Loading Timeline...</div>,
+});
 
 const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
-    const videoSrc = "../background/Video_Ayes.mp4"; // Video source for the left side
-
-    const titleResponsiveStyle = {
-        ...titleStyle,
-        fontSize: isMobile ? '36px' : '61px',
-        padding: isMobile ? '0 50px' : '0 300px',
-        lineHeight: isMobile ? "38px" : '76px',
-    };
-
-    const subtitleResponsiveStyle = {
-        ...subtitleStyle,
-        fontSize: isMobile ? '18px' : '25px',
-        padding: isMobile ? '0 50px' : '0 300px',
-    };
-
-    const buttonResponsiveStyle = {
-        ...buttonStyle,
-        fontSize: isMobile ? '12px' : '16px',
-        padding: isMobile ? '10px 20px' : '20px 30px',
-    };
-
-
     // References for sections
     const carouselRef = useRef(null);
     const aboutRef = useRef(null);
@@ -59,50 +46,9 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                 variants={containerVariants}
                 style={{ height: "790px", position: "relative" }}
             >
-                <Carousel autoplay effect="fade">
-                    {[backgroundImageStyle1, backgroundImageStyle2, backgroundImageStyle4].map((bgStyle, index) => (
-                        <motion.div key={index} variants={itemVariants} style={carouselContainerStyle}>
-                            <motion.div
-                                style={bgStyle}
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 1.5, delay: index * 0.5 }}
-                            />
-                            <motion.h1
-                                style={titleResponsiveStyle}
-                                className='intro'
-                                initial={{ y: -50, opacity: 0 }}
-                                animate={{ y: 0, opacity: 1 }}
-                                transition={{ duration: 0.7, delay: 0.3 }}
-                            >
-                                “Your Trusted Partner in <br /> Corrosion Maintenance and <br /> Industry Solutions”
-                            </motion.h1>
-                            <motion.p
-                                style={subtitleResponsiveStyle}
-                                initial={{ y: 50, opacity: 0 }}
-                                animate={{ y: 0, opacity: 1 }}
-                                transition={{ duration: 0.7, delay: 0.6 }}
-                            >
-                                Our strong commitment to integrity and honesty and our dedication <br />
-                                to provide our customers the finest service possible.
-                            </motion.p>
-                            <Row justify={"center"}>
-                                <Button style={buttonResponsiveStyle} type="primary">Get Started</Button>
-                            </Row>
-
-                            <motion.div
-                                variants={plusFloatingVariants}
-                                animate="visible"
-                            >
-                                <Row justify={"center"}>
-                                    <DownOutlined
-                                        rev={''}
-                                        style={{ marginTop: '20px', fontSize: '24px', color: '#fff', zIndex: 1 }} />
-                                </Row>
-                            </motion.div>
-                        </motion.div>
-                    ))}
-                </Carousel>
+                <MainCarousel
+                    isMobile={isMobile}
+                />
             </motion.div>
 
             {/* About Section with Fade-in and Slide-in */}
@@ -122,7 +68,7 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                         Who We Are?
                     </motion.h1>
                 </Row>
-                <Row style={{ paddingRight: 50, paddingLeft: 50 }}>
+                <Row style={{ paddingRight: 50, paddingLeft: 50 }} align={"middle"}>
                     <Col xs={24} md={24} lg={12} xl={12}>
                         <img
                             src="../background/support/garis2.png"
@@ -135,12 +81,14 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                             }}
                         />
                         <motion.div variants={itemVariants}>
-                            <Image
-                                src={"../logo_primary.png"}
-                                preview={false}
-                                width={!isMobile ? 450 : undefined}
-                                style={{ borderStyle: "solid", marginLeft: !isMobile ? "25%" : 0, padding: "40px", borderColor: themeColor?.gray500, background: themeColor?.gray100 }}
-                            />
+                            <Row justify={"center"} align={"middle"}>
+                                <Image
+                                    src={"/logo_primary.png"}
+                                    width={!isMobile ? 450 : 350}
+                                    height={300}
+                                    objectPosition="center"
+                                />
+                            </Row>
                         </motion.div>
                     </Col>
                     <Col xs={24} md={24} lg={10} xl={10}>
@@ -454,11 +402,17 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                 >
                     <motion.img
                         src="../background/support/star.jpg"
-                        style={{
+                        style={ !isMobile ? {
                             position: 'absolute',
                             width: '35%',
                             left: "3%",
                             top: "5%",
+                            zIndex: -4
+                        } : {
+                            position: 'absolute',
+                            width: '35%',
+                            left: "3%",
+                            top: "-45vh",
                             zIndex: -4
                         }}
                         variants={createFloatingVariants()}  // Apply floating animation
@@ -473,9 +427,14 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                 >
                     <img
                         src="../background/support/garis-garis.jpg"
-                        style={{
+                        style={ !isMobile ? {
                             position: 'absolute',
                             width: '30%',
+                            zIndex: -4
+                        } : {
+                            position: 'absolute',
+                            width: '60%',
+                            bottom: "-10vh",
                             zIndex: -4
                         }}
                     />
@@ -494,14 +453,8 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                 {/* Left Side - Video Section */}
                 <Col xs={24} md={12} lg={12} xl={12}>
                     <div style={{ position: 'relative' }}>
-                        {/* <video
-                            controls
-                            // src={videoSrc}
-                            src={'https://youtu.be/oZUW8viDUV0'}
-                            style={{ width: '100%', borderRadius: '8px' }}
-                            poster="path-to-video-poster.jpg" // Optional: Poster image before play
-                        /> */}
                         <iframe
+                            loading="lazy"
                             width="100%"
                             height="400"
                             src="https://www.youtube.com/embed/oZUW8viDUV0"
@@ -532,59 +485,7 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
                 />
             </Row>
 
-            <Row style={{ color: "white", background: themeColor?.blue500, margin: '20px 50px' }}>
-                <Col xs={24} md={12} lg={12} xl={12}>
-                    <ul style={{ listStyleImage: 'url(../Icon/dot.png)' }}>
-                        <li style={{ paddingBottom: 15, paddingTop: 15 }}>
-                            <h2>2016</h2>
-                            <p style={{ marginTop: 20, marginBottom: 20 }}>Founded in Cilegon, <br /> Banten Province, Indonesia</p>
-                        </li>
-                        <li style={{ paddingBottom: 15, paddingTop: 15 }}>
-                            <h2>2017</h2>
-                            <p style={{ marginTop: 20, marginBottom: 20 }}>Representing s2s corrosion preventive solution for Indonesia market</p>
-                        </li>
-                        <li style={{ paddingBottom: 15, paddingTop: 15 }}>
-                            <h2>2018</h2>
-                            <p style={{ marginTop: 20, marginBottom: 20 }}>Representing Emergency Leak Stopper Made by Composite MCU System Cor Wrap</p>
-                        </li>
-                        <li style={{ paddingBottom: 15, paddingTop: 15 }}>
-                            <h2>2019</h2>
-                            <p style={{ marginTop: 20, marginBottom: 20 }}>Representing Engineered Composite System for Pressurized facilities and Structural Repair & Reinforcement</p>
-                        </li>
-                    </ul>
-                </Col>
-                <Col xs={24} md={12} lg={12} xl={12}>
-                    <ul style={{ listStyleImage: 'url(../Icon/dot.png)' }}>
-                        <li style={{ paddingBottom: 15, paddingTop: !isMobile ? 15 : 0 }}>
-                            <h2>2020</h2>
-                            <p style={{ marginTop: 20, marginBottom: 20 }}>Focusing Our Business to Supply Goods and Services Related to Corrosion Maintenance Solution (Preventive and Corrective Method)</p>
-                        </li>
-                        <li style={{ paddingBottom: 15, paddingTop: 15 }}>
-                            <h2>2022</h2>
-                            <p style={{ marginTop: 20, marginBottom: 20 }}>Representing EONCOAT High Temp. External Corrosion Protection with Coating System for Steam and Corrosion Under Insulation (CUI)</p>
-                        </li>
-                        <li style={{ paddingBottom: 15, paddingTop: 15 }}>
-                            <h2>2023</h2>
-                            <p style={{ marginTop: 20, marginBottom: 20 }}>Representing Wencon Epoxy Ceramic Coating For Indonesian Market</p>
-                        </li>
-                        <Row align={"middle"}>
-                            <Col>
-                                <li style={{ paddingBottom: 15, paddingTop: 15 }}>
-                                    <h2>2024</h2>
-                                    <p style={{ marginTop: 20, marginBottom: 20 }}>Continuing our wonderful journey!</p>
-                                </li>
-                            </Col>
-                            <Col>
-                                <img
-                                    src="../Icon/star.png"
-                                    alt="Preventive Solution"
-                                    style={{ width: '30px', borderRadius: '8px', objectFit: 'cover' }}
-                                />
-                            </Col>
-                        </Row>
-                    </ul>
-                </Col>
-            </Row>
+            <TimeLine />
 
             <Row style={{ paddingRight: 50, paddingLeft: 50, marginTop: 70 }} justify={"center"} id="services">
                 <h1 className="title-font" style={{ fontSize: "39px", textAlign: "center" }}>Product & Services</h1>

@@ -1,4 +1,5 @@
 import useEmblaCarousel from "embla-carousel-react";
+import Image from "next/image";
 import { useState, useCallback, useEffect } from "react";
 
 const CarouselComponent = () => {
@@ -7,47 +8,67 @@ const CarouselComponent = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const thumbnails = [
-    "../background/carousel/1.jpeg",
-    "../background/carousel/2.jpeg",
-    "../background/carousel/3.jpeg",
-    "../background/carousel/4.jpeg",
-    "../background/carousel/5.jpeg",
-    "../background/carousel/6.jpg",
-    "../background/carousel/7.jpg",
-    "../background/carousel/8.jpg",
+    "/background/carousel/1.jpeg",
+    "/background/carousel/2.jpeg",
+    "/background/carousel/3.jpeg",
+    "/background/carousel/4.jpeg",
+    "/background/carousel/5.jpeg",
+    "/background/carousel/6.jpg",
+    "/background/carousel/7.jpg",
+    "/background/carousel/8.jpg",
   ];
 
   const onSelect = useCallback(() => {
-    if (!mainEmblaApi || !thumbEmblaApi) return;
-    setSelectedIndex(mainEmblaApi.selectedScrollSnap());
-    thumbEmblaApi.scrollTo(mainEmblaApi.selectedScrollSnap());
+    if (!mainEmblaApi) return;
+    const currentIndex = mainEmblaApi.selectedScrollSnap();
+    setSelectedIndex(currentIndex);
+
+    if (thumbEmblaApi) {
+      thumbEmblaApi.scrollTo(currentIndex, true); // Sync the thumbnail carousel
+    }
   }, [mainEmblaApi, thumbEmblaApi]);
+
+  const scrollTo = useCallback(
+    (index) => {
+      if (mainEmblaApi) {
+        mainEmblaApi.scrollTo(index, true);
+      }
+      setSelectedIndex(index); // Update the selected index for thumbnails
+    },
+    [mainEmblaApi]
+  );
 
   useEffect(() => {
     if (!mainEmblaApi) return;
     mainEmblaApi.on("select", onSelect);
-    onSelect();
-  }, [mainEmblaApi, onSelect]);
+    onSelect(); // Trigger on initial load
 
-  const scrollTo = useCallback(
-    (index) => {
-      if (!mainEmblaApi || !thumbEmblaApi) return;
-      mainEmblaApi.scrollTo(index);
-    },
-    [mainEmblaApi, thumbEmblaApi]
-  );
+    return () => {
+      mainEmblaApi.off("select", onSelect);
+    };
+  }, [mainEmblaApi, onSelect]);
 
   return (
     <div>
       {/* Main Carousel */}
-      <div ref={mainEmblaRef} style={{ overflow: "hidden", width: "100%", height: "300px" }}>
+      <div
+        ref={mainEmblaRef}
+        style={{
+          overflow: "hidden",
+          width: "100%",
+          height: "300px",
+          borderRadius: "8px",
+        }}
+      >
         <div style={{ display: "flex" }}>
           {thumbnails.map((thumbnail, index) => (
-            <div key={index} style={{ flex: "0 0 100%" }}>
-              <img
+            <div key={index} style={{ flex: "0 0 100%", height: "300px", position: "relative" }}>
+              <Image
                 src={thumbnail}
                 alt={`Slide ${index + 1}`}
-                style={{ width: "100%", height: "300px", objectFit: "cover", borderRadius: "8px" }}
+                layout="fill"
+                objectFit="cover"
+                objectPosition="center"
               />
             </div>
           ))}
@@ -55,23 +76,37 @@ const CarouselComponent = () => {
       </div>
 
       {/* Thumbnails Carousel */}
-      <div ref={thumbEmblaRef} style={{ overflow: "hidden" }}>
-        <div style={{ display: "flex", gap: "10px", justifyContent: "center", marginTop: 15 }}>
+      <div
+        ref={thumbEmblaRef}
+        style={{
+          overflow: "hidden",
+          marginTop: "15px",
+          padding: "0 10px",
+        }}
+      >
+        <div style={{ display: "flex", gap: "10px", justifyContent: "center" }}>
           {thumbnails.map((thumbnail, index) => (
             <div
               key={index}
               style={{
                 cursor: "pointer",
                 border: selectedIndex === index ? "2px solid #007bff" : "2px solid transparent",
-                padding: "4px",
                 borderRadius: "4px",
+                overflow: "hidden",
+                width: "60px",
+                height: "60px",
               }}
               onClick={() => scrollTo(index)}
             >
-              <img
+              <Image
                 src={thumbnail}
                 alt={`Thumbnail ${index + 1}`}
-                style={{ width: "60px", height: "60px", borderRadius: "4px", objectFit: "cover" }}
+                width={60}
+                height={60}
+                style={{
+                  objectFit: "cover",
+                  borderRadius: "4px",
+                }}
               />
             </div>
           ))}
