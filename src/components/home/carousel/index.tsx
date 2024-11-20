@@ -52,6 +52,7 @@ const MainCarousel = ({ isMobile }: { isMobile: boolean }) => {
                                 style={{ backgroundSize: "cover" }}
                                 objectFit="cover" // Ensures the image covers the container
                                 objectPosition="center"
+                                priority={index === 0}
                             />
                         </div>
                     </motion.div>

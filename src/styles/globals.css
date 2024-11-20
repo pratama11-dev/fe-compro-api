@@ -6,6 +6,7 @@ body {
 
 .title-font {
   font-family: "DM Serif Display", serif !important;
+  font-display: swap;
 }
 
 a {
@@ -207,6 +208,10 @@ input::placeholder {
 
 .custom-input{
   color: white !important;
+}
+
+.modal-custom .ant-modal-content {
+  padding: 0 !important;
 }
 
 /* .green-li ul::before {

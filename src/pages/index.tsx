@@ -83,8 +83,8 @@ function Home(session: Sessions) {
               src="/white_logo.png"
               alt="Company Logo"
               // layout="fill"
-              width={"125%"}
-              height={"120px"}
+              width={"126%"}
+              height={"100px"}
             />
             {/* <Image src="/assets/icons/logo_r_kultur.png" alt="logo" className="py-2 logo" height={50} width={210} /> */}
             <h1 style={{ color: themeColor?.gray300 }}>Head Office</h1>

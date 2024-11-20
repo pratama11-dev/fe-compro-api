@@ -1,6 +1,6 @@
 import { ArrowRightOutlined } from "@ant-design/icons";
 import themeColor from "@configs/theme/themeColor";
-import { Button, Form, Input, Modal, Radio, theme } from "antd";
+import { Button, Form, Input, Modal, Radio, Row, theme } from "antd";
 import { Dispatch, SetStateAction } from "react";
 
 const ModalSendEmail = ({
@@ -42,6 +42,7 @@ const ModalSendEmail = ({
     return (
         <>
             <Modal
+                className="modal-custom"
                 open={visible}
                 width={"800px"}
                 onCancel={() => {
@@ -49,65 +50,79 @@ const ModalSendEmail = ({
                     form.resetFields();
                 }}
                 footer={[
-                    <Button key="cancel" onClick={() => setVisible(false)}>
-                        Cancel
-                    </Button>,
-                    <Button key="ok" type="primary" onClick={handleOk}>
-                        OK <ArrowRightOutlined rev={""} />
-                    </Button>
+                    <Row style={{ padding: 20 }} justify={"end"}>
+                        <Button key="cancel" onClick={() => setVisible(false)} style={{ marginRight: 10 }}>
+                            Cancel
+                        </Button>
+                        <Button key="ok" type="primary" onClick={handleOk}>
+                            OK <ArrowRightOutlined rev={""} />
+                        </Button>
+                    </Row>
                 ]}
-                title={
-                    `Request a Technical Data Sheet`
-                }
+                // bodyStyle={{ padding: 0 }}
+                title={null}
             >
-                <Form form={form} layout="vertical">
-                    <Form.Item
-                        label="Full Name"
-                        name="fullName"
-                        rules={[{ required: true, message: 'Please enter your full name' }]}
-                    >
-                        <Input placeholder="John Doe" />
-                    </Form.Item>
+                <div
+                    style={{
+                        backgroundColor: themeColor?.blue500,
+                        color: "#ffffff", // White text
+                        padding: "16px",
+                        fontSize: "18px",
+                        fontWeight: "bold",
+                    }}
+                >
+                    Request a Technical Data Sheet
+                </div>
+                <div style={{ padding: "24px" }}>
+                    <Form form={form} layout="vertical">
+                        <Form.Item
+                            label="Full Name"
+                            name="fullName"
+                            rules={[{ required: true, message: 'Please enter your full name' }]}
+                        >
+                            <Input placeholder="John Doe" />
+                        </Form.Item>
 
-                    <Form.Item
-                        label="Phone Number"
-                        name="phoneNumber"
-                        rules={[{ required: true, message: 'Please enter your phone number' }]}
-                    >
-                        <Input placeholder="+6200-0000-0000" />
-                    </Form.Item>
+                        <Form.Item
+                            label="Phone Number"
+                            name="phoneNumber"
+                            rules={[{ required: true, message: 'Please enter your phone number' }]}
+                        >
+                            <Input placeholder="+6200-0000-0000" />
+                        </Form.Item>
 
-                    <Form.Item
-                        label="Company"
-                        name="company"
-                        rules={[{ required: true, message: 'Please enter your company name' }]}
-                    >
-                        <Input placeholder="Google, Facebook, etc..." />
-                    </Form.Item>
+                        <Form.Item
+                            label="Company"
+                            name="company"
+                            rules={[{ required: true, message: 'Please enter your company name' }]}
+                        >
+                            <Input placeholder="Google, Facebook, etc..." />
+                        </Form.Item>
 
-                    <Form.Item
-                        label="E-Mail"
-                        name="email"
-                        rules={[{ required: true, type: 'email', message: 'Please enter a valid email' }]}
-                    >
-                        <Input placeholder="somebody@mail.com" />
-                    </Form.Item>
+                        <Form.Item
+                            label="E-Mail"
+                            name="email"
+                            rules={[{ required: true, type: 'email', message: 'Please enter a valid email' }]}
+                        >
+                            <Input placeholder="somebody@mail.com" />
+                        </Form.Item>
 
-                    <Form.Item
-                        label="Send TDS For"
-                        name="sendTDSFor"
-                        rules={[{ required: true, message: 'Please enter your request details' }]}
-                    >
-                        <Input.TextArea placeholder="I want to request technical data sheet for ..." />
-                    </Form.Item>
+                        <Form.Item
+                            label="Send TDS For"
+                            name="sendTDSFor"
+                            rules={[{ required: true, message: 'Please enter your request details' }]}
+                        >
+                            <Input.TextArea placeholder="I want to request technical data sheet for ..." />
+                        </Form.Item>
 
-                    <Form.Item label="Nature of Request" name="natureOfRequest" rules={[{ required: true, message: 'Please select the nature of your request' }]}>
-                        <Radio.Group>
-                            <Radio value="purchased">I have already purchased this product</Radio>
-                            <Radio value="presale">This is a presale request</Radio>
-                        </Radio.Group>
-                    </Form.Item>
-                </Form>
+                        <Form.Item label="Nature of Request" name="natureOfRequest" rules={[{ required: true, message: 'Please select the nature of your request' }]}>
+                            <Radio.Group>
+                                <Radio value="purchased">I have already purchased this product</Radio>
+                                <Radio value="presale">This is a presale request</Radio>
+                            </Radio.Group>
+                        </Form.Item>
+                    </Form>
+                </div>
             </Modal>
         </>
     );

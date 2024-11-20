@@ -488,7 +488,7 @@ const HomeScreen = ({ isMobile }: { isMobile: boolean }) => {
             </Row>
 
             <Row style={{ paddingRight: 50, paddingLeft: 50, margin: "70px 0 20px 0", alignItems: "center" }}>
-                <Col xs={20} md={20} lg={8} xl={8}>
+                <Col xs={20} md={20} lg={7} xl={7}>
                     <h1 className="title-font" style={{ fontSize: "39px" }}>Our Wonderful Timeline</h1>
                 </Col>
                 <Col xs={4} md={4} lg={16} xl={16}>
