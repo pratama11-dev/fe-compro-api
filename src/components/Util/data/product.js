@@ -76,8 +76,27 @@ export const products = {
     title: "S2S Void & Rudder Float Coat",
     description:
       "S2S Void & Rudder Float Coat is a rust inhibitor specially formulated for void spaces on marine vessels. S2S is a self-healing lubricant that penetrates cracks and de-scales existing rust. It has been used in Canada’s heavy marine industry for more than thirty years and is proven to be an effective corrosion preventive solution in unventilated void spaces. S2S is long-lasting, easy-to-apply and non-toxic.",
-    advantages: [],
-    uses: [],
+    advantages: [
+      "No sandblasting",
+      "Environmentally friendly",
+      "Ultra Low VOCs",
+      "Eliminates the need to work in confined spaces",
+      "Can be applied to damp, painted, and rusted surfaces",
+      "Is a self-healing lubricant",
+      "Penetrates under existing rust and de-scales",
+      "Electrically non-conductive; stops electrolysis",
+    ],
+    uses: [
+      "Rudder",
+      "Ballast Tank",
+      "Voids inside marine vessels",
+      "Oil & Gas floating platforms",
+      "Dry docks",
+      "Pontoons",
+      "Rudders",
+      "Ballast tanks",
+      "Mud tanks",
+    ],
     images: [
       "/S2S Void and Rudder Coat/Image%201.jpg",
       "/S2S Void and Rudder Coat/Image%202.jpg",
@@ -221,13 +240,11 @@ export const products = {
       "For application on belowground metal surfaces, pipe or fittings to prevent corrosion.",
     ],
     img_type: "fit-in",
-    logo: [
-      "/background/Trenton.png",
-    ],
+    logo: ["/background/Trenton.png"],
     video: [
       "https://www.youtube.com/embed/T9OvwS3gpfQ",
       "https://www.youtube.com/embed/avGANhR3Tlw",
-    ]
+    ],
   },
   self_firming_anticorrosion_wrap: {
     title: "self-firming anticorrosion wrap",
@@ -244,13 +261,11 @@ export const products = {
       "For application on belowground metal surfaces, pipe or fittings to prevent corrosion.",
     ],
     img_type: "fit-in",
-    logo: [
-      "/background/Trenton.png",
-    ],
+    logo: ["/background/Trenton.png"],
     video: [
       "https://www.youtube.com/embed/T9OvwS3gpfQ",
       "https://www.youtube.com/embed/avGANhR3Tlw",
-    ]
+    ],
   },
   Trenton_Waxtape_HT_3000_High_Temp_anticorrosion_wrap: {
     title: "Trenton Waxtape HT 3000 High-Temp anticorrosion wrap",
@@ -261,13 +276,11 @@ export const products = {
       "Wax-Tape HT-3000 can be applied and will perform effectively at continuous operating temperatures of up to 230°F (110°C) and is designed for use in aboveground and belowground applications.",
     ],
     img_type: "fit-in",
-    logo: [
-      "/background/Trenton.png",
-    ],
+    logo: ["/background/Trenton.png"],
     video: [
       "https://www.youtube.com/embed/T9OvwS3gpfQ",
       "https://www.youtube.com/embed/avGANhR3Tlw",
-    ]
+    ],
   },
   Trenton_Temcoat_3000_primer: {
     title: "Trenton Temcoat 3000 primer",
@@ -286,13 +299,11 @@ export const products = {
       "Temcoat and Temcoat 3000 are used as an anticorrosion compound for aboveground and belowground surfaces. They can be used as a cold-applied coating with a wrapper or as a priming paste with Wax-Tapes®. Because of their paste-like consistency over a wide temperature range, they are an excellent material for filling voids. They can be used for straight pipe, irregular fittings and flat surfaces.",
     ],
     img_type: "fit-in",
-    logo: [
-      "/background/Trenton.png",
-    ],
+    logo: ["/background/Trenton.png"],
     video: [
       "https://www.youtube.com/embed/T9OvwS3gpfQ",
       "https://www.youtube.com/embed/avGANhR3Tlw",
-    ]
+    ],
   },
   Trenton_Patch_Pad_Exothermic_weld_protector: {
     title: "Trenton Patch-Pad Exothermic weld protector",
@@ -312,13 +323,11 @@ export const products = {
       "Patch-Pad is ideal for use in protecting Cathodic Protection system connections. It easily conforms to protect a variety of profiles and most connection configurations. Trenton Patch-Pad is designed to provide durable corrosion protection for a variety of small scale applications which require flexibility, strong adhesion, and ease-of-use. Tools are available to facilitate remote installation in keyhole applications.",
     ],
     img_type: "fit-in",
-    logo: [
-      "/background/Trenton.png",
-    ],
+    logo: ["/background/Trenton.png"],
     video: [
       "https://www.youtube.com/embed/T9OvwS3gpfQ",
       "https://www.youtube.com/embed/avGANhR3Tlw",
-    ]
+    ],
   },
   Trenton_Fill_Coat_1_Hot_Applied_Wax_Casing_Filler: {
     title: "Trenton Fill-Coat #1 Hot Applied Wax Casing Filler",
@@ -347,13 +356,11 @@ export const products = {
       "Fill-coat #1 is used to displace water that may other-wise be present in the annular space between a casing and internal carrier pipe.",
     ],
     img_type: "fit-in",
-    logo: [
-      "/background/Trenton.png",
-    ],
+    logo: ["/background/Trenton.png"],
     video: [
       "https://www.youtube.com/embed/T9OvwS3gpfQ",
       "https://www.youtube.com/embed/avGANhR3Tlw",
-    ]
+    ],
   },
   Trenton_Fill_Coat_2_Hot_Applied_Wax_Casing_Filler: {
     title: "Trenton Fill-Coat #2 Hot Applied Wax Casing Filler",
@@ -372,76 +379,116 @@ export const products = {
       "Fill-Coat #2 is used to fill the annular space between the pipeline casing and the carrier pipe. It displaces water that may be present and it prevents water from re-entering thereby mitigating any further corrosion.",
     ],
     img_type: "fit-in",
-    logo: [
-      "/background/Trenton.png",
-    ],
+    logo: ["/background/Trenton.png"],
     video: [
       "https://www.youtube.com/embed/T9OvwS3gpfQ",
       "https://www.youtube.com/embed/avGANhR3Tlw",
-    ]
+    ],
   },
-  Wencon_Ceramic_Coating: {
-    title: "Wencon Ceramic Coating",
+  Weicon_Ceramic_HC220: {
+    title: "Weicon Ceramic HC220",
     properties: [
-      "Max temperature: +220- +320°C (428 – 608° F)",
+      "Temperature Resistance :-35 to +220°C",
       "Consistency: Fluid",
-      "Mixing ratio vol: 1:2",
+      "Hardness (Shore D) : 85±3",
       "Apply with: a spatula/brush",
-      "Pot life at 20°C: 20-30 min. mixed in small amounts",
-      "Curing time: 10-15 hours",
-      "Machineability: no",
-      "Specific volume: 658 cm3 / kg",
-      "Dielectric strength: 10 KV/mm",
+      "Pot life at 20°C: 45 min. (500 g, batch)",
+      "Curing time: 10 hours",
+      "Density : 1,8 g/cm3",
     ],
     description:
-      "Typical applications are the coating of surfaces rebuilt after deterioration and protection against wear, corrosion, and bi-metallic corrosion. Wencon Ceramic Coating has a high abrasion resistance, making it suitable for applications on propeller nozzles, rudders, thruster tunnels, and housings. In addition, the product also offers high-temperature resistance, which makes it ideal for applications on gas scrubbers, condensers and end-covers.",
+      "The epoxy resin system WEICON Ceramic HC 220 provides high abrasion resistance and serves as wear protection for heavily used surfaces. It is temperature-resistant up to +220 °C, flowable, ceramic-filled, resistant to chemicals and has a high adhesive strength. Ceramic HC 220 can be easily processed with a paint brush and applied to large surfaces. The epoxy resin systems is non-corrosive, anti-magnetic and cures practically without shrinkage.",
     advantages: [
-      "Strong adhesion to all metal and GRE surfaces",
+      "Strong adhesion to all metal",
       "High wear resistance",
       "High-temperature resistance",
-      "Efficient double coat system",
-      "High coverage rate",
     ],
     uses: [
-      "Wencon Ceramic Coating has a high abrasion resistance, making it suitable for applications on propeller nozzles, rudders, thruster tunnels, and housings. Typical applications are the coating of surfaces rebuilt after deterioration and protection against wear, corrosion, and bi-metallic corrosion. In addition, the product also offers high-temperature resistance, which makes it ideal for applications on gas scrubbers, condensers, and end-covers.",
+      "The product can be used in mechanical and plant engineering, in equipment engineering, and in many other areas of industry where high temperature loads are part of daily work.",
     ],
-    logo:[
-      "/wecon_coating/wencon.png",
+    logo: ["/wecon_coating/wencon.png"],
+    images: ["/wecon_coating/wencon%201.jpg"],
+  },
+  Weicon_GL: {
+    title: "Weicon GL",
+    properties: [
+      "Temperature Resistance :-35 to +180°C",
+      "Consistency: Fluid",
+      "Hardness (Shore D) : 81±3",
+      "Apply with: a spatula/brush",
+      "Pot life at 20°C: 30 min.(500 g, batch)",
+      "Curing time: 8 hours",
+      "Density : 1,3 g/cm3",
     ],
+    description:
+      "The epoxy resin system WEICON GL provides high abrasion resistance and serves as wear protection for heavily used surfaces. It is flowable, has a high initial strength, is mineral-filled, and resistant to chemicals. The product can be used in mechanical and plant engineering, in equipment engineering, and in many other areas of industry.",
+    advantages: [
+      "Strong adhesion",
+      "High wear resistance",
+      "Short Processing Time",
+    ],
+    uses: [
+      "It is particularly suitable for lining heavily stressed pump casings, as wear protection for slide bearings, chutes, funnels and pipes and for the repair of castings, valves and fan blades.",
+    ],
+    logo: ["/wecon_coating/wencon.png"],
     images: [
-      "/wecon_coating/wencon%201.jpg",
+      "/Foto Weicon GL/AWB_10700005_WEICON_GL_Auftragung_01_280x280.jpg",
+      "/Foto Weicon GL/PA_10700002_WEICON GL_001_1920x1920.jpg"
     ],
   },
-  Weoncon_Ceramic_Cream: {
-    title: "Weoncon Ceramic Cream",
+  Weicon_HB_300: {
+    title: "Weicon HB 300",
     properties: [
-      "Max temperature: +200- +300°C (392 – 572° F)",
-      "Consistency: paste",
-      "Mixing ratio vol: 1:2",
-      "Apply with a spatula",
-      "Potlife at 20°C: 30-40 min. mixed in small amounts",
-      "Curing time: 10-15 hours",
-      "Machineability: no",
-      "Specific volume: 538 cm3 / kg",
-      "Dielectric strength: 10 KV/mm",
+      "Temperature Resistance :-35 to +200°C",
+      "Consistency: Paste",
+      "Hardness (Shore D) : 85±3",
+      "Apply with: a contour spatula",
+      "Pot life at 20°C: 30 min. (500g, batch)",
+      "Curing time: 24 hours (100%)",
+      "Density : 2,5 g/cm3",
     ],
     description:
-      "Wencon Ceramic Cream has high abrasion resistance, making it suitable for applications on propeller nozzles, rudders, thruster tunnels, and housings. In addition, the product also offers high-temperature resistance, which makes it ideal for applications on gas scrubbers, condensers, and end-covers.",
+      "WEICON HB 300 is pasty, steel-filled and high-temperature resistant up to +200 °C (392 °F) (up to 280 °C/536 °F for a short period of time). It is processed with a mixing ratio of 1:1. The product can be used in mechanical and plant engineering, in equipment engineering, and in many other areas of industry.",
     advantages: [
-      "Strong adhesion to all metal and GRE surfaces",
+      "Strong adhesion to metal",
       "High wear resistance",
       "High-temperature resistance",
-      "Easy mixing and application",
-      "High abrasion resistance",
     ],
     uses: [
-      "Wencon Ceramic Cream has high abrasion resistance, making it suitable for applications on propeller nozzles, rudders, thruster tunnels, and housings. In addition, the product also offers high-temperature resistance, which makes it ideal for applications on gas scrubbers, condensers, and end covers",
+      "The epoxy resin system is also suitable for applications on vertical surfaces and can be used for the repair and bonding of cast and metal parts, for filling in blow holes, for repairing damage on containers, carriages and machine parts and for sealing pumps and pipes.",
     ],
-    logo:[
-      "/wecon_coating/wencon.png",
-    ],
+    logo: ["/wecon_coating/wencon.png"],
     images: [
-      "/wecon_coating/wencon%202.jpg",
+      "/Foto Weicon HB 300/AWB_10450010_WEICON HB 300_Pipeline_3_001_1920x1920.jpg",
+      "/Foto Weicon HB 300/PA_10450002_WEICON_HB_300_1920x1920.jpg"
+    ],
+  },
+  Weicon_HP: {
+    title: "Weicon HP",
+    properties: [
+      "Temperature Resistance :-35 to +160°C",
+      "Consistency: Paste",
+      "Hardness (Shore D) : 75±3",
+      "Apply with: a spatula/brush",
+      "Pot life at 20°C: 30 min. (500g, batch)",
+      "Curing time: 36 hours (100%)",
+      "Density : 1,5 g/cm3",
+    ],
+    description:
+      "WEICON HP is a 2-component epoxy resin with longer curing time, enormous impact strength as well as high residual elasticity and abrasion resistance. Due to its high elongation at break and paste-like texture, WEICON HP can be used for repairs, as abrasion protection as well as for lining heavily stressed equipment. The adhesive also shows excellent adhesion to wet and damp surfaces and in underwater applications.",
+    advantages: [
+      "Strong adhesion to metal",
+      "Shock resistance",
+      "Long Processing Time",
+    ],
+    uses: [
+      "WEICON HP can be used for repairs, as abrasion protection as well as for lining heavily stressed equipment.",
+    ],
+    logo: ["/wecon_coating/wencon.png"],
+    images: [
+      "/Foto Weicon HP/AWB_10390005_WEICON_HP_0_5kg_Lammers_1_1920x1920.jpg",
+      "/Foto Weicon HP/AWB_10390005_WEICON_HP_Skaters_Palace_02_1920x1920.jpg",
+      "/Foto Weicon HP/PA_10390002_WEICON_HP_1920x1920.jpg",
     ],
   },
   "EonCoat_Corrosion_Protection_(CP)": {
@@ -551,10 +598,7 @@ export const products = {
       "FDA Compliant for Food Types I & VIII and Condition of Use “E” under Title 21 CFR Chapter 175 Part 300 Indirect Food Additives: Adhesives and Components of Coatings: Resinous & Polymeric Coatings",
     ],
     uses: ["Column", "Slab", "Wall", "Beam", "Pedestal", "Piles"],
-    images: [
-      "/Stronghold/Stronghold 1.jpeg",
-      "/Stronghold/Stronghold 2.jpeg",
-    ],
+    images: ["/Stronghold/Stronghold 1.jpeg", "/Stronghold/Stronghold 2.jpeg"],
   },
   TankWrap: {
     title: "TankWrap",
@@ -640,7 +684,7 @@ export const products = {
     ],
   },
   Corrwrap: {
-    title: "Corrwrap",
+    title: "Corwrap",
     properties: ["TDS by request"],
     type: "corretive",
     description:
@@ -667,6 +711,12 @@ export const products = {
       "Oil & Gas",
       "Paper & Pulp",
     ],
-    images: [],
+    images: [
+      "/Product_Corwrap/Logo Corwrap.png",
+      "/Product_Corwrap/Picture1.png",
+      "/Product_Corwrap/Picture2.png",
+      "/Product_Corwrap/Picture3.png",
+      "/Product_Corwrap/Picture4.png",
+    ],
   },
 };

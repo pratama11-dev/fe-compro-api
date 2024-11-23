@@ -135,7 +135,7 @@ function HeaderOur({ toggleDrawer }: HeaderProps) {
               </Col>
               <Col style={{ display: "flex", gap: "15px" }}>
                 <LinkedinFilled rev={""} style={{ fontSize: "25px" }} onClick={openLinkedIn} />
-                <WhatsAppOutlined rev={""} style={{ fontSize: "25px" }} onClick={openWhatsApp} />
+                {/* <WhatsAppOutlined rev={""} style={{ fontSize: "25px" }} onClick={openWhatsApp} /> */}
               </Col>
             </>
           ) : (

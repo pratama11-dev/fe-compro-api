@@ -39,8 +39,11 @@ function Sidebar({ routes }: SidebarProps) {
           src="../white_logo.png"
           alt="Company Logo"
           preview={false}
-          height={60}
-          style={{ padding: 10 }}
+          height={80}
+          onClick={() => {
+            PushNavigateTo('/')
+          }}
+          style={{ padding: 10, cursor: "pointer" }}
         />
       </Row>
       <Menu

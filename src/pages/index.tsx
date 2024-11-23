@@ -4,7 +4,7 @@ import useNavbar from "@layouts/customHooks/useNavbar";
 import { useState } from "react";
 import Header from "@components/Global/Header/Header";
 import { Button, Col, Divider, Form, Input, Row, Typography } from "antd";
-import { PushpinOutlined } from "@ant-design/icons";
+import { MailOutlined, PhoneOutlined, PushpinOutlined } from "@ant-design/icons";
 import useWindowSize from "@utils/helpers/ReactHelper";
 import { AdminRoutes } from "@configs/route/SidebarRoute";
 import MobileSidebar from "@components/Global/MobileSidebar";
@@ -83,7 +83,7 @@ function Home(session: Sessions) {
               src="/white_logo.png"
               alt="Company Logo"
               // layout="fill"
-              width={"126%"}
+              width={"135%"}
               height={"100px"}
             />
             {/* <Image src="/assets/icons/logo_r_kultur.png" alt="logo" className="py-2 logo" height={50} width={210} /> */}
@@ -99,9 +99,16 @@ function Home(session: Sessions) {
               <li style={{ padding: 10, color: themeColor?.gray300 }}>LinkedIn</li>
               <li style={{ padding: 10, color: themeColor?.gray300 }}>Customer Support</li>
             </ul>
+            <Row style={{ marginBottom: 10 }}>
+              <MailOutlined rev={""} style={{ fontSize: "18px", marginRight: 10 , color: themeColor?.gray300 }} /><Text style={{ color: themeColor?.gray300 }}>info@ptayesproinovasi.com</Text>
+            </Row>
+            <Row>
+              <PhoneOutlined rev={""} style={{ fontSize: "18px", marginRight: 10 , color: themeColor?.gray300 }} /><Text style={{ color: themeColor?.gray300 }}>+622139711788</Text>
+            </Row>
+
           </Col>
           <Col xs={24} sm={24} md={8} lg={8}>
-            <h2 style={{ color: themeColor?.gray300 }}>Quick Contack</h2>
+            <h2 style={{ color: themeColor?.gray300 }}>Quick Contact</h2>
             <Form form={form} layout="vertical">
               <Form.Item
                 name="name"
@@ -130,9 +137,10 @@ function Home(session: Sessions) {
                 name="message"
                 rules={[{ required: true, message: "Please leave a message" }]}
               >
-                <Input
+                <Input.TextArea
                   className="custom-input"
-                  style={{ background: "transparent", color: "white" }}
+                  rows={4}
+                  style={{ background: "transparent", color: "white !important" }}
                   placeholder="Leave Message"
                 />
               </Form.Item>

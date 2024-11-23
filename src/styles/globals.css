@@ -214,6 +214,11 @@ input::placeholder {
   padding: 0 !important;
 }
 
+.custom-input::placeholder {
+  color: white; /* Placeholder text color */
+  opacity: 1; /* Ensure visibility */
+}
+
 /* .green-li ul::before {
   font-size: 20px;
   width: 96px;

@@ -45,14 +45,27 @@ const DetailPr = () => {
 
     return (
         <>
-            <HeadPage withDefaultCss title="Purchase Request" />
+            <HeadPage withDefaultCss title="Product" />
             <DashboardLayout>
-                <Row justify={"start"}>
-                    <img
-                        alt="Product Image"
-                        src="../background/s2s/S2S_Logo.png"
-                        style={{ width: "15%", objectFit: "cover", marginRight: 30 }}
-                    />
+                <Row justify={"start"} 
+                    style={{ height: 60, marginBottom: 25 }}>
+                    {![
+                        "Weicon_Ceramic_HC220", 
+                        "Weicon_GL", 
+                        "Weicon_HB_300", 
+                        "Weicon_HP",
+                        "CarbonSeal",
+                        "StrongHold",
+                        "TankWrap",
+                        "GlassSeal",
+                        "ChemSeal"
+                    ].includes(name as string) && (
+                        <img
+                            alt="Product Image"
+                            src="../background/s2s/S2S_Logo.png"
+                            style={{ width: "15%", objectFit: "cover", marginRight: 30 }}
+                        />
+                    )}
                     {logo?.map((src: string, index: number) => (
                         <Card
                             key={index}

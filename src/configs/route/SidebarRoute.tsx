@@ -35,49 +35,49 @@ export const AdminRoutes: routesType = [
       },
     ],
   },
-  {
-    path: "/product/Trenton_Waxtape_Systems",
-    key: "/product/Trenton_Waxtape_Systems",
-    name: "Trenton Waxtape Systems",
-    icon: "",
-    children: [
-      {
-        path: "/product/Non_firming_anticorrosion_wrap",
-        key: "/product/Non_firming_anticorrosion_wrap",
-        name: "Non-firming anticorrosion wrap",
-      },
-      {
-        path: "/product/self_firming_anticorrosion_wrap",
-        key: "/product/self_firming_anticorrosion_wrap",
-        name: "Self-firming anticorrosion wrap",
-      },
-      {
-        path: "/product/Trenton_Waxtape_HT_3000_High_Temp_anticorrosion_wrap",
-        key: "/product/Trenton_Waxtape_HT_3000_High_Temp_anticorrosion_wrap",
-        name: "Trenton Waxtape HT 3000 High-Temp anticorrosion wrap",
-      },
-      {
-        path: "/product/Trenton_Temcoat_3000_primer",
-        key: "/product/Trenton_Temcoat_3000_primer",
-        name: "Trenton Temcoat 3000 primer",
-      },
-      {
-        path: "/product/Trenton_Patch_Pad_Exothermic_weld_protector",
-        key: "/product/Trenton_Patch_Pad_Exothermic_weld_protector",
-        name: "Trenton Patch-Pad Exothermic weld protector",
-      },
-      {
-        path: "/product/Trenton_Fill_Coat_1_Hot_Applied_Wax_Casing_Filler",
-        key: "/product/Trenton_Fill_Coat_1_Hot_Applied_Wax_Casing_Filler",
-        name: "Trenton Fill-Coat #1 Hot Applied Wax Casing Filler",
-      },
-      {
-        path: "/product/Trenton_Fill_Coat_2_Hot_Applied_Wax_Casing_Filler",
-        key: "/product/Trenton_Fill_Coat_2_Hot_Applied_Wax_Casing_Filler",
-        name: "Trenton Fill-Coat #2 Hot Applied Wax Casing Filler",
-      },
-    ],
-  },
+  // {
+  //   path: "/product/Trenton_Waxtape_Systems",
+  //   key: "/product/Trenton_Waxtape_Systems",
+  //   name: "Trenton Waxtape Systems",
+  //   icon: "",
+  //   children: [
+  //     {
+  //       path: "/product/Non_firming_anticorrosion_wrap",
+  //       key: "/product/Non_firming_anticorrosion_wrap",
+  //       name: "Non-firming anticorrosion wrap",
+  //     },
+  //     {
+  //       path: "/product/self_firming_anticorrosion_wrap",
+  //       key: "/product/self_firming_anticorrosion_wrap",
+  //       name: "Self-firming anticorrosion wrap",
+  //     },
+  //     {
+  //       path: "/product/Trenton_Waxtape_HT_3000_High_Temp_anticorrosion_wrap",
+  //       key: "/product/Trenton_Waxtape_HT_3000_High_Temp_anticorrosion_wrap",
+  //       name: "Trenton Waxtape HT 3000 High-Temp anticorrosion wrap",
+  //     },
+  //     {
+  //       path: "/product/Trenton_Temcoat_3000_primer",
+  //       key: "/product/Trenton_Temcoat_3000_primer",
+  //       name: "Trenton Temcoat 3000 primer",
+  //     },
+  //     {
+  //       path: "/product/Trenton_Patch_Pad_Exothermic_weld_protector",
+  //       key: "/product/Trenton_Patch_Pad_Exothermic_weld_protector",
+  //       name: "Trenton Patch-Pad Exothermic weld protector",
+  //     },
+  //     {
+  //       path: "/product/Trenton_Fill_Coat_1_Hot_Applied_Wax_Casing_Filler",
+  //       key: "/product/Trenton_Fill_Coat_1_Hot_Applied_Wax_Casing_Filler",
+  //       name: "Trenton Fill-Coat #1 Hot Applied Wax Casing Filler",
+  //     },
+  //     {
+  //       path: "/product/Trenton_Fill_Coat_2_Hot_Applied_Wax_Casing_Filler",
+  //       key: "/product/Trenton_Fill_Coat_2_Hot_Applied_Wax_Casing_Filler",
+  //       name: "Trenton Fill-Coat #2 Hot Applied Wax Casing Filler",
+  //     },
+  //   ],
+  // },
   {
     path: "/product/Coating_Systems",
     key: "/product/Coating_Systems",
@@ -85,14 +85,24 @@ export const AdminRoutes: routesType = [
     icon: "",
     children: [
       {
-        path: "/product/Wencon_Ceramic_Coating",
-        key: "/product/Wencon_Ceramic_Coating",
+        path: "/product/Weicon_Ceramic_HC220",
+        key: "/product/Weicon_Ceramic_HC220",
         name: "Wencon Ceramic Coating",
       },
       {
-        path: "/product/Weoncon_Ceramic_Cream",
-        key: "/product/Weoncon_Ceramic_Cream",
-        name: "Weoncon Ceramic Cream",
+        path: "/product/Weicon_GL",
+        key: "/product/Weicon_GL",
+        name: "Weicon GL",
+      },
+      {
+        path: "/product/Weicon_HB_300",
+        key: "/product/Weicon_HB_300",
+        name: "Weicon HB 300",
+      },
+      {
+        path: "/product/Weicon_HP",
+        key: "/product/Weicon_HP",
+        name: "Weicon HP",
       },
     ],
   },
@@ -137,7 +147,7 @@ export const AdminRoutes: routesType = [
         name: "TankWrap",
       },
       {
-        path: "/product/GlassSeal",
+        path: "/product/ChemSeal",
         key: "/product/ChemSeal",
         name: "ChemSeal",
       },
@@ -149,15 +159,15 @@ export const AdminRoutes: routesType = [
     ],
   },
   {
-    path: "/product/Emergency_Leak_Repair_Kit_(group2)",
-    key: "/product/Emergency_Leak_Repair_Kit_(group2)",
-    name: "Emergency Leak Repair Kit (group2)",
+    path: "/product/Emergency_Leak_Repair_Kit",
+    key: "/product/Emergency_Leak_Repair_Kit",
+    name: "Emergency Leak Repair Kit",
     icon: "",
     children: [
       {
         path: "/product/Corrwrap",
         key: "/product/Corrwrap",
-        name: "Corrwrap",
+        name: "Corwrap",
       },
     ]
   }

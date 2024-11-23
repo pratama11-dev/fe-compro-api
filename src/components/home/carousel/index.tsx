@@ -5,6 +5,7 @@ import { itemVariants, plusFloatingVariants } from '../framer-motion/motionVaria
 import { motion } from 'framer-motion';
 import { DownOutlined } from '@ant-design/icons';
 import Image from 'next/image';
+import { Link } from 'react-scroll';
 
 const MainCarousel = ({ isMobile }: { isMobile: boolean }) => {
     const arrImage = [
@@ -48,7 +49,7 @@ const MainCarousel = ({ isMobile }: { isMobile: boolean }) => {
                                 src={x}
                                 alt="Background Image"
                                 layout='fill'
-                                quality={75} 
+                                quality={75}
                                 style={{ backgroundSize: "cover" }}
                                 objectFit="cover" // Ensures the image covers the container
                                 objectPosition="center"
@@ -80,7 +81,15 @@ const MainCarousel = ({ isMobile }: { isMobile: boolean }) => {
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ duration: 0.2 }}
                         >
-                            <Button style={buttonResponsiveStyle} type="primary">Get Started</Button>
+                            <Link
+                                to="about"
+                                spy={true}
+                                smooth={true}
+                                duration={500}
+                                style={{ cursor: "pointer" }}
+                            >
+                                <Button style={buttonResponsiveStyle} type="primary">Get Started</Button>
+                            </Link>
                         </motion.div>
                     </Row>
 

@@ -17,7 +17,7 @@ interface TimelineSectionProps {
 
 // TimelineSection Component
 const TimelineSection: React.FC<TimelineSectionProps> = ({ items, listStyleImage }) => (
-    <ul style={{ listStyle: 'none', paddingLeft: 20, position: 'relative' }}>
+    <ul style={{ listStyle: 'none',  position: 'relative' }}>
         {items.map((item, index) => (
             <li key={index} style={{ paddingBottom: 15, paddingTop: 15, position: 'relative' }}>
                 <span
@@ -65,7 +65,7 @@ const Timeline: React.FC<TimelineProps> = () => {
     ];
 
     return (
-        <Row style={{ color: 'white', background: themeColor?.blue500, margin: '20px 50px', padding: 20 }}>
+        <Row style={{ color: 'white', background: themeColor?.blue500, margin: '10px 50px', padding: 50 }} gutter={[ 20, 10 ]}>
             <Col xs={24} md={12}>
                 <TimelineSection items={leftItems} listStyleImage="../Icon/dot.png" />
             </Col>
