@@ -8,11 +8,14 @@ import { Button, Card, Col, FloatButton, List, Row, Typography } from "antd";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import Image from "next/image";
+import { buttonStyle } from "@components/home/carousel/styles";
+import useWindowSize from "@utils/helpers/ReactHelper";
 
 const { Title, Paragraph } = Typography;
 
 const DetailPr = () => {
     const router = useRouter();
+    const { isMobile } = useWindowSize()
     const { name } = router.query;
 
     // @ts-ignore
@@ -43,29 +46,80 @@ const DetailPr = () => {
         }
     };
 
+    const buttonResponsiveStyle = {
+        ...buttonStyle,
+        fontSize: isMobile ? '12px' : '16px',
+        padding: isMobile ? '10px 20px' : '20px 30px',
+    };
+
     return (
         <>
             <HeadPage withDefaultCss title="Product" />
             <DashboardLayout>
-                <Row justify={"start"} 
-                    style={{ height: 60, marginBottom: 25 }}>
+                <Row
+                    justify={"start"}
+                    style={{ height: 60, marginBottom: 25 }}
+                >
                     {![
-                        "Weicon_Ceramic_HC220", 
-                        "Weicon_GL", 
-                        "Weicon_HB_300", 
+                        "Weicon_Ceramic_HC220",
+                        "Weicon_GL",
+                        "Weicon_HB_300",
                         "Weicon_HP",
+                        "CarbonSeal",
+                        "StrongHold",
+                        "TankWrap",
+                        "GlassSeal",
+                        "ChemSeal",
+                        "Corrwrap",
+                        "EonCoat_Corrosion_Protection_(CP)",
+                        "EonCoat_CUI"
+                    ].includes(name as string) && (
+                            <img
+                                alt="Product Image"
+                                src="../background/s2s/S2S_Logo.png"
+                                style={{ width: "15%", objectFit: "cover", marginRight: 30 }}
+                            />
+                        )
+                    }
+
+                    {[
                         "CarbonSeal",
                         "StrongHold",
                         "TankWrap",
                         "GlassSeal",
                         "ChemSeal"
                     ].includes(name as string) && (
-                        <img
-                            alt="Product Image"
-                            src="../background/s2s/S2S_Logo.png"
-                            style={{ width: "15%", objectFit: "cover", marginRight: 30 }}
-                        />
-                    )}
+                            <img
+                                alt="Product Image"
+                                src="../Logo HJ3.png"
+                                style={{ width: "20%", objectFit: "cover", marginRight: 30 }}
+                            />
+                        )
+                    }
+
+                    {[
+                        "Corrwrap",
+                    ].includes(name as string) && (
+                            <img
+                                alt="Product Image"
+                                src="../Product_Corwrap/Logo Corwrap.png"
+                                style={{ width: "15%", objectFit: "cover", marginRight: 30 }}
+                            />
+                        )
+                    }
+
+                    {[
+                        "EonCoat_Corrosion_Protection_(CP)",
+                        'EonCoat_CUI'
+                    ].includes(name as string) && (
+                            <img
+                                alt="Product Image"
+                                src="../LogowithTM.png"
+                                style={{ width: "15%", objectFit: "cover", marginRight: 30 }}
+                            />
+                        )
+                    }
+
                     {logo?.map((src: string, index: number) => (
                         <Card
                             key={index}
@@ -90,7 +144,7 @@ const DetailPr = () => {
                     ))}
                 </Row>
                 <Row gutter={16} style={{ marginBottom: 24 }}>
-                    <Col span={24}>
+                    <Col span={24} style={{ marginTop: 20 }}>
                         <Title level={3}>{title}</Title>
                         <Paragraph>{description}</Paragraph>
                     </Col>
@@ -207,7 +261,7 @@ const DetailPr = () => {
                             <Paragraph>
                                 Interested in our product? Contact us and place your order now for the best service!
                             </Paragraph>
-                            <Button type="primary" onClick={() => handleSubmit()}>Contact Us</Button>
+                            <Button type="primary" onClick={() => handleSubmit()} style={buttonResponsiveStyle}>Contact Us</Button>
                         </Card>
                     </Col>
                 </Row>

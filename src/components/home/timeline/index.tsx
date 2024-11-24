@@ -73,12 +73,14 @@ const Timeline: React.FC<TimelineProps> = () => {
                 <TimelineSection items={rightItems} listStyleImage="../Icon/dot.png" />
                 <ul style={{ listStyle: 'none', paddingLeft: 0, position: 'relative' }}>
                     <Row align="middle">
-                        <Image
-                            src={"/Icon/dot_li.png"}
-                            alt="Company Logo"
-                            width={13}
-                            height={15}
-                        />
+                        <Col style={{ marginLeft: 14, marginRight: 2 }}>
+                            <Image
+                                src={"/Icon/dot_li.png"}
+                                alt="Company Logo"
+                                width={13}
+                                height={15}
+                            />
+                        </Col>
                         <Col style={{ marginLeft: 10 }}>
                             <h2>2024</h2>
                             <p style={{ marginTop: 20, marginBottom: 20 }}>Continuing our wonderful journey!</p>

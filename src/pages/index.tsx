@@ -37,6 +37,19 @@ function Home(session: Sessions) {
     setDrawerVisible(!drawerVisible);
   };
 
+  const handleSubmitEmail = async () => {
+    try {
+      const subject = `Contact from ${name}`;
+      // const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0AMessage: ${message}`;
+      const body = ``;
+
+      // Open Gmail with pre-filled details
+      window.open(`mailto:info@ptayesproinovasi.com?subject=${subject}&body=${body}`, "_blank");
+    } catch (error) {
+      console.error("Validation failed:", error); // Handle validation errors if needed
+    }
+  };
+
   const handleSubmit = async () => {
     try {
       const values = await form.validateFields(); // Get form values after validation
@@ -96,14 +109,20 @@ function Home(session: Sessions) {
           <Col xs={24} sm={24} md={8} lg={8}>
             <h1 style={{ color: themeColor?.gray300 }}>Contact Us</h1>
             <ul style={{ paddingLeft: 15 }}>
-              <li style={{ padding: 10, color: themeColor?.gray300 }}>LinkedIn</li>
+              <li style={{ padding: 10, color: themeColor?.gray300 }}>
+                <a onClick={openLinkedIn} >
+                  LinkedIn
+                </a>
+              </li>
               <li style={{ padding: 10, color: themeColor?.gray300 }}>Customer Support</li>
             </ul>
             <Row style={{ marginBottom: 10 }}>
-              <MailOutlined rev={""} style={{ fontSize: "18px", marginRight: 10 , color: themeColor?.gray300 }} /><Text style={{ color: themeColor?.gray300 }}>info@ptayesproinovasi.com</Text>
+              <a onClick={() => handleSubmitEmail() }>
+                <MailOutlined rev={""} style={{ fontSize: "18px", marginRight: 10, color: themeColor?.gray300 }} /><Text style={{ color: themeColor?.gray300 }}>info@ptayesproinovasi.com</Text>
+              </a>
             </Row>
             <Row>
-              <PhoneOutlined rev={""} style={{ fontSize: "18px", marginRight: 10 , color: themeColor?.gray300 }} /><Text style={{ color: themeColor?.gray300 }}>+622139711788</Text>
+              <PhoneOutlined rev={""} style={{ fontSize: "18px", marginRight: 10, color: themeColor?.gray300 }} /><Text style={{ color: themeColor?.gray300 }}>+622139711788</Text>
             </Row>
 
           </Col>

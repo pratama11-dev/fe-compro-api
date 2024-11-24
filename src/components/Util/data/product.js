@@ -407,7 +407,10 @@ export const products = {
       "The product can be used in mechanical and plant engineering, in equipment engineering, and in many other areas of industry where high temperature loads are part of daily work.",
     ],
     logo: ["/wecon_coating/wencon.png"],
-    images: ["/wecon_coating/wencon%201.jpg"],
+    images: [
+      "/Foto Weicon HC 220/AWB_10120005_WEICON_Keramik HC 220_Auftragung_01_1920x1920.jpg",
+      "/Foto Weicon HC 220/PA_10120020_WEICON_HC_220_1920x1920.jpg"
+    ],
   },
   Weicon_GL: {
     title: "Weicon GL",
@@ -563,6 +566,9 @@ export const products = {
       "Durable Repair",
       "HJ3's Repair Systems Ensure Code Compliant Repairs",
     ],
+    logo: [
+      // "/Logo HJ3.png"
+    ],
     uses: [
       "Flare Line Repairs",
       "Deck Sheets & Platform Tubing",
@@ -712,7 +718,6 @@ export const products = {
       "Paper & Pulp",
     ],
     images: [
-      "/Product_Corwrap/Logo Corwrap.png",
       "/Product_Corwrap/Picture1.png",
       "/Product_Corwrap/Picture2.png",
       "/Product_Corwrap/Picture3.png",

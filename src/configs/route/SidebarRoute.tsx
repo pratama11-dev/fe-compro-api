@@ -81,7 +81,7 @@ export const AdminRoutes: routesType = [
   {
     path: "/product/Coating_Systems",
     key: "/product/Coating_Systems",
-    name: "Coating Systems",
+    name: "Wencon",
     icon: "",
     children: [
       {
