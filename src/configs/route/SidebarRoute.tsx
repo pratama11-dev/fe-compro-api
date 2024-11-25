@@ -81,13 +81,13 @@ export const AdminRoutes: routesType = [
   {
     path: "/product/Coating_Systems",
     key: "/product/Coating_Systems",
-    name: "Wencon",
+    name: "Weicon",
     icon: "",
     children: [
       {
         path: "/product/Weicon_Ceramic_HC220",
         key: "/product/Weicon_Ceramic_HC220",
-        name: "Wencon Ceramic Coating",
+        name: "Weicon Ceramic Coating",
       },
       {
         path: "/product/Weicon_GL",

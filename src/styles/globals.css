@@ -150,7 +150,7 @@ a {
 }
 
 .ant-menu-dark.ant-menu-inline .ant-menu-sub.ant-menu-inline, .ant-menu-dark>.ant-menu.ant-menu-inline .ant-menu-sub.ant-menu-inline {
-  background: #242A74;
+  background: transparent !important;
 }
 
 .ant-modal-content {

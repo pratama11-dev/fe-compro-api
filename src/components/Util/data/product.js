@@ -406,7 +406,7 @@ export const products = {
     uses: [
       "The product can be used in mechanical and plant engineering, in equipment engineering, and in many other areas of industry where high temperature loads are part of daily work.",
     ],
-    logo: ["/wecon_coating/wencon.png"],
+    logo: ["/Logo Weicon.png"],
     images: [
       "/Foto Weicon HC 220/AWB_10120005_WEICON_Keramik HC 220_Auftragung_01_1920x1920.jpg",
       "/Foto Weicon HC 220/PA_10120020_WEICON_HC_220_1920x1920.jpg"
@@ -433,7 +433,7 @@ export const products = {
     uses: [
       "It is particularly suitable for lining heavily stressed pump casings, as wear protection for slide bearings, chutes, funnels and pipes and for the repair of castings, valves and fan blades.",
     ],
-    logo: ["/wecon_coating/wencon.png"],
+    logo: ["/Logo Weicon.png"],
     images: [
       "/Foto Weicon GL/AWB_10700005_WEICON_GL_Auftragung_01_280x280.jpg",
       "/Foto Weicon GL/PA_10700002_WEICON GL_001_1920x1920.jpg"
@@ -460,7 +460,7 @@ export const products = {
     uses: [
       "The epoxy resin system is also suitable for applications on vertical surfaces and can be used for the repair and bonding of cast and metal parts, for filling in blow holes, for repairing damage on containers, carriages and machine parts and for sealing pumps and pipes.",
     ],
-    logo: ["/wecon_coating/wencon.png"],
+    logo: ["/Logo Weicon.png"],
     images: [
       "/Foto Weicon HB 300/AWB_10450010_WEICON HB 300_Pipeline_3_001_1920x1920.jpg",
       "/Foto Weicon HB 300/PA_10450002_WEICON_HB_300_1920x1920.jpg"
@@ -487,7 +487,7 @@ export const products = {
     uses: [
       "WEICON HP can be used for repairs, as abrasion protection as well as for lining heavily stressed equipment.",
     ],
-    logo: ["/wecon_coating/wencon.png"],
+    logo: ["/Logo Weicon.png"],
     images: [
       "/Foto Weicon HP/AWB_10390005_WEICON_HP_0_5kg_Lammers_1_1920x1920.jpg",
       "/Foto Weicon HP/AWB_10390005_WEICON_HP_Skaters_Palace_02_1920x1920.jpg",

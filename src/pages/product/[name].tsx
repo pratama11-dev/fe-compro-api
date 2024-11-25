@@ -77,7 +77,7 @@ const DetailPr = () => {
                             <img
                                 alt="Product Image"
                                 src="../background/s2s/S2S_Logo.png"
-                                style={{ width: "15%", objectFit: "cover", marginRight: 30 }}
+                                style={{ width: isMobile ? "50%" :"15%", objectFit: "cover", marginRight: 30 }}
                             />
                         )
                     }
@@ -92,7 +92,7 @@ const DetailPr = () => {
                             <img
                                 alt="Product Image"
                                 src="../Logo HJ3.png"
-                                style={{ width: "20%", objectFit: "cover", marginRight: 30 }}
+                                style={{ width: isMobile ? "60%" : "20%", objectFit: "cover", marginRight: 30 }}
                             />
                         )
                     }
@@ -103,7 +103,7 @@ const DetailPr = () => {
                             <img
                                 alt="Product Image"
                                 src="../Product_Corwrap/Logo Corwrap.png"
-                                style={{ width: "15%", objectFit: "cover", marginRight: 30 }}
+                                style={{ width: isMobile ? "40%" : "15%", objectFit: "cover", marginRight: 30 }}
                             />
                         )
                     }
@@ -115,7 +115,7 @@ const DetailPr = () => {
                             <img
                                 alt="Product Image"
                                 src="../LogowithTM.png"
-                                style={{ width: "15%", objectFit: "cover", marginRight: 30 }}
+                                style={{ width: isMobile ? "40%" : "15%", objectFit: "cover", marginRight: 30 }}
                             />
                         )
                     }
