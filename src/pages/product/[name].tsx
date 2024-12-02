@@ -10,6 +10,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { buttonStyle } from "@components/home/carousel/styles";
 import useWindowSize from "@utils/helpers/ReactHelper";
+import { PushNavigateTo } from "@utils/helpers/Route";
 
 const { Title, Paragraph } = Typography;
 
@@ -77,7 +78,7 @@ const DetailPr = () => {
                             <img
                                 alt="Product Image"
                                 src="../background/s2s/S2S_Logo.png"
-                                style={{ width: isMobile ? "50%" :"15%", objectFit: "cover", marginRight: 30 }}
+                                style={{ width: isMobile ? "50%" : "15%", objectFit: "cover", marginRight: 30 }}
                             />
                         )
                     }
@@ -115,7 +116,7 @@ const DetailPr = () => {
                             <img
                                 alt="Product Image"
                                 src="../LogowithTM.png"
-                                style={{ width: isMobile ? "40%" : "15%", objectFit: "cover", marginRight: 30 }}
+                                style={{ width: isMobile ? "40%" : "15%", height: "120%", objectFit: "cover", marginRight: 30 }}
                             />
                         )
                     }
@@ -261,7 +262,16 @@ const DetailPr = () => {
                             <Paragraph>
                                 Interested in our product? Contact us and place your order now for the best service!
                             </Paragraph>
-                            <Button type="primary" onClick={() => handleSubmit()} style={buttonResponsiveStyle}>Contact Us</Button>
+                            <Button
+                                type="primary"
+                                onClick={() =>
+                                    PushNavigateTo('/contact-us')
+                                    // handleSubmit()
+                                }
+                                style={buttonResponsiveStyle}
+                            >
+                                Contact Us
+                            </Button>
                         </Card>
                     </Col>
                 </Row>

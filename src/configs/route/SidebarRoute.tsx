@@ -81,7 +81,7 @@ export const AdminRoutes: routesType = [
   {
     path: "/product/Coating_Systems",
     key: "/product/Coating_Systems",
-    name: "Weicon",
+    name: "Coating Systems Group",
     icon: "",
     children: [
       {
@@ -128,7 +128,8 @@ export const AdminRoutes: routesType = [
   {
     path: "/product/CarbonSeal",
     key: "/product/CarbonSeal",
-    name: "Corrective Solutions",
+    // name: "Corrective Solutions",
+    name: "HJ3 Group",
     icon: "",
     children: [
       {
