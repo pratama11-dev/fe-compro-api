@@ -5,10 +5,13 @@ import useWindowSize from "@utils/helpers/ReactHelper";
 import Header from "@components/Global/Header/Header";
 import Image from "next/image";
 import { PushNavigateTo } from "@utils/helpers/Route";
+import { buttonStyle } from "@components/home/carousel/styles";
 
 const { Title, Text } = Typography;
 
 const ContactPage = () => {
+    const [form] = Form.useForm();
+
     const [loading, setLoading] = useState(false);
 
     const { isMobile } = useWindowSize();
@@ -18,15 +21,34 @@ const ContactPage = () => {
         setDrawerVisible(!drawerVisible);
     };
 
-    const onFinish = (values: any) => {
-        console.log("Form Values:", values);
-        setLoading(true);
+    const handleOk = () => {
+        form.validateFields().then(values => {
+            const { fullName, phoneNumber, company, email, message, natureOfRequest } = values;
 
-        // Simulate sending data
-        setTimeout(() => {
-            setLoading(false);
-            alert("Message sent successfully!");
-        }, 2000);
+            const subject = `Technical Data Sheet Request from ${fullName}`;
+            const body = `
+                Full Name: ${fullName}
+                Phone Number: ${phoneNumber}
+                Company: ${company}
+                E-Mail: ${email}
+                Message: ${message}
+            `;
+
+            const recipientEmail = "info@ptayesproinovasi.com";
+
+            const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(recipientEmail)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.open(gmailLink, "_blank");
+
+            form.resetFields();
+        }).catch(info => {
+            console.error("Validate Failed:", info);
+        });
+    };
+
+    const buttonResponsiveStyle = {
+        ...buttonStyle,
+        fontSize: isMobile ? '12px' : '16px',
+        padding: isMobile ? '10px 20px' : '20px 30px',
     };
 
     return (
@@ -51,15 +73,17 @@ const ContactPage = () => {
                         </Text>
                     </Col>
                     <Col xs={4} sm={4} md={4} lg={4} >
-                        <Image
-                            src="/logo_primary.png"
-                            alt="Company Logo"
-                            width={130}
-                            height={90}
-                            onClick={() => {
-                                PushNavigateTo("/")
-                            }}
-                        />
+                        <Row justify={"end"}>
+                            <Image
+                                src="/logo_primary.png"
+                                alt="Company Logo"
+                                width={130}
+                                height={90}
+                                onClick={() => {
+                                    PushNavigateTo("/")
+                                }}
+                            />
+                        </Row>
                     </Col>
                 </Row>
                 <Row gutter={16} style={{ marginTop: "30px", height: "990px" }}>
@@ -67,7 +91,6 @@ const ContactPage = () => {
                     <Col xs={24} md={14}>
                         <Form
                             layout="vertical"
-                            onFinish={onFinish}
                             initialValues={{ remember: true }}
                         >
                             <Row gutter={16}>
@@ -135,8 +158,9 @@ const ContactPage = () => {
                             <Form.Item>
                                 <Button
                                     type="primary"
-                                    htmlType="submit"
+                                    onClick={() => handleOk() }
                                     loading={loading}
+                                    style={buttonResponsiveStyle}
                                     block
                                 >
                                     Send the message

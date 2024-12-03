@@ -11,6 +11,7 @@ import MobileSidebar from "@components/Global/MobileSidebar";
 import themeColor from "@configs/theme/themeColor";
 import HomeScreen from "@components/home";
 import Image from "next/image";
+import { PushNavigateTo } from "@utils/helpers/Route";
 
 const { Text } = Typography;
 
@@ -114,10 +115,14 @@ function Home(session: Sessions) {
                   LinkedIn
                 </a>
               </li>
-              <li style={{ padding: 10, color: themeColor?.gray300 }}>Customer Support</li>
+              <li style={{ padding: 10, color: themeColor?.gray300 }}>
+                <a onClick={() => PushNavigateTo(("/contact-us"))}>
+                  Customer Support
+                </a>
+              </li>
             </ul>
             <Row style={{ marginBottom: 10 }}>
-              <a onClick={() => handleSubmitEmail() }>
+              <a onClick={() => handleSubmitEmail()}>
                 <MailOutlined rev={""} style={{ fontSize: "18px", marginRight: 10, color: themeColor?.gray300 }} /><Text style={{ color: themeColor?.gray300 }}>info@ptayesproinovasi.com</Text>
               </a>
             </Row>

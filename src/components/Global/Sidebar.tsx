@@ -24,9 +24,9 @@ function Sidebar({ routes }: SidebarProps) {
         position: "sticky",
         overflow: "auto",
         minHeight: "100vh",
-        width: "255px"
+        width: "320px"
       }}
-      width={310}
+      width={340}
       collapsible
       collapsed={collapsible}
       onCollapse={() => {
@@ -53,6 +53,8 @@ function Sidebar({ routes }: SidebarProps) {
         onSelect={(item) => {
           if (item.key === "home") {
             PushNavigateTo(`/`);
+          } else if (["Preventive Solution", "Corrective Solution"].includes(item.key)) {
+
           } else {
             PushNavigateTo(`/${item.key}`);
           }
@@ -61,7 +63,12 @@ function Sidebar({ routes }: SidebarProps) {
         {routes.map((item) => {
           if ((item.children?.length ?? 0) > 0) {
             return (
-              <Menu.SubMenu key={item.key} icon={item.icon} title={item.name}>
+              <Menu.SubMenu 
+                key={item.key} 
+                icon={item.icon} 
+                title={item.name}
+                style={!["Preventive Solution", "Corrective Solution"].includes(item.key) ? { paddingLeft: 20 } : {}}
+              >
                 {item.children.map((child) => (
                   <Menu.Item key={child.key}>{child.name}</Menu.Item>
                 ))}
@@ -69,7 +76,10 @@ function Sidebar({ routes }: SidebarProps) {
             );
           }
           return (
-            <Menu.Item key={item.key} icon={item.icon}>
+            <Menu.Item 
+              key={item.key} 
+              icon={item.icon} 
+            >
               {item.name}
             </Menu.Item>
           );

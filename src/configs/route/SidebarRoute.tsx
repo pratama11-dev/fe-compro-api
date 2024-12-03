@@ -3,6 +3,14 @@ import { routesType } from "types/Sidebar";
 // eslint-disable-next-line import/prefer-default-export
 export const AdminRoutes: routesType = [
   {
+    path: "",
+    key: "Preventive Solution",
+    name: "Preventive Solution",
+    icon: "",
+    children: [
+    ],
+  },
+  {
     path: "/product/S2S_PLID_Wrap",
     key: "/product/S2S_PLID_Wrap",
     name: "S2S Anti Corrosion Inhibitor System",
@@ -125,6 +133,14 @@ export const AdminRoutes: routesType = [
     ],
   },
   // batas preventtive
+  {
+    path: "",
+    key: "Corrective Solution",
+    name: "Corrective Solution",
+    icon: "",
+    children: [
+    ],
+  },
   {
     path: "/product/CarbonSeal",
     key: "/product/CarbonSeal",
