@@ -288,6 +288,13 @@ input::placeholder {
   }
 }
 
+@media screen and (max-width: 1024px) {
+  .fixedImage {
+    top: 27%;
+    width: 430px; /* Reduce width for smaller screens */
+  }
+}
+
 @media screen and (max-width: 992px) {
   .fixedImage {
     width: 380px; /* Further reduce width for tablet-sized screens */
@@ -297,8 +304,8 @@ input::placeholder {
 
 @media screen and (max-width: 768px) {
   .fixedImage {
-    width: 280px; /* Narrower width for mobile screens */
-    top: 30%; /* Adjust vertical position */
+    width: 310px; /* Narrower width for mobile screens */
+    top: 27%; /* Adjust vertical position */
   }
 }
 
